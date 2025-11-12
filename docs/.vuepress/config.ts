@@ -14,9 +14,9 @@ import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
 
 export default defineUserConfig({
-  base: '/',
+  base: '/FullStack-Voyage/',
   lang: 'zh-CN',
-  title: 'CIC计算机信息交流协会个人网站全栈培训教程',
+  title: 'FullStack Voyage',
   description: 'CIC计算机信息交流协会个人网站全栈培训教程',
 
   head: [
@@ -78,7 +78,7 @@ export default defineUserConfig({
      * @see https://theme-plume.vuejs.press/config/plugins/code-highlight/
      */
     codeHighlighter: {
-      twoslash: true, // 启用 twoslash
+      // twoslash: true, // 启用 twoslash
       whitespace: true, // 启用 空格/Tab 高亮
       lineNumbers: true, // 启用行号
     },

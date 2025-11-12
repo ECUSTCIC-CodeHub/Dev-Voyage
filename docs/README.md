@@ -5,11 +5,10 @@ config:
   -
     type: hero
     full: true
-    effect: tint-plate
     hero:
-      name: Theme Plume
-      tagline: VuePress Next Theme
-      text: 一个简约的，功能丰富的 vuepress 文档&博客 主题
+      name: FullStack Voyage
+      tagline: CIC 计算机信息交流协会
+      text: 个人网站全栈培训教程
       actions:
         -
           theme: brand
