@@ -5,7 +5,7 @@ config:
   -
     type: hero
     full: true
-    effect: lightning
+    effect: tint-plate
     hero:
       name: Theme Plume
       tagline: VuePress Next Theme
