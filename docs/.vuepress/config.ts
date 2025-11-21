@@ -98,7 +98,7 @@ export default defineUserConfig({
       plot: true,         // 启用隐秘文本语法 !!xxxx!!
       bilibili: true,     // 启用嵌入 bilibili视频 语法 @[bilibili](bid)
       youtube: true,      // 启用嵌入 youtube视频 语法 @[youtube](video_id)
-      // artPlayer: true,    // 启用嵌入 artPlayer 本地视频 语法 @[artPlayer](url)
+      artPlayer: true,    // 启用嵌入 artPlayer 本地视频 语法 @[artPlayer](url)
       audioReader: true,  // 启用嵌入音频朗读功能 语法 @[audioReader](url)
       icon: { provider: 'iconify' },        // 启用内置图标语法  ::icon-name::
       table: true,        // 启用表格增强容器语法 ::: table
@@ -135,23 +135,26 @@ export default defineUserConfig({
      * 水印
      * @see https://theme-plume.vuejs.press/guide/features/watermark/
      */
-    // watermark: true,
+    watermark: {
+      // 返回结果为 true 的将启用水印，否则禁用
+      enabled: page => page.path.includes('/article/'),
+    },
 
     /**
      * 评论 comments
-     * @see https://theme-plume.vuejs.press/guide/features/comments/
+     * @see https://theme-plume.vuejs.press/guide/featur  es/comments/
      */
-    // comment: {
-    //   provider: '', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
-    //   comment: true,
-    //   repo: '',
-    //   repoId: '',
-    //   category: '',
-    //   categoryId: '',
-    //   mapping: 'pathname',
-    //   reactionsEnabled: true,
-    //   inputPosition: 'top',
-    // },
+    comment: {
+      provider: 'Giscus', // "Artalk" | "Giscus" | "Twikoo" | "Waline"
+      comment: true,
+      repo: 'ECUSTCIC-CodeHub/FullStack-Voyage',
+      repoId: 'R_kgDOQTmrmg',
+      category: 'Announcements',
+      categoryId: 'DIC_kwDOQTmrms4CyCT0',
+      mapping: 'pathname',
+      reactionsEnabled: true,
+      inputPosition: 'top',
+    },
 
     /**
      * 资源链接替换
