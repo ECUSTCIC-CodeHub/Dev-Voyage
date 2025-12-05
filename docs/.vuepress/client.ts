@@ -1,4 +1,5 @@
 import { defineClientConfig } from 'vuepress/client'
+import CustomHomeLayout from './layouts/CustomHomeLayout.vue'
 // import RepoCard from 'vuepress-theme-plume/features/RepoCard.vue'
 // import NpmBadge from 'vuepress-theme-plume/features/NpmBadge.vue'
 // import NpmBadgeGroup from 'vuepress-theme-plume/features/NpmBadgeGroup.vue'
@@ -9,6 +10,9 @@ import { defineClientConfig } from 'vuepress/client'
 // import './theme/styles/custom.css'
 
 export default defineClientConfig({
+  layouts: {
+    CustomHomeLayout,
+  },
   enhance({ app }) {
     // built-in components
     // app.component('RepoCard', RepoCard)

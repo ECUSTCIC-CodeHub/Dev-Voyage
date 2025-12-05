@@ -14,9 +14,9 @@ import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
 
 export default defineUserConfig({
-  base: '/FullStack-Voyage/',
+  base: '/Dev-Voyage/',
   lang: 'zh-CN',
-  title: 'FullStack Voyage',
+  title: 'Dev Voyage',
   description: 'CIC计算机信息交流协会个人网站全栈培训教程',
 
   head: [
