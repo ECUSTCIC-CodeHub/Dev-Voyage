@@ -13,7 +13,7 @@ config:
         -
           theme: brand
           text: 让我们开始吧 →
-          link: /course/
+          link: /fullstack-course/
         -
           theme: alt
           text: Github →
