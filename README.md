@@ -9,7 +9,7 @@
 [![VuePress](https://img.shields.io/badge/VuePress-2.0.0--rc-42b883)](https://vuepress.vuejs.org/)
 [![pnpm](https://img.shields.io/badge/pnpm-package%20manager-f69220)](https://pnpm.io/)
 
-[📖 在线文档](https://ecustcic-codehub.github.io/FullStack-Voyage/) · [🐛 问题反馈](https://github.com/ECUSTCIC-CodeHub/FullStack-Voyage/issues) · [💡 功能建议](https://github.com/ECUSTCIC-CodeHub/FullStack-Voyage/issues/new)
+[📖 在线文档](https://ecustcic-codehub.github.io/Dev-Voyage/) · [🐛 问题反馈](https://github.com/ECUSTCIC-CodeHub/Dev-Voyage/issues) · [💡 功能建议](https://github.com/ECUSTCIC-CodeHub/Dev-Voyage/issues/new)
 
 </div>
 
