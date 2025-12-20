@@ -1,3 +1,8 @@
+---
+title: TEACHING_PLAN
+createTime: 2025/12/19 21:48:03
+permalink: /fullstack-course/yr5eh3t5/
+---
 # 📚 全栈培训课程教学计划 v2
 
 > **核心理念**：项目驱动，边做边学，快速见效，渐进深入

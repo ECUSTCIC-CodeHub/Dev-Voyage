@@ -12,8 +12,6 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
-import fs from 'node:fs'
-import path from 'node:path'
 
 export default defineUserConfig({
   base: '/Dev-Voyage/',
@@ -21,32 +19,23 @@ export default defineUserConfig({
   title: 'Dev Voyage',
   description: 'CIC计算机信息交流协会个人网站全栈培训教程',
 
-  extendsPage: (page) => {
-    if (page.filePathRelative === 'post/README.md') {
-      const postDir = path.resolve(process.cwd(), 'docs/post')
-      if (fs.existsSync(postDir)) {
-        const files = fs.readdirSync(postDir).filter(file => file.endsWith('.md') && file !== 'README.md')
-        
-        const posts = files.map(file => {
-          const content = fs.readFileSync(path.join(postDir, file), 'utf-8')
-          const titleMatch = content.match(/^title:\s*(.*)$/m)
-          const dateMatch = content.match(/^createTime:\s*(.*)$/m) || content.match(/^date:\s*(.*)$/m)
-          
-          return {
-            title: titleMatch ? titleMatch[1].trim() : file.replace('.md', ''),
-            date: dateMatch ? dateMatch[1].trim() : 'Unknown',
-            path: `/post/${file.replace('.md', '.html')}`
-          }
-        })
-        
-        posts.sort((a, b) => {
+  onInitialized: (app) => {
+    const timelinePage = app.pages.find(p => p.filePathRelative === 'post/README.md')
+    if (timelinePage) {
+      const posts = app.pages
+        .filter(p => p.filePathRelative?.startsWith('post/') && p.filePathRelative !== 'post/README.md')
+        .map(p => ({
+          title: p.title || p.frontmatter.title || p.filePathRelative,
+          date: p.frontmatter.createTime || p.frontmatter.date || (p.date ? new Date(p.date).toISOString().split('T')[0] : 'Unknown'),
+          path: p.path
+        }))
+        .sort((a, b) => {
             const dateA = new Date(a.date).getTime();
             const dateB = new Date(b.date).getTime();
             return (isNaN(dateB) ? 0 : dateB) - (isNaN(dateA) ? 0 : dateA);
         })
-        
-        page.frontmatter.posts = posts
-      }
+      
+      timelinePage.frontmatter.posts = posts
     }
   },
 

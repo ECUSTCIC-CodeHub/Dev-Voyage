@@ -43,9 +43,18 @@ const demoDoc = defineCollection({
   sidebar: 'auto',
 })
 
+const commandLineDoc = defineCollection({
+  type: 'doc',
+  dir: 'essential/command-line',
+  linkPrefix: '/essential/command-line/',
+  title: '命令行基础',
+  sidebar: 'auto',
+})
+
 /**
  * 导出所有的 collections
  */
 export default defineCollections([
   demoDoc,
+  commandLineDoc,
 ])
