@@ -11,14 +11,14 @@ config:
       actions:
         -
           theme: brand
-          text: 命令行的基础教程
-          link: /essential/command-line/
+          text: 命令行基础教程
+          link: /Dev-Voyage/essential/command-line/
         -
           theme: brand
           text: 系统知识基础教程
-          link: /essential/elementary-system/
+          link: /Dev-Voyage/essential/elementary-system/
         -
           theme: brand
           text: 版本控制基础教程
-          link: /essential/git-usage/
+          link: /Dev-Voyage/essential/git-usage/
 ---
