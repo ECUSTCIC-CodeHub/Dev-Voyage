@@ -321,8 +321,6 @@ alias duh='du -h --max-depth=1 | sort -h'
 4. **建立知识库** —— 笔记、脚本、别名，积累自己的「武器库」
 5. **社区资源丰富** —— Stack Overflow、GitHub、Reddit
 
----
-
 ## 九、 🚀 接下来做什么？
 
 完成本教程后，你可以：
@@ -341,8 +339,6 @@ alias duh='du -h --max-depth=1 | sort -h'
    - 学习 Git 版本控制
    - 了解 Docker 容器技术
    - 尝试远程服务器管理（SSH）
-
----
 
 ::: note 结语
 命令行不仅仅是一个工具，它是一种与计算机交流的方式，一种思考问题的方法。

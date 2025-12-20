@@ -12,8 +12,6 @@ permalink: /fullstack-course/brfnimhw/
 每一章你都能看到**可见的成果**，从第一天的 Hello World，到最后把网站部署上线，你会亲眼见证自己的项目一步步变得成熟。
 :::
 
----
-
 ## 第一阶段：快速起步
 
 > 🎯 目标：搭建环境，快速看到第一个全栈页面
@@ -58,12 +56,6 @@ permalink: /fullstack-course/brfnimhw/
 - Vibe Coding 与 AI 辅助编程
 - 🎉 **成果：交互式页面！**
 
----
-
-## 第二阶段：功能搭建
-
-> 🎯 目标：构建博客系统的核心功能
-
 ### [第 5 章：个人主页开发](./5.md)
 
 - 页面布局（Header/Main/Footer）
@@ -94,8 +86,6 @@ permalink: /fullstack-course/brfnimhw/
 - POST 请求发布文章
 - 🎉 **成果：能发布新文章了！**
 
----
-
 ## 第三阶段：完善系统
 
 > 🎯 目标：添加用户系统和互动功能
@@ -120,8 +110,6 @@ permalink: /fullstack-course/brfnimhw/
 - 评论列表与发表
 - 评论嵌套（可选）
 - 🎉 **成果：文章可以评论了！**
-
----
 
 ## 第四阶段：打磨上线
 
