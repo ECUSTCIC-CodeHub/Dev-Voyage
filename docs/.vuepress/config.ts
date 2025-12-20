@@ -12,6 +12,7 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defineUserConfig } from 'vuepress'
 import { plumeTheme } from 'vuepress-theme-plume'
+import postTimelinePlugin from './plugins/postTimeline'
 
 export default defineUserConfig({
   base: '/Dev-Voyage/',
@@ -19,25 +20,16 @@ export default defineUserConfig({
   title: 'Dev Voyage',
   description: 'CIC计算机信息交流协会个人网站全栈培训教程',
 
-  onInitialized: (app) => {
-    const timelinePage = app.pages.find(p => p.filePathRelative === 'post/README.md')
-    if (timelinePage) {
-      const posts = app.pages
-        .filter(p => p.filePathRelative?.startsWith('post/') && p.filePathRelative !== 'post/README.md')
-        .map(p => ({
-          title: p.title || p.frontmatter.title || p.filePathRelative,
-          date: p.frontmatter.createTime || p.frontmatter.date || (p.date ? new Date(p.date).toISOString().split('T')[0] : 'Unknown'),
-          path: p.path
-        }))
-        .sort((a, b) => {
-            const dateA = new Date(a.date).getTime();
-            const dateB = new Date(b.date).getTime();
-            return (isNaN(dateB) ? 0 : dateB) - (isNaN(dateA) ? 0 : dateA);
-        })
-      
-      timelinePage.frontmatter.posts = posts
-    }
-  },
+  // 使用文章时间线插件，支持多个时间线配置
+  plugins: [
+    postTimelinePlugin([
+      {
+        inputPath: 'post/posts',
+        jsonFileName: 'tech-posts.json'
+      },
+    ]),
+
+  ],
 
   head: [
     // 配置站点图标

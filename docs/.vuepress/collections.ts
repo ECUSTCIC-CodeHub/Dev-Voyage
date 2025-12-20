@@ -51,6 +51,14 @@ const commandLineDoc = defineCollection({
   sidebar: 'auto',
 })
 
+const postsCollection = defineCollection({
+  // post 类型，该类型没有侧边栏，有文档列表页
+  type: 'post',
+  dir: 'post/posts',
+  linkPrefix: '/post/posts/',
+  title: '文章',
+})
+
 /**
  * 导出所有的 collections
  */
