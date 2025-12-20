@@ -1,7 +1,7 @@
 ---
 title: 全栈培训课程
 createTime: 2025/11/13 20:43:53
-permalink: /fullstack-course/brfnimhw/
+permalink: /fullstack-course/index/
 ---
 
 # 全栈培训课程

@@ -1,7 +1,7 @@
 ---
 title: TEACHING_PLAN
 createTime: 2025/12/19 21:48:03
-permalink: /fullstack-course/yr5eh3t5/
+permalink: /fullstack-course/teaching-plan/
 ---
 # 📚 全栈培训课程教学计划 v2
 
