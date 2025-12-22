@@ -134,7 +134,7 @@ function setCategory(cat: string) {
                     </div>
 
                     <div class="project-links">
-                      <RouterLink
+                      <a
                         v-if="project.github"
                         :to="project.github"
                         target="_blank"
@@ -142,8 +142,8 @@ function setCategory(cat: string) {
                         title="SOURCE CODE"
                       >
                         SRC
-                      </RouterLink>
-                      <RouterLink
+                    </a>
+                      <a
                         v-if="project.demo"
                         :to="project.demo"
                         target="_blank"
@@ -151,7 +151,7 @@ function setCategory(cat: string) {
                         title="LIVE DEMO"
                       >
                         DEMO
-                      </RouterLink>
+                    </a>
                     </div>
                   </div>
                 </div>
@@ -216,7 +216,7 @@ function setCategory(cat: string) {
                   </div>
 
                   <div class="card-links">
-                    <RouterLink
+                    <a
                       v-if="project.github"
                       :to="project.github"
                       target="_blank"
@@ -224,8 +224,8 @@ function setCategory(cat: string) {
                       title="Source"
                     >
                       GIT
-                    </RouterLink>
-                    <RouterLink
+                    </a>
+                    <a
                       v-if="project.demo"
                       :to="project.demo"
                       target="_blank"
@@ -233,7 +233,7 @@ function setCategory(cat: string) {
                       title="Demo"
                     >
                       RUN
-                    </RouterLink>
+                    </a>
                   </div>
                 </div>
               </div>
