@@ -1,5 +1,5 @@
 ---
-title: 设置里的迷宫：这些开关到底开不开？
+title: 第六章：设置里的迷宫：这些开关到底开不开？
 createTime: 2025/12/23 17:22:13
 permalink: /essential/elementary-system/6-system-settings/
 ---
