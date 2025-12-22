@@ -78,7 +78,7 @@ const techStack = ['Terminal', 'Bash', 'Git', 'Linux', 'CLI', 'DevTools']
                 >
                   <span class="btn-content">{{ action.text }}</span>
                   <div class="btn-glitch"></div>
-                </aRouterLink>
+                </RouterLink>
               </div>
 
               <div class="tech-stack" v-if="techStack.length">
