@@ -70,15 +70,15 @@ const techStack = ['Terminal', 'Bash', 'Git', 'Linux', 'CLI', 'DevTools']
               <p class="hero-desc" v-if="hero.text">{{ hero.text }}</p>
               
               <div class="hero-actions" v-if="hero.actions?.length">
-                <a 
+                <RouterLink 
                   v-for="action in hero.actions" 
                   :key="action.link" 
-                  :href="action.link"
+                  :to="action.link"
                   :class="['tech-btn', action.theme === 'brand' ? 'primary' : 'secondary']"
                 >
                   <span class="btn-content">{{ action.text }}</span>
                   <div class="btn-glitch"></div>
-                </a>
+                </aRouterLink>
               </div>
 
               <div class="tech-stack" v-if="techStack.length">

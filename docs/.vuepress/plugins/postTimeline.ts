@@ -29,6 +29,8 @@ const postTimelinePlugin = (configs: TimelineConfig | TimelineConfig[]) => {
     const getBasePath = (): string => {
       // VuePress 2.x 的 base 配置在 app.options.base 或 app.siteData.base
       const base = app.options?.base || app.siteData?.base || '/'
+
+      return ""
       return base.endsWith('/') ? base : base + '/'
     }
 

@@ -21,9 +21,9 @@ const props = withDefaults(defineProps<Props>(), {
         <h3 class="cta-title">{{ title }}</h3>
         <p class="cta-desc">{{ description }}</p>
       </div>
-      <a :href="buttonLink" class="cta-btn">
+      <RouterLink :to="buttonLink" class="cta-btn">
         {{ buttonText }}
-      </a>
+      </RouterLink>
     </div>
   </section>
 </template>

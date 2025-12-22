@@ -35,14 +35,14 @@ const hero = computed<Hero>(() => frontmatter.value.config?.[0]?.hero || {})
               <p class="hero-description" v-if="hero.text">{{ hero.text }}</p>
               
               <div class="hero-actions" v-if="hero.actions && hero.actions.length">
-                <a 
+                <RouterLink 
                   v-for="action in hero.actions" 
                   :key="action.link" 
-                  :href="action.link"
+                  :to="action.link"
                   :class="['action-btn', action.theme]"
                 >
                   {{ action.text }}
-                </a>
+                </RouterLink>
               </div>
             </div>
             
@@ -84,15 +84,15 @@ const hero = computed<Hero>(() => frontmatter.value.config?.[0]?.hero || {})
             <div class="latest-title">最新文章</div>
             <div class="latest-list">
               <div class="post-card">
-                <a href="/fullstack-course/">FullStack 课程总览</a>
+                <RouterLink to="/fullstack-course/">FullStack 课程总览</RouterLink>
                 <div class="post-meta">入门 → 实战</div>
               </div>
               <div class="post-card">
-                <a href="/docs/essential/">学习要点集合</a>
+                <RouterLink to="/docs/essential/">学习要点集合</RouterLink>
                 <div class="post-meta">核心概念与命令行实践</div>
               </div>
               <div class="post-card">
-                <a href="/projects/">项目集锦</a>
+                <RouterLink to="/projects/">项目集锦</RouterLink>
                 <div class="post-meta">精选项目与演示</div>
               </div>
             </div>

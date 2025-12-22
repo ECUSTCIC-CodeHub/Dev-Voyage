@@ -3,6 +3,7 @@ import { Layout } from 'vuepress-theme-plume/client'
 import { usePageData, usePageFrontmatter } from 'vuepress/client'
 import { ref, onMounted, computed } from 'vue'
 import CTASection from '../components/CTASection.vue'
+import { RouterLink } from 'vue-router'
 
 // 定义帖子类型接口
 interface Post {
@@ -53,9 +54,11 @@ const getBasePath = (): string => {
   // VuePress 会在运行时注入 __VUEPRESS_BASE__
   if (typeof window !== 'undefined' && (window as any).__VUEPRESS_BASE__) {
     const base = (window as any).__VUEPRESS_BASE__
+    console.log('检测到 VuePress Base 路径:', base)
     return base.endsWith('/') ? base : base + '/'
   }
   // 默认回退
+  console.warn('无法检测到 VuePress Base 路径，使用默认 "/"')
   return '/'
 }
 
@@ -261,9 +264,9 @@ onMounted(() => {
                     </div>
 
                     <div class="post-links">
-                      <a :href="post.path" target="_self" class="link-btn primary" title="READ_ARTICLE">
+                      <RouterLink :to="post.path" target="_self" class="link-btn primary" title="READ_ARTICLE">
                         READ
-                      </a>
+                      </RouterLink>
                     </div>
                   </div>
                 </div>
@@ -299,10 +302,10 @@ onMounted(() => {
             </div>
 
             <div class="timeline" v-if="filteredPosts.length > 0">
-              <a
+              <RouterLink
                 v-for="post in filteredPosts"
                 :key="post.path"
-                :href="post.path"
+                :to="post.path"
                 class="timeline-item-link"
               >
                 <div class="timeline-item">
@@ -332,7 +335,7 @@ onMounted(() => {
                     </p>
                   </div>
                 </div>
-              </a>
+              </RouterLink>
             </div>
 
             <!-- Empty State -->

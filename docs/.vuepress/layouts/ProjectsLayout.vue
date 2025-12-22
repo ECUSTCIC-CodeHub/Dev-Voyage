@@ -134,24 +134,24 @@ function setCategory(cat: string) {
                     </div>
 
                     <div class="project-links">
-                      <a
+                      <RouterLink
                         v-if="project.github"
-                        :href="project.github"
+                        :to="project.github"
                         target="_blank"
                         class="link-btn"
                         title="SOURCE CODE"
                       >
                         SRC
-                      </a>
-                      <a
+                      </RouterLink>
+                      <RouterLink
                         v-if="project.demo"
-                        :href="project.demo"
+                        :to="project.demo"
                         target="_blank"
                         class="link-btn primary"
                         title="LIVE DEMO"
                       >
                         DEMO
-                      </a>
+                      </RouterLink>
                     </div>
                   </div>
                 </div>
@@ -216,24 +216,24 @@ function setCategory(cat: string) {
                   </div>
 
                   <div class="card-links">
-                    <a
+                    <RouterLink
                       v-if="project.github"
-                      :href="project.github"
+                      :to="project.github"
                       target="_blank"
                       class="card-link"
                       title="Source"
                     >
                       GIT
-                    </a>
-                    <a
+                    </RouterLink>
+                    <RouterLink
                       v-if="project.demo"
-                      :href="project.demo"
+                      :to="project.demo"
                       target="_blank"
                       class="card-link primary"
                       title="Demo"
                     >
                       RUN
-                    </a>
+                    </RouterLink>
                   </div>
                 </div>
               </div>

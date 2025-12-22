@@ -51,16 +51,16 @@ onMounted(() => {
               
               <div class="hero-actions" v-if="hero.actions && hero.actions.length">
                 <div class="actions-group">
-                  <a 
+                  <RouterLink 
                     v-for="(action, index) in hero.actions" 
                     :key="action.link" 
-                    :href="action.link"
+                    :to="action.link"
                     :class="['action-btn', action.theme, {'primary': action.theme === 'brand'}]"
                     :style="{ animationDelay: `${index * 150}ms` }"
                   >
                     <span class="btn-text">{{ action.text }}</span>
                     <span class="btn-icon" v-if="action.theme === 'brand'">→</span>
-                  </a>
+                  </RouterLink>
                 </div>
               </div>
             </div>
@@ -135,7 +135,7 @@ onMounted(() => {
             </div>
             
             <div class="latest-grid">
-              <a href="/fullstack-course/" class="post-card hover-raise">
+              <RouterLink to="/fullstack-course/" class="post-card hover-raise">
                 <div class="post-content">
                   <h3 class="post-title">FullStack 课程总览</h3>
                   <p class="post-excerpt">从零到一的全栈开发实战指南，包含完整的项目流程和最佳实践。</p>
@@ -144,9 +144,8 @@ onMounted(() => {
                     <span class="post-arrow">→</span>
                   </div>
                 </div>
-              </a>
-
-              <a href="/docs/essential/" class="post-card hover-raise">
+              </RouterLink>
+              <RouterLink to="/docs/essential/" class="post-card hover-raise">
                 <div class="post-content">
                   <h3 class="post-title">学习要点集合</h3>
                   <p class="post-excerpt">核心概念与命令行实践，掌握开发必备的基础知识。</p>
@@ -155,9 +154,8 @@ onMounted(() => {
                     <span class="post-arrow">→</span>
                   </div>
                 </div>
-              </a>
-
-              <a href="/projects/" class="post-card hover-raise">
+              </RouterLink>
+              <RouterLink to="/projects/" class="post-card hover-raise">
                 <div class="post-content">
                   <h3 class="post-title">项目集锦</h3>
                   <p class="post-excerpt">精选项目与演示，提供完整的代码和部署方案。</p>
@@ -166,7 +164,7 @@ onMounted(() => {
                     <span class="post-arrow">→</span>
                   </div>
                 </div>
-              </a>
+              </RouterLink>
             </div>
           </div>
         </section>
@@ -179,12 +177,12 @@ onMounted(() => {
               <p class="cta-text">加入社区，与更多开发者一起学习和成长。</p>
             </div>
             <div class="cta-actions">
-              <a href="https://github.com/ECUSTCIC-CodeHub/FullStack-Voyage" class="cta-btn primary">
+              <RouterLink to="https://github.com/ECUSTCIC-CodeHub/FullStack-Voyage" class="cta-btn primary">
                 GitHub 开源
-              </a>
-              <a href="/fullstack-course/" class="cta-btn secondary">
+              </RouterLink>
+              <RouterLink to="/fullstack-course/" class="cta-btn secondary">
                 开始学习
-              </a>
+              </RouterLink>
             </div>
           </div>
         </section>
