@@ -15,6 +15,7 @@ config:
     - 学习项目
     - 开源贡献
     - 移动应用
+    - 不知道啥
     - 更多
   projects:
     - name: Dev Voyage 文档站
@@ -91,5 +92,17 @@ config:
         - BeautifulSoup
         - smtplib
       github: https://github.com/ECUSTCIC-CodeHub/ecustnews
+      category: 工具
+    - name: MMD播放器
+      icon: 🎵
+      description: 基于C++的MMD模型播放器，支持.obj，.x文件模型，mmd动作文件。
+      author: wenye01
+      authorGithub: https://github.com/wenye01
+      year: '2023'
+      techs:
+        - C++
+        - OpenGL
+        - Assimp
+      github: https://github.com/wenye01/MMD-Player
       category: 工具
 ---
