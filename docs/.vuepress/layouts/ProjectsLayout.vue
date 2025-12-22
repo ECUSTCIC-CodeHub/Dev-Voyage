@@ -136,7 +136,7 @@ function setCategory(cat: string) {
                     <div class="project-links">
                       <a
                         v-if="project.github"
-                        :to="project.github"
+                        :href="project.github"
                         target="_blank"
                         class="link-btn"
                         title="SOURCE CODE"
@@ -145,7 +145,7 @@ function setCategory(cat: string) {
                     </a>
                       <a
                         v-if="project.demo"
-                        :to="project.demo"
+                        :href="project.demo"
                         target="_blank"
                         class="link-btn primary"
                         title="LIVE DEMO"
@@ -218,7 +218,7 @@ function setCategory(cat: string) {
                   <div class="card-links">
                     <a
                       v-if="project.github"
-                      :to="project.github"
+                      :href="project.github"
                       target="_blank"
                       class="card-link"
                       title="Source"
@@ -227,7 +227,7 @@ function setCategory(cat: string) {
                     </a>
                     <a
                       v-if="project.demo"
-                      :to="project.demo"
+                      :href="project.demo"
                       target="_blank"
                       class="card-link primary"
                       title="Demo"
