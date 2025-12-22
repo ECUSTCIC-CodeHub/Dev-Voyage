@@ -82,4 +82,16 @@ config:
         - Tailwind CSS
       github: https://github.com/ECUSTCIC-CodeHub/ECUST-Electricity-Cloudflare
       category: 工具
+    - name: 华东理工大学新闻通知自动抓取脚本
+      icon: 📰
+      description: 自动抓取并通过邮件推送华东理工大学（ECUST）网站通知
+      author: bestzyq
+      authorGithub: https://github.com/bestzyq
+      year: '2025'
+      techs:
+        - Python
+        - BeautifulSoup
+        - smtplib
+      github: https://github.com/ECUSTCIC-CodeHub/ecustnews
+      category: 工具
 ---
