@@ -55,8 +55,8 @@ const getBasePath = (): string => {
     const base = (window as any).__VUEPRESS_BASE__
     return base.endsWith('/') ? base : base + '/'
   }
-  // 开发环境的默认值
-  return ''
+  // 默认回退
+  return '/'
 }
 
 // 获取英雄配置
