@@ -105,4 +105,28 @@ config:
         - Assimp
       github: https://github.com/wenye01/MMDplayer
       category: 工具
+    - name: 拾窗流刻(TODO_TIME_SQUARE)
+      icon: ⏳
+      description: 一款基于时间管理理念的待办事项应用，帮助用户高效规划和利用时间。
+      author: ChenXu233
+      authorGithub: https://github.com/ChenXu233
+      year: '2025'
+      techs:
+        - flutter
+        - Dart
+        - SQLite
+      github: https://github.com/ChenXu233/ToDoTimeSquare
+      category: 移动应用
+    - name: MeMexia
+      icon: 🧠
+      description: 一款通过AI加强知识图谱，甚至自动推导知识图谱的工具。
+      year: '2025'
+      techs:
+        - Fastapi
+        - Python
+        - Svelte
+        - Rust
+        - Kuzu
+      github: https://github.com/ChenXu233/MeMexia
+      category: 工具
 ---
