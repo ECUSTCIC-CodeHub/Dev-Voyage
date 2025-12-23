@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Layout } from 'vuepress-theme-plume/client'
 import { usePageFrontmatter } from 'vuepress/client'
-import { computed, ref } from 'vue'
+import { computed, ref, onMounted } from 'vue'
 
 interface Project {
   name: string
@@ -29,13 +29,27 @@ interface PageConfig {
   categories?: string[]
 }
 
-const frontmatter = usePageFrontmatter<{
-  config?: PageConfig
-}>()
+const test_connect = ref(false)
+
+onMounted(async () => {
+  const response = await fetch("/Dev-Voyage/")
+  test_connect.value = response.ok
+})
+
+const frontmatter = usePageFrontmatter<{ config?: PageConfig }>()
 
 const config = computed<PageConfig>(() => frontmatter.value.config || {})
 const hero = computed(() => config.value.hero || {})
-const projects = computed(() => config.value.projects || [])
+
+const projects = computed(() =>
+  (config.value.projects || []).map(p => {
+    if (p.image && !p.image.startsWith('http') && test_connect.value) {
+      p.image = `/Dev-Voyage/${p.image}`
+    }
+    return p
+  })
+)
+
 const categories = computed(() => config.value.categories || ['全部'])
 
 const activeCategory = ref('全部')
@@ -53,6 +67,7 @@ function setCategory(cat: string) {
   activeCategory.value = cat
 }
 </script>
+
 
 <template>
   <Layout>
@@ -192,8 +207,14 @@ function setCategory(cat: string) {
                 :key="project.name"
                 class="project-card"
               >
+                <div class="card-image">
+                  <div class="image-placeholder" v-if="!project.image">
+                    <span class="project-icon">{{ project.icon || '📦' }}</span>
+                  </div>
+                  <img v-else :src="project.image" :alt="project.name" class="project-image" loading="lazy" />
+                </div>
+
                 <div class="card-header">
-                  <div class="card-icon">{{ project.icon || '📦' }}</div>
                   <div class="card-category" v-if="project.category">#{{ project.category }}</div>
                 </div>
 
@@ -683,15 +704,40 @@ function setCategory(cat: string) {
   box-shadow: 4px 4px 0 rgba(0,0,0,0.1);
 }
 
+.card-image {
+  height: 160px;
+  background: var(--vp-c-bg-soft);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid var(--vp-c-divider);
+  margin: -24px -24px 16px -24px;
+  overflow: hidden;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .card-image img {
+  transform: scale(1.05);
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .card-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 16px;
-}
-
-.card-icon {
-  font-size: 32px;
 }
 
 .card-category {

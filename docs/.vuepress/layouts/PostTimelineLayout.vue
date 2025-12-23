@@ -50,19 +50,6 @@ const loading = ref(true)
 // 错误信息
 const error = ref('')
 
-// 获取 VuePress base 路径 - 从全局变量获取
-const getBasePath = (): string => {
-  // VuePress 会在运行时注入 __VUEPRESS_BASE__
-  if (typeof window !== 'undefined' && (window as any).__VUEPRESS_BASE__) {
-    const base = (window as any).__VUEPRESS_BASE__
-    console.log('检测到 VuePress Base 路径:', base)
-    return base.endsWith('/') ? base : base + '/'
-  }
-  // 默认回退
-  console.warn('无法检测到 VuePress Base 路径，使用默认 "/"')
-  return '/'
-}
-
 // 获取英雄配置
 const hero = computed(() => frontmatter.value.config?.hero || {})
 
@@ -105,15 +92,35 @@ const formatDate = (dateString?: string): string => {
 }
 
 // 带重试机制的加载函数
-const loadWithRetry = async (url: string, retryCount = 3, delay = 1000): Promise<Response> => {
+const loadWithRetry = async (url: string, retryCount = 2, delay = 1000): Promise<Response> => {
   for (let attempt = 1; attempt <= retryCount; attempt++) {
     try {
       console.log(`尝试加载数据 (第 ${attempt} 次):`, url)
       const response = await fetch(url)
       
       if (response.ok) {
-        console.log(`第 ${attempt} 次尝试成功`)
-        return response
+        // 检查响应内容是否为有效的JSON
+        const text = await response.text()
+        try {
+          JSON.parse(text)
+          console.log(`第 ${attempt} 次尝试成功，响应是有效的JSON`)
+          // 重新创建Response对象，因为text()方法会消耗响应体
+          return new Response(text, {
+            status: response.status,
+            statusText: response.statusText,
+            headers: response.headers
+          })
+        } catch (jsonError) {
+          console.warn(`第 ${attempt} 次尝试失败，响应不是有效的JSON:`, jsonError)
+          // 如果不是最后一次尝试，等待后重试
+          if (attempt < retryCount) {
+            console.log(`等待 ${delay}ms 后重试...`)
+            await new Promise(resolve => setTimeout(resolve, delay))
+            delay *= 1.5
+            continue
+          }
+          throw new Error(`响应不是有效的JSON: ${text.substring(0, 100)}...`)
+        }
       }
       
       console.warn(`第 ${attempt} 次尝试失败，状态码:`, response.status)
@@ -179,19 +186,23 @@ const loadTimelineData = async () => {
     }
     
     // 构建完整的 JSON URL，从 VuePress 配置获取 base
-    const basePath = getBasePath()
-    const jsonUrl = `${basePath}timelines/${jsonFileName}`
-    console.log('加载时间线数据:', jsonUrl, 'Base:', basePath)
+    const jsonUrl = `timelines/${jsonFileName}`
+    console.log('加载时间线数据:', jsonUrl)
     
-    // 尝试使用重试机制加载数据
-    const response = await loadWithRetry(jsonUrl)
     let try_again = false;
+    let data: any = null;
     
-    // 如果第一次尝试失败，尝试使用 /Dev-Voyage 前缀重试
-    if (!response.ok) {
-      console.log('第一次尝试失败，尝试使用 /Dev-Voyage 前缀重试')
-      const devVoyageUrl = `/Dev-Voyage${basePath}timelines/${jsonFileName}`
+    try {
+      // 第一次尝试：使用原始URL路径
+      const response = await loadWithRetry(jsonUrl)
+      data = await response.json()
+      console.log('第一次尝试成功，加载数据:', data)
+    } catch (firstError) {
+      console.log('第一次尝试失败，尝试使用 /Dev-Voyage 前缀重试:', firstError)
       try_again = true;
+      
+      // 第二次尝试：使用 /Dev-Voyage 前缀
+      const devVoyageUrl = `/Dev-Voyage/timelines/${jsonFileName}`
       console.log('重试 URL:', devVoyageUrl)
       
       const retryResponse = await loadWithRetry(devVoyageUrl)
@@ -199,18 +210,21 @@ const loadTimelineData = async () => {
         throw new Error(`无法加载时间线数据: ${retryResponse.status}`)
       }
       
-      const data = await retryResponse.json()
+      data = await retryResponse.json()
       console.log('使用 /Dev-Voyage 前缀重试成功，加载数据:', data)
-      timelineData.value = data
-    } else {
-      const data = await response.json()
-      console.log('成功加载数据:', data)
+    }
+    
+    // 处理图片路径
+    if (data && data.posts) {
       data.posts.forEach((post: any) => {
-        if (post.image && !post.image.startsWith('http')) {
-          post.image = `${basePath}${post.image}`
+        if (post.image && !post.image.startsWith('http') && try_again) {
+          post.image = `/Dev-Voyage/${post.image}`
         }
       })
       timelineData.value = data
+      console.log('最终时间线数据:', timelineData.value)
+    } else {
+      throw new Error('加载的数据格式不正确')
     }
     
   } catch (err) {

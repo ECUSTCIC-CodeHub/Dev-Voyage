@@ -33,6 +33,7 @@ config:
       demo: https://ecustcic-codehub.github.io/Dev-Voyage/
       category: 学习项目
       featured: true
+      image: /plume.svg
     - name: 全栈博客系统
       icon: 📝
       description: 课程配套项目，使用 Nuxt 3 + FastAPI 构建的完整博客系统，包含用户认证、文章发布、评论互动等功能。
@@ -69,6 +70,7 @@ config:
       demo: https://www.ecustcic.com/
       category: Web 应用
       featured: true
+      image: /img/project/华理计算机信息交流协会.png
     - name: 华东理工大学宿舍电费监控系统
       icon: 💰
       description: 一个基于 React 和 Cloudflare Workers 的全栈电量监测系统模板。
