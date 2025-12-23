@@ -21,7 +21,7 @@ main:
         # 构建当前项目
         - name: Build Current Project
           image: node:22
-          script: "node -v && sed -i \"s|base: '/Dev-Voyage/',|base: '/',|\" docs/.vuepress/config.ts && corepack enable && pnpm install --frozen-lockfile && pnpm run docs:build"
+          script: "node -v && sed -i \"s|base: '/Dev-Voyage/',|base: '/',|\" docs/.vuepress/config.ts && sed -i \"s|comment: true,|comment: false,|\" docs/.vuepress/config.ts && corepack enable && pnpm install --frozen-lockfile && pnpm run docs:build"
         # 将构建输出部署到 EdgeOne Pages
         - name: Deploy to EdgeOne Pages
           image: node:22
