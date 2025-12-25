@@ -32,16 +32,7 @@ permalink: /fullstack-course/index/
 
 学习曲线设计
 
-<svg width="500" height="250" xmlns="http://www.w3.org/2000/svg" style="--axis-color: #333; --text-color: #333; --secondary-color: #666;">
-  <style>
-    @media (prefers-color-scheme: dark) {
-      svg {
-        --axis-color: #e0e0e0;
-        --text-color: #e0e0e0;
-        --secondary-color: #b0b0b0;
-      }
-    }
-  </style>
+<svg width="500" height="250" xmlns="http://www.w3.org/2000/svg" style="--axis-color: #888; --text-color: #888; --secondary-color: #888;">
   
   <!-- 坐标轴 -->
   <line x1="50" y1="30" x2="50" y2="200" stroke="var(--axis-color)" stroke-width="1"/>
