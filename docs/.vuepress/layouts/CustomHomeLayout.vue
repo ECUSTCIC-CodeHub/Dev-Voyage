@@ -186,6 +186,7 @@ const hero = computed<Hero>(() => frontmatter.value.config?.[0]?.hero || {})
   color: var(--vp-c-text-1);
   margin-bottom: 16px;
   line-height: 1.3;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
 .hero-description {
