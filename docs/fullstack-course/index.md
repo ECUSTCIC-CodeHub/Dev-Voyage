@@ -1,10 +1,10 @@
 ---
-title: 全栈培训课程
+title: 全栈开发快乐入门指南
 createTime: 2025/11/13 20:43:53
 permalink: /fullstack-course/index/
 ---
 
-# 全栈培训课程
+# 全栈开发快乐入门指南
 
 
 ::: important

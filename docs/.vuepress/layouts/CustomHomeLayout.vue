@@ -385,13 +385,14 @@ const hero = computed<Hero>(() => frontmatter.value.config?.[0]?.hero || {})
 }
 
 .cursor {
-  display: inline-block;
+  display: none;
   width: 6px;
   height: 12px;
   background-color: var(--vp-c-brand-1);
 }
 
 .feature-card:hover .cursor {
+  display: inline-block;
   animation: blink 1s step-end infinite;
 }
 
