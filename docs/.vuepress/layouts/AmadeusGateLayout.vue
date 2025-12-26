@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed, nextTick } from 'vue'
+import { usePageFrontmatter } from '@vuepress/client'
 import { VPLink } from 'vuepress-theme-plume/client'
-
 // --- Constants & State ---
 const STAGE = {
   IDLE: 'idle',         // CRT Terminal
@@ -30,12 +30,17 @@ const fullText = `>_ COGNITION RECONSTRUCTION PROTOCOL - STANDBY
 
 >_ CLICK ANY WHERE TO BEGIN...`
 
-const worldLines = [
-  { title: 'BigGAN', desc: 'Neural Dreams', path: '/amadeus-gate/biggan.html', divergence: '1.048596', type: 'ALPHA' },
-  { title: 'Transformer', desc: 'Attention Mechanism', path: '/amadeus-gate/transformer.html', divergence: '0.571024', type: 'BETA' },
-  { title: 'Diffusion', desc: 'Reverse Entropy', path: '/amadeus-gate/diffusion.html', divergence: '2.615074', type: 'OMEGA' },
-  { title: 'DeepSeek', desc: 'Deep Pursuit', path: '/amadeus-gate/deepseek.html', divergence: '3.141592', type: 'GAMMA' }
-]
+const fm = usePageFrontmatter()
+
+interface WorldLine {
+  path: string
+  type: string
+  divergence: string
+  title: string
+  desc: string
+}
+
+const worldLines = computed<WorldLine[]>(() => (fm.value as any).worldLines || [])
 
 const STORAGE_KEY = 'amadeus-gate-visited'
 
@@ -50,13 +55,12 @@ onMounted(() => {
   observerId.value = Math.floor(Math.random() * 10000).toString().padStart(4, '0')
   const visited = localStorage.getItem(STORAGE_KEY)
   
-//   if (visited) {
-//     stage.value = STAGE.NAVIGATOR
-//     initStarfield()
-//   } else {
-//     initCRT()
-//   }
-        initCRT()
+  if (visited) {
+    stage.value = STAGE.NAVIGATOR
+    initStarfield()
+  } else {
+    initCRT()
+  }
 
 
   window.addEventListener('mousemove', handleMouseMove)
@@ -340,33 +344,39 @@ const replay = () => {
         </header>
 
         <main class="nav-grid">
-          <VPLink 
-            v-for="(line, index) in worldLines" 
-            :key="line.path" 
-            :href="line.path"
-            class="nav-card"
-            :style="{ animationDelay: `${index * 0.1}s` }"
-          >
-            <div class="card-3d-wrapper">
-              <div class="card-face">
-                <div class="card-bg"></div>
-                <div class="card-content">
-                  <div class="card-top">
-                    <span class="type">{{ line.type }}</span>
-                    <span class="div-rate">{{ line.divergence }}%</span>
+          <div class="nav-grid-header">
+            <h1 class="nav-grid-title">混沌与涌现：AI时间线操纵指南</h1>
+            <p class="nav-grid-subtitle">一切都是石头门的选择！ ————用最不正经的方式，学最正经的AI</p>
+          </div>
+          <div class="nav-card-wrapper">
+            <VPLink 
+              v-for="(line, index) in worldLines" 
+              :key="line.path" 
+              :href="line.path"
+              class="nav-card"
+              :style="{ animationDelay: `${index * 0.1}s` }"
+            >
+              <div class="card-3d-wrapper">
+                <div class="card-face">
+                  <div class="card-bg"></div>
+                  <div class="card-content">
+                    <div class="card-top">
+                      <span class="type">{{ line.type }}</span>
+                      <span class="div-rate">{{ line.divergence }}%</span>
+                    </div>
+                    <div class="card-mid">
+                      <h3>{{ line.title }}</h3>
+                      <p>{{ line.desc }}</p>
+                    </div>
+                    <div class="card-bot">
+                      <span class="jump-cmd">>> JUMP</span>
+                    </div>
                   </div>
-                  <div class="card-mid">
-                    <h3>{{ line.title }}</h3>
-                    <p>{{ line.desc }}</p>
-                  </div>
-                  <div class="card-bot">
-                    <span class="jump-cmd">>> JUMP</span>
-                  </div>
+                  <div class="card-scanline"></div>
                 </div>
-                <div class="card-scanline"></div>
               </div>
-            </div>
-          </VPLink>
+            </VPLink>
+          </div>
         </main>
       </div>
     </transition>
@@ -891,7 +901,7 @@ const replay = () => {
 
 /* --- STAGE 4: NAVIGATOR --- */
 .navigator-stage {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -900,6 +910,7 @@ const replay = () => {
   z-index: 80;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .star-bg {
@@ -965,15 +976,44 @@ const replay = () => {
   text-align: right;
 }
 
+.nav-grid {
+  flex: 1;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  perspective: 1000px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
 .div-val {
   font-size: 1.5rem;
   color: #f00;
   text-shadow: 0 0 10px #f00;
 }
 
-.nav-grid {
-  flex: 1;
-  padding: 50px;
+.nav-grid-header {
+  margin-bottom: 40px;
+  text-align: center;
+  animation: fade-up 0.8s ease-out;
+}
+
+.nav-grid-title {
+  font-size: 2.5rem;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(0, 255, 255, 0.5);
+  margin: 0 0 15px 0;
+  letter-spacing: 3px;
+}
+
+.nav-grid-subtitle {
+  color: #0f0;
+  font-size: 1.1rem;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+.nav-card-wrapper {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
