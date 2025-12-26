@@ -12,7 +12,13 @@ interface Hero {
   tagline?: string;
   text?: string;
   image?: string;
-  actions?: { text: string; link: string; theme?: string }[];
+  actions?: { 
+    text: string; 
+    link: string; 
+    theme?: string;
+    icon?: string;
+    description?: string;
+  }[];
 }
 
 const hero = computed<Hero>(() => frontmatter.value.config?.[0]?.hero || {})
@@ -55,47 +61,47 @@ const hero = computed<Hero>(() => frontmatter.value.config?.[0]?.hero || {})
           </div>
         </section>
 
-        <!-- Features Section -->
-        <section class="features-section">
+        <!-- Tech Cards Section -->
+        <section class="features-section" v-if="hero.actions && hero.actions.length">
           <div class="features-grid">
-            <div class="feature-card">
-              <div class="feature-icon">🚀</div>
-              <div class="feature-title">实践驱动的课程</div>
-              <div class="feature-desc">从零搭建全栈项目，覆盖前端、后端与部署，学以致用。</div>
-            </div>
+            <template v-for="(action, index) in hero.actions" :key="action.link">
+              <component
+                :is="action.link.startsWith('http') ? 'a' : 'RouterLink'"
+                :href="action.link.startsWith('http') ? action.link : undefined"
+                :to="!action.link.startsWith('http') ? action.link : undefined"
+                :target="action.link.startsWith('http') ? '_blank' : undefined"
+                :rel="action.link.startsWith('http') ? 'noopener noreferrer' : undefined"
+                :class="['feature-card', 'tech-card', action.theme || 'default']"
+              >
+                <div class="card-bg"></div>
+                
+                <!-- Tech Decorations -->
+                <div class="tech-index">0{{ index + 1 }}</div>
+                <div class="corner-marker top-left"></div>
+                <div class="corner-marker top-right"></div>
+                <div class="corner-marker bottom-left"></div>
+                <div class="corner-marker bottom-right"></div>
 
-            <div class="feature-card">
-              <div class="feature-icon">🧭</div>
-              <div class="feature-title">清晰的路线图</div>
-              <div class="feature-desc">按阶段排列的学习计划，让进度可控，目标更明确。</div>
-            </div>
+                <div class="feature-icon" v-if="action.icon">{{ action.icon }}</div>
+                <div class="feature-content">
+                  <div class="feature-title">
+                    {{ action.text }}
+                    <span class="arrow">{{ action.link.startsWith('http') ? '↗' : '→' }}</span>
+                  </div>
+                  <div class="feature-desc" v-if="action.description">{{ action.description }}</div>
+                </div>
+                
+                <!-- Click Hint -->
+                <div class="click-hint">
+                  <span class="prompt">></span>
+                  <span class="text">CLICK_ME</span>
+                  <span class="cursor">_</span>
+                </div>
 
-            <div class="feature-card">
-              <div class="feature-icon">🛠️</div>
-              <div class="feature-title">实用工具与模板</div>
-              <div class="feature-desc">提供常用脚手架、配置与最佳实践，提升开发效率。</div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Latest Articles -->
-        <section class="latest-section">
-          <div class="latest-container">
-            <div class="latest-title">最新文章</div>
-            <div class="latest-list">
-              <div class="post-card">
-                <RouterLink to="/fullstack-course/">FullStack 课程总览</RouterLink>
-                <div class="post-meta">入门 → 实战</div>
-              </div>
-              <div class="post-card">
-                <RouterLink to="/docs/essential/">学习要点集合</RouterLink>
-                <div class="post-meta">核心概念与命令行实践</div>
-              </div>
-              <div class="post-card">
-                <RouterLink to="/projects/">项目集锦</RouterLink>
-                <div class="post-meta">精选项目与演示</div>
-              </div>
-            </div>
+                <div class="card-glow"></div>
+                <div class="card-border"></div>
+              </component>
+            </template>
           </div>
         </section>
 
@@ -105,11 +111,14 @@ const hero = computed<Hero>(() => frontmatter.value.config?.[0]?.hero || {})
 </template>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
+
 .custom-home-container {
   width: 100%;
   min-height: calc(100vh - var(--vp-nav-height));
   background-color: var(--vp-c-bg);
   position: relative;
+  font-family: 'Space Mono', monospace, system-ui;
 }
 
 /* Hero Section */
@@ -161,6 +170,7 @@ const hero = computed<Hero>(() => frontmatter.value.config?.[0]?.hero || {})
   font-weight: 800;
   margin-bottom: 16px;
   letter-spacing: -0.02em;
+  font-family:""
 }
 
 .clip-text {
@@ -187,42 +197,7 @@ const hero = computed<Hero>(() => frontmatter.value.config?.[0]?.hero || {})
 
 /* Actions */
 .hero-actions {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(120px, 21fr));
-  gap: 16px;
-}
-
-.action-btn {
-  display: inline-block;
-  padding: 12px 24px;
-  border-radius: 24px;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  border: 1px solid transparent;
-}
-
-.action-btn.brand {
-  background-color: var(--vp-c-brand-1);
-  color: var(--vp-c-white);
-  border-color: var(--vp-c-brand-1);
-}
-
-.action-btn.brand:hover {
-  background-color: var(--vp-c-brand-2);
-  border-color: var(--vp-c-brand-2);
-}
-
-.action-btn.alt {
-  background-color: var(--vp-c-bg-soft);
-  color: var(--vp-c-text-1);
-  border-color: var(--vp-c-divider);
-}
-
-.action-btn.alt:hover {
-  background-color: var(--vp-c-bg-mute);
-  border-color: var(--vp-c-text-2);
+  display: none;
 }
 
 /* Image */
@@ -270,79 +245,185 @@ const hero = computed<Hero>(() => frontmatter.value.config?.[0]?.hero || {})
 /* Features */
 .features-section {
   padding: 56px 24px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), transparent);
+  background: transparent;
 }
 .features-grid {
-  max-width: 1152px;
+  max-width: 1200px;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
 }
+
 .feature-card {
-  background: var(--vp-c-bg-soft);
+  position: relative;
+  background: var(--vp-c-bg);
   border: 1px solid var(--vp-c-divider);
-  border-radius: 12px;
+  border-radius: 4px;
   padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   z-index: 1;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  flex: 1 1 300px;
+  max-width: 400px;
 }
+
+/* Theme variations */
+.feature-card.brand {
+  background: rgba(var(--vp-c-brand-1), 0.03);
+  border-color: rgba(var(--vp-c-brand-1), 0.2);
+}
+
+.feature-card.alt {
+  background: var(--vp-c-bg-soft);
+  border-color: var(--vp-c-divider);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.1);
+}
+
+/* Tech Decorations */
+.tech-index {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: var(--vp-c-text-3);
+  opacity: 0.5;
+  letter-spacing: 1px;
+}
+
+.corner-marker {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-color: var(--vp-c-text-3);
+  border-style: solid;
+  transition: all 0.3s ease;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.feature-card:hover .corner-marker {
+  opacity: 1;
+  border-color: var(--vp-c-brand-1);
+}
+
+.top-left { top: 0; left: 0; border-width: 2px 0 0 2px; }
+.top-right { top: 0; right: 0; border-width: 2px 2px 0 0; }
+.bottom-left { bottom: 0; left: 0; border-width: 0 0 2px 2px; }
+.bottom-right { bottom: 0; right: 0; border-width: 0 2px 2px 0; }
+
 .feature-icon {
-  font-size: 28px;
+  font-size: 32px;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.2));
 }
+
 .feature-title {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
+  color: var(--vp-c-text-1);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Space Mono', monospace;
 }
+
+.arrow {
+  opacity: 0.6;
+  transform: translateX(0);
+  transition: all 0.3s ease;
+  color: var(--vp-c-brand-1);
+}
+
+.feature-card:hover .arrow {
+  opacity: 1;
+  transform: translateX(4px);
+}
+
+/* Click Hint */
+.click-hint {
+  position: absolute;
+  bottom: 12px;
+  right: 16px;
+  font-size: 10px;
+  font-family: 'Space Mono', monospace;
+  color: var(--vp-c-brand-1);
+  opacity: 0.7;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+.feature-card:hover .click-hint {
+  opacity: 1;
+  transform: translateX(-4px);
+  text-shadow: 0 0 8px rgba(var(--vp-c-brand-1), 0.5);
+}
+
+.prompt {
+  font-weight: bold;
+}
+
+.text {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.cursor {
+  display: inline-block;
+  width: 6px;
+  height: 12px;
+  background-color: var(--vp-c-brand-1);
+}
+
+.feature-card:hover .cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .feature-desc {
   color: var(--vp-c-text-2);
   font-size: 14px;
-  line-height: 1.5;
+  line-height: 1.6;
+  font-family: 'Space Mono', monospace;
 }
 
-/* Latest */
-.latest-section {
-  padding: 56px 24px;
+/* Glow effect */
+.card-glow {
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, var(--vp-c-brand-3) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  filter: blur(40px);
+  z-index: 0;
 }
-.latest-container {
-  max-width: 1152px;
-  margin: 0 auto;
-  /* make a new stacking context so backdrop-filter can't affect this content */
-  position: relative;
-  z-index: 2;
-}
-.latest-title {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: var(--vp-c-text-1);
-  /* ensure the title sits above the background-filter */
-  position: relative;
-  z-index: 3;
-}
-.latest-list {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-.post-card {
-  background: var(--vp-c-bg-soft);
-  border: 1px solid var(--vp-c-divider);
-  padding: 18px;
-  border-radius: 10px;
-  z-index: 1;
-}
-.post-card a {
-  color: var(--vp-c-text-1);
-  font-weight: 600;
-  text-decoration: none;
-}
-.post-meta {
-  color: var(--vp-c-text-2);
-  font-size: 13px;
-  margin-top: 8px;
+
+.feature-card:hover .card-glow {
+  opacity: 0.2;
 }
 
 /* CTA */
