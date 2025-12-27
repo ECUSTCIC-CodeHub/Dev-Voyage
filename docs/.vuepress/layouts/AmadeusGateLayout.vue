@@ -195,7 +195,7 @@ const initCRT = () => {
     if (i < fullText.length) {
       typedText.value += fullText.charAt(i)
       i++
-      setTimeout(type, 1)
+      setTimeout(type, Math.random() * 150)
     } else {
       isTypingComplete.value = true
     }
