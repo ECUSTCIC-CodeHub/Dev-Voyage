@@ -90,18 +90,18 @@ onMounted(() => {
     divergence.value = fluctuateDivergence('1.048596')
     const rand = Math.random()
     // Fluctuate distortion frequency (Dynamic Fisheye)
-    if ( rand < 0.93) {
+    if ( rand < 0.955) {
       // X: Low freq (0.001 - 0.021) for large waves
       // Y: Low freq (0.01 - 0.2) for subtle vertical distortion
-      const freqX = (0.00001 + Math.random() * 0.00001)
-      const freqY = (0.00001 + Math.random() * 0.00009)
+      const freqX = 0.00001
+      const freqY = 0.00001
       turbulenceFrequency.value = `${freqX} ${freqY}`
-    } else if (rand > 0.93 && rand < 0.99) {
+    } else if (rand < 0.99) {
       const freqX = (0.001 + Math.random() * 0.01).toFixed(4)
-      const freqY = (0.01 + Math.random() * 0.1).toFixed(4)
+      const freqY = (0.01 + Math.random() * 0.5).toFixed(4)
       turbulenceFrequency.value = `${freqX} ${freqY}`
     }
-    else if (rand > 0.99) {
+    else {
       const freqX = (0.0001 + Math.random() * 0.01).toFixed(4)
       const freqY = (0.1 + Math.random() * 0.9).toFixed(4)
       turbulenceFrequency.value = `${freqX} ${freqY}`
@@ -382,8 +382,8 @@ const replay = () => {
           <feDisplacementMap in="SourceGraphic" in2="warp" scale="30" xChannelSelector="R" yChannelSelector="G" />
         </filter>
         <filter id="card-hover-distortion">
-          <feTurbulence type="fractalNoise" baseFrequency="0.01 0.51" numOctaves="2" result="warp" />
-          <feDisplacementMap in="SourceGraphic" in2="warp" scale="20" xChannelSelector="R" yChannelSelector="G" />
+          <feTurbulence type="fractalNoise" baseFrequency="0.1 1" numOctaves="2" result="warp" />
+          <feDisplacementMap in="SourceGraphic" in2="warp" scale="5" xChannelSelector="R" yChannelSelector="G" />
         </filter>
       </defs>
     </svg>
