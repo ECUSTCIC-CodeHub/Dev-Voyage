@@ -93,8 +93,8 @@ onMounted(() => {
     if ( rand < 0.93) {
       // X: Low freq (0.001 - 0.021) for large waves
       // Y: Low freq (0.01 - 0.2) for subtle vertical distortion
-      const freqX = (0.00001 + Math.random() * 0.00001).toFixed(4)
-      const freqY = (0.00001 + Math.random() * 0.00009).toFixed(4)
+      const freqX = (0.00001 + Math.random() * 0.00001)
+      const freqY = (0.00001 + Math.random() * 0.00009)
       turbulenceFrequency.value = `${freqX} ${freqY}`
     } else if (rand > 0.93 && rand < 0.99) {
       const freqX = (0.001 + Math.random() * 0.01).toFixed(4)
@@ -381,6 +381,10 @@ const replay = () => {
           <feTurbulence type="fractalNoise" :baseFrequency="turbulenceFrequency" numOctaves="1" result="warp" />
           <feDisplacementMap in="SourceGraphic" in2="warp" scale="30" xChannelSelector="R" yChannelSelector="G" />
         </filter>
+        <filter id="card-hover-distortion">
+          <feTurbulence type="fractalNoise" baseFrequency="0.01 0.51" numOctaves="2" result="warp" />
+          <feDisplacementMap in="SourceGraphic" in2="warp" scale="20" xChannelSelector="R" yChannelSelector="G" />
+        </filter>
       </defs>
     </svg>
 
@@ -543,12 +547,6 @@ const replay = () => {
                         </div>
                         <span class="jump-cmd">INITIALIZE >></span>
                       </div>
-                      
-                      <!-- Decorative Corners (CSS handled) -->
-                      <div class="corner top-left"></div>
-                      <div class="corner top-right"></div>
-                      <div class="corner bottom-left"></div>
-                      <div class="corner bottom-right"></div>
                     </div>
                   </div>
                 </div>
@@ -1298,6 +1296,8 @@ const replay = () => {
   transform: translateY(-5px);
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.6);
   border-color: #fff;
+  /* High intensity distortion on hover */
+  filter: url(#card-hover-distortion);
 }
 
 /* Remove old pseudo-elements */
@@ -1505,20 +1505,23 @@ const replay = () => {
   pointer-events: none;
 }
 
+
 .nav-card:hover .card-bg {
-  opacity: 0.6;
+  opacity: 1;
   /* Hover: Crazy distortion */
   animation: crt-distortion 0.1s infinite; /* Very fast jitter */
-  filter: grayscale(100%) contrast(2) brightness(0.8); /* Remove tint on hover for harsh B&W */
+  /* Highlight: Restore color, boost brightness, remove retro tint */
+  filter: grayscale(0%) contrast(1.1) brightness(1.2) sepia(0%);
 }
 
+/* Removed .card-bg:hover as it is covered by content and overridden by animation */
 
 @keyframes crt-distortion {
-  0% { transform: translate(0, 0) skewX(0deg); }
-  25% { transform: translate(-5px, 2px) skewX(5deg); }
-  50% { transform: translate(5px, -2px) skewX(-5deg); }
-  75% { transform: translate(-2px, 5px) skewX(2deg); }
-  100% { transform: translate(2px, -5px) skewX(-2deg); }
+  0% { transform: translate(0, 0) skewX(0deg) scale(1.1); }
+  25% { transform: translate(-5px, 2px) skewX(5deg) scale(1.1); }
+  50% { transform: translate(5px, -2px) skewX(-5deg) scale(1.1); }
+  75% { transform: translate(-2px, 5px) skewX(2deg) scale(1.1); }
+  100% { transform: translate(2px, -5px) skewX(-2deg) scale(1.1); }
 }
 
 /* --- MOBILE ADAPTATION --- */
