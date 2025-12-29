@@ -6,6 +6,12 @@ import EssentialHomeLayout from './layouts/EssentialHomeLayout.vue'
 import AmadeusGateLayout from './layouts/AmadeusGateLayout.vue'
 
 import CTASection from './components/CTASection.vue'
+import AmadeusCard from './components/AmadeusCard.vue'
+import AmadeusChaos from './components/AmadeusChaos.vue'
+import AmadeusEmergence from './components/AmadeusEmergence.vue'
+import AmadeusTerminal from './components/AmadeusTerminal.vue'
+import AmadeusNavigator from './components/AmadeusNavigator.vue'
+import AmadeusNeuralBg from './components/AmadeusNeuralBg.vue'
 
 export default defineClientConfig({
   layouts: {
@@ -25,5 +31,11 @@ export default defineClientConfig({
     // your custom components
     // app.component('CustomComponent', CustomComponent)
     app.component('CTASection', CTASection)
+    app.component('AmadeusCard', AmadeusCard)
+    app.component('AmadeusChaos', AmadeusChaos)
+    app.component('AmadeusEmergence', AmadeusEmergence)
+    app.component('AmadeusTerminal', AmadeusTerminal)
+    app.component('AmadeusNavigator', AmadeusNavigator)
+    app.component('AmadeusNeuralBg', AmadeusNeuralBg)
   },
 })

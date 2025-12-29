@@ -2,92 +2,124 @@
 layout: AmadeusGateLayout
 title: Amadeus Gate
 worldLines:
-  - title: BigGan 大纲
-    desc: 大纲
-    path: /amadeus-gate/biggan.html
-    divergence: 3.248596
-    type: 基础篇
-    bgImage: /img/amadeus-gate/atom.jpg
-  - title: 神经网络的觉醒
-    desc: 当感知机睁开双眼，深度学习开始做梦
-    path: /amadeus-gate/neural-network.html
-    divergence: 1.248596
-    type: 基础篇
-  - title: 卷积的凝视
-    desc: CNN用千万只眼睛，解读世界的像素密码
-    path: /amadeus-gate/cnn.html
-    divergence: 1.048596
-    type: 进阶篇
-  - title: 循环的轮回
-    desc: RNN在时间线上反复横跳，只为记住你的名字
-    path: /amadeus-gate/rnn.html
-    divergence: 0.048596
-    type: 进阶篇
-  - title: 变革者的降临
-    desc: Transformer：用注意力机制，凝视宇宙的每一个角落
-    path: /amadeus-gate/transformer.html
-    divergence: 1.048596
-    type: 核心篇
-  - title: 模型的重构
-    desc: LoRA、PEFT：用最少的参数，唤醒沉睡的巨人
-    path: /amadeus-gate/fine-tuning.html
-    divergence: 0.548596
-    type: 实战篇
-  - title: 提示词的咒语
-    desc: 掌握提示词的艺术，与AI签订灵魂契约
-    path: /amadeus-gate/prompt-engineering.html
-    divergence: 0.248596
-    type: 实战篇
-  - title: 外挂的觉醒
-    desc: RAG：给大模型装上知识库，让它无所不知
-    path: /amadeus-gate/rag.html
-    divergence: 1.148596
-    type: 高级篇
-  - title: 多模态的融合
-    desc: 当文字、图像、音频交织，AI开始理解多元宇宙
-    path: /amadeus-gate/multimodal.html
-    divergence: 0.848596
-    type: 前沿篇
-  - title: 线性代数重构
-    desc: 从矩阵运算到高维空间的几何直觉：特征值分解的物理意义、SVD的数据维度解读、张量运算的多模态统一
-    path: /amadeus-gate/linear-algebra.html
+  # 第零章：目标与分解
+  - title: AGI 目标设定
+    desc: 什么是通用人工智能？分解问题：从识别到理解，从记忆到推理
+    path: /amadeus-gate/outline.html
     divergence: 0.000000
-    type: 基础篇
-  - title: 概率与信息论
-    desc: 贝叶斯推断的认知框架、信息熵与KL散度的学习目标、变分推断的逼近思想
-    path: /amadeus-gate/probability.html
-    divergence: 0.048596
-    type: 基础篇
-  - title: 注意力机制
-    desc: 从加权求和到动态信息路由：自注意力的矩阵形式、多头注意力的子空间表示、注意力作为通用键值存储
-    path: /amadeus-gate/attention.html
+    type: 序章
+    bgImage: /img/amadeus-gate/atom.jpg
+
+  # 第一世界线：识别问题
+  - title: 第一次观测
+    desc: MNIST手写数字识别：从像素到分类，感知机与多层神经网络
+    path: /amadeus-gate/recognition.html
     divergence: 1.048596
-    type: 核心篇
-  - title: 大模型技术
-    desc: 缩放定律的计算优化、涌现能力的顿悟时刻、训练基础设施的并行策略、指令微调与思维链
-    path: /amadeus-gate/large-models.html
-    divergence: 0.548596
-    type: 高级篇
-  - title: Alignment技术
-    desc: RLHF与DPO的算法比较、大模型的可解释性探测、概念神经元与归因分析
-    path: /amadeus-gate/alignment.html
-    divergence: 0.248596
-    type: 高级篇
-  - title: 复杂系统视角
-    desc: 损失景观的优化动力学、混沌理论的李雅普诺夫指数、Transformer的动态图信息流拓扑
-    path: /amadeus-gate/complex-systems.html
-    divergence: 1.148596
-    type: 前沿篇
+    type: 世界线1
+    bgImage: /img/amadeus-gate/neuron.jpg
+  - title: 梯度下降
+    desc: 寻找最优解：损失函数、随机梯度下降、反向传播
+    path: /amadeus-gate/gradient-descent.html
+    divergence: 1.248596
+    type: 世界线1
+  - title: 激活函数
+    desc: 引入非线性：Sigmoid、ReLU与梯度消失问题
+    path: /amadeus-gate/activation.html
+    divergence: 1.448596
+    type: 世界线1
+
+  # 第二世界线：视觉感知
+  - title: 卷积神经网络
+    desc: 从像素到边缘：局部连接、参数共享、层级特征
+    path: /amadeus-gate/cnn.html
+    divergence: 2.048596
+    type: 世界线2
+  - title: 经典架构演进
+    desc: LeNet → AlexNet → VGG → ResNet：深度视觉的发展
+    path: /amadeus-gate/cnn-evolution.html
+    divergence: 2.248596
+    type: 世界线2
+
+  # 第三世界线：序列记忆
+  - title: 循环神经网络
+    desc: 时间线上的记忆：RNN结构、隐状态传递
+    path: /amadeus-gate/rnn.html
+    divergence: 3.048596
+    type: 世界线3
+  - title: LSTM与GRU
+    desc: 长期短期记忆：门控机制、细胞状态
+    path: /amadeus-gate/lstm.html
+    divergence: 3.248596
+    type: 世界线3
+
+  # 第四世界线：长程关联
+  - title: 注意力机制
+    desc: 动态信息路由：Query-Key-Value模型
+    path: /amadeus-gate/attention.html
+    divergence: 4.048596
+    type: 世界线4
+  - title: Transformer架构
+    desc: Attention Is All You Need：位置编码、自注意力、多头机制
+    path: /amadeus-gate/transformer.html
+    divergence: 4.248596
+    type: 世界线4
+
+  # 第五世界线：规模化涌现
+  - title: 规模化定律
+    desc: 性能与规模的幂律关系：计算最优分配
+    path: /amadeus-gate/scaling-law.html
+    divergence: 5.048596
+    type: 世界线5
+  - title: 涌现能力
+    desc: 相变与临界点：小模型到大模型的质变
+    path: /amadeus-gate/emergence.html
+    divergence: 5.248596
+    type: 世界线5
+
+  # 第六世界线：融合之路
+  - title: 动力系统视角
+    desc: 神经网络作为动态系统：损失景观与优化动力学
+    path: /amadeus-gate/dynamical-systems.html
+    divergence: 6.048596
+    type: 世界线6
+  - title: 混沌与涌现
+    desc: 蝴蝶效应与敏感依赖：复杂系统的视角
+    path: /amadeus-gate/chaos.html
+    divergence: 6.248596
+    type: 世界线6
   - title: 自由能原理
-    desc: 从拟合数据到最小化意外：自由能原理的生物物理基础、主动推理的统一框架、与强化学习的深刻联系
+    desc: 主动推理的统一框架：与现有AI的联系
     path: /amadeus-gate/free-energy.html
-    divergence: 0.848596
-    type: 前沿篇
+    divergence: 6.448596
+    type: 世界线6
+  - title: 命运石之门
+    desc: AGI的可能路径：世界模型、具身智能、神经符号AI
+    path: /amadeus-gate/agi-path.html
+    divergence: 6.648596
+    type: 终点
 ---
 
-# 混沌与涌现：AI时间线操纵指南
+# Amadeus Gate：命运石之门
 
-> 一切都是石头门的选择！ ————用最不正经的方式，学最正经的AI
+> **"一切都是命运石之门的的选择。"**
 
-### 在写了在写了。                                                                                                                                                                                                                  
+## 探索指南
 
+本页面采用时间线导航结构，每条世界线代表一个核心问题的解决方案：
+
+| 世界线 | 核心问题 | 技术方案 |
+|--------|----------|----------|
+| 世界线1 | 如何识别数字？ | MLP、梯度下降、反向传播 |
+| 世界线2 | 如何看图片？ | CNN、卷积操作 |
+| 世界线3 | 如何记住序列？ | RNN、LSTM、门控机制 |
+| 世界线4 | 如何关注关键信息？ | 注意力机制、Transformer |
+| 世界线5 | 如何规模化？ | 涌现、规模化定律 |
+| 世界线6 | 如何融合？ | 自由能、AGI路径 |
+
+## 学习路径
+
+```
+第零章：目标设定 → 世界线1-5 → 第六世界线：融合 → 命运石之门
+```
+
+### 在写了在写了。
