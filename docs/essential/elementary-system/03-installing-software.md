@@ -77,7 +77,7 @@ Windows 从 1985 年到现在，一直保持**向后兼容**。这意味着：
 
 **典型套路网站布局：**
 
-![虚假下载网站布局图](./download-trap-diagram.svg)
+![虚假下载网站布局图](/source/elementary-system/download-trap-diagram.svg)
 
 *图示：虚假下载网站的典型布局 - 所有显眼的按钮都是假的，真实下载链接需要滚动到页面底部*
 
