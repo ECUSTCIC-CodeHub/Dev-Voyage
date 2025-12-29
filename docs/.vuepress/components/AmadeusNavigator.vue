@@ -65,7 +65,6 @@ const handleReplay = () => {
         </div>
 
         <div class="worldline-timeline">
-          <div class="timeline-line"></div>
           <AmadeusCard
             v-for="(line, index) in worldLines"
             :key="line.path"
@@ -238,21 +237,6 @@ export default {
   padding-left: 60px;
 }
 
-.timeline-line {
-  position: absolute;
-  left: 30px;
-  top: 0;
-  bottom: 0;
-  width: 2px;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    #0f0 10%,
-    #0f0 90%,
-    transparent
-  );
-  box-shadow: 0 0 10px #0f0;
-}
 
 .timeline-item {
   flex: 0 0 calc(25% - 22.5px);
