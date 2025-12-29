@@ -5,7 +5,7 @@ worldLines:
   # 第零章：目标与分解
   - title: AGI 目标设定
     desc: 什么是通用人工智能？分解问题：从识别到理解，从记忆到推理
-    path: /amadeus-gate/outline.html
+    path: /amadeus-gate/goal/
     divergence: 0.000000
     type: 序章
     bgImage: /img/amadeus-gate/atom.jpg
