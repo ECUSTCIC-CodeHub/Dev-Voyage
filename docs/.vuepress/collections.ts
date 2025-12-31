@@ -75,6 +75,15 @@ const postsCollection = defineCollection({
   title: '文章',
 })
 
+
+const amadeusGateDoc = defineCollection({
+  type: 'doc',
+  dir: 'amadeus-gate',
+  linkPrefix: '/amadeus-gate/',
+  title: '混沌与涌现：AI时间线操纵指南',
+  sidebar: 'auto',
+})
+
 /**
  * 导出所有的 collections
  */
@@ -83,4 +92,6 @@ export default defineCollections([
   commandLineDoc,
   elementarySystemDoc,
   gitUsageDoc,
+  postsCollection,
+  amadeusGateDoc,
 ])
