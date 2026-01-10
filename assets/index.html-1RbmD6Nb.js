@@ -1,0 +1,528 @@
+import{a as n,c as a,b as i,o as e}from"./app-DJgDv-U0.js";const l={};function p(d,s){return e(),a("div",null,[...s[0]||(s[0]=[i(`<blockquote><p><strong>&quot;一切都是命运石之门的选择。&quot;</strong></p><p>—— 穿越无数世界线，只为找到那条通往 AGI 的「Steins Gate」</p></blockquote><hr><h2 id="🌉-世界观设定" tabindex="-1"><a class="header-anchor" href="#🌉-世界观设定"><span>🌉 世界观设定</span></a></h2><h3 id="核心隐喻表" tabindex="-1"><a class="header-anchor" href="#核心隐喻表"><span>核心隐喻表</span></a></h3><table><thead><tr><th>命运石之门概念</th><th>AI 学习对应</th><th>说明</th></tr></thead><tbody><tr><td><strong>世界线（World Line）</strong></td><td>技术演进路径</td><td>每条世界线解决一个核心问题</td></tr><tr><td><strong>命运石之门（Steins Gate）</strong></td><td>AGI 终极形态</td><td>所有路径最终汇合的地方</td></tr><tr><td><strong>收束点（Convergence）</strong></td><td>底层数学原理</td><td>不同架构共享的核心规律</td></tr><tr><td><strong>琥珀（Amadeus）</strong></td><td>记忆与知识</td><td>神经网络学习存储的本质</td></tr><tr><td><strong>观察者效应</strong></td><td>数据与模型相互作用</td><td>训练过程即是「观察」过程</td></tr><tr><td><strong>时间机器</strong></td><td>逆向工程</td><td>从结果反推原理的思维方式</td></tr></tbody></table><h3 id="学习路径总览" tabindex="-1"><a class="header-anchor" href="#学习路径总览"><span>学习路径总览</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>                    ┌─────────────────────────┐</span></span>
+<span class="line"><span>                    │    命运石之门 (AGI)      │</span></span>
+<span class="line"><span>                    │    融合所有世界线         │</span></span>
+<span class="line"><span>                    └───────────┬─────────────┘</span></span>
+<span class="line"><span>                                ▲</span></span>
+<span class="line"><span>        ┌───────────────────────┼───────────────────────┐</span></span>
+<span class="line"><span>        │                       │                       │</span></span>
+<span class="line"><span>   ┌────▼────┐            ┌────▼────┐            ┌────▼────┐</span></span>
+<span class="line"><span>   │ 世界线1 │            │ 世界线2 │            │ 世界线3 │</span></span>
+<span class="line"><span>   │ 识别问题 │            │ 视觉感知 │            │ 序列记忆 │</span></span>
+<span class="line"><span>   │ 神经元  │            │  CNN    │            │  RNN    │</span></span>
+<span class="line"><span>   └────┬────┘            └────┬────┘            └────┬────┘</span></span>
+<span class="line"><span>        │                       │                       │</span></span>
+<span class="line"><span>   ┌────▼────┐            ┌────▼────┐            ┌────▼────┐</span></span>
+<span class="line"><span>   │ 世界线4 │            │ 世界线5 │            │ 世界线6 │</span></span>
+<span class="line"><span>   │ 注意力  │            │ 规模化  │            │ 融合之路 │</span></span>
+<span class="line"><span>   │Transformer│           │ 涌现    │            │ 自由能   │</span></span>
+<span class="line"><span>   └─────────┘            └─────────┘            └─────────┘</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr><h1 id="第零章-目标——构建-agi-🟢" tabindex="-1"><a class="header-anchor" href="#第零章-目标——构建-agi-🟢"><span>第零章：目标——构建 AGI 🟢</span></a></h1><blockquote><p><em>「在开始旅程之前，我们需要知道目的地在哪里。」</em></p></blockquote><h2 id="_0-0-在学习之前" tabindex="-1"><a class="header-anchor" href="#_0-0-在学习之前"><span>0.0 在学习之前</span></a></h2><ul><li>讲义信息框说明</li><li>提问的智慧</li><li>大佬三连：STFW, RTFM, RTFSC</li><li>学会独立解决问题</li><li></li></ul><h2 id="_0-1-什么是-agi" tabindex="-1"><a class="header-anchor" href="#_0-1-什么是-agi"><span>0.1 什么是 AGI？</span></a></h2><ul><li>定义与当前 AI 的局限</li><li>AGI 的核心能力：学习、推理、规划、常识</li></ul><h2 id="_0-2-分解问题-ai-的最小-mvp" tabindex="-1"><a class="header-anchor" href="#_0-2-分解问题-ai-的最小-mvp"><span>0.2 分解问题：AI 的最小 MVP</span></a></h2><ul><li>四个核心问题分解</li><li>为什么选择 MNIST 作为起点</li></ul><h2 id="_0-3-我们的探索地图" tabindex="-1"><a class="header-anchor" href="#_0-3-我们的探索地图"><span>0.3 我们的探索地图</span></a></h2><ul><li>六条世界线的学习路径</li><li>数学在 AI 中的角色</li></ul><h2 id="_0-4-数学学习指南" tabindex="-1"><a class="header-anchor" href="#_0-4-数学学习指南"><span>0.4 数学学习指南</span></a></h2><ul><li>本课程数学要求概览</li><li>如何使用数学提示框</li><li>数学速查表位置</li></ul><hr><h1 id="第一世界线-识别问题-🟢" tabindex="-1"><a class="header-anchor" href="#第一世界线-识别问题-🟢"><span>第一世界线：识别问题 🟢</span></a></h1><blockquote><p><em>「当机器第一次『看到』数字，感知之门打开了。」</em></p></blockquote><p><strong>核心问题：</strong> 如何让机器从数据中学习识别规律？</p><p><strong>数学主题：</strong> 线性代数、概率论、优化基础</p><hr><h2 id="_1-1-问题的提出" tabindex="-1"><a class="header-anchor" href="#_1-1-问题的提出"><span>1.1 问题的提出</span></a></h2><ul><li>为什么识别看起来简单，对机器却很难</li><li>分类问题的形式化定义</li></ul><h2 id="_1-2-mnist-第一个「琥珀」" tabindex="-1"><a class="header-anchor" href="#_1-2-mnist-第一个「琥珀」"><span>1.2 MNIST：第一个「琥珀」</span></a></h2><ul><li>数据集概述与可视化</li><li>数据预处理</li></ul><h2 id="_1-3-第一个分类器-最近邻" tabindex="-1"><a class="header-anchor" href="#_1-3-第一个分类器-最近邻"><span>1.3 第一个分类器：最近邻</span></a></h2><ul><li>KNN 算法的直观思路</li><li>距离计算与实现</li><li>维度灾难问题</li></ul><h2 id="_1-4-特征工程-vs-特征学习" tabindex="-1"><a class="header-anchor" href="#_1-4-特征工程-vs-特征学习"><span>1.4 特征工程 vs 特征学习</span></a></h2><ul><li>人工特征的局限性</li><li>核心启示：让机器自己学习规则</li></ul><h2 id="_1-5-🎯-数学知识-1-线性代数基础" tabindex="-1"><a class="header-anchor" href="#_1-5-🎯-数学知识-1-线性代数基础"><span>1.5 🎯 数学知识 1：线性代数基础</span></a></h2><h3 id="_1-5-1-向量与矩阵" tabindex="-1"><a class="header-anchor" href="#_1-5-1-向量与矩阵"><span>1.5.1 向量与矩阵</span></a></h3><p><strong>核心概念：</strong></p><table><thead><tr><th>概念</th><th>定义</th><th>AI 应用</th></tr></thead><tbody><tr><td><strong>向量</strong></td><td>n 维有序数对 x = [x₁, x₂, ..., xₙ]ᵀ</td><td>图像展平为向量</td></tr><tr><td><strong>矩阵</strong></td><td>m×n 二维数组 A ∈ ℝᵐˣⁿ</td><td>线性变换、权重</td></tr><tr><td><strong>张量</strong></td><td>高维数组（2D→矩阵，3D→图像，4D→batch）</td><td>深度学习核心</td></tr></tbody></table><p><strong>矩阵运算：</strong></p><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 线性代数补充</span></span>
+<span class="line"><span>**矩阵乘法：**</span></span>
+<span class="line"><span>(C = AB)ᵢⱼ = Σₖ Aᵢₖ Bₖⱼ</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**向量点积：**</span></span>
+<span class="line"><span>a · b = Σᵢ aᵢ bᵢ = ||a|| ||b|| cosθ</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**矩阵转置：**</span></span>
+<span class="line"><span>(Aᵀ)ᵢⱼ = Aⱼᵢ</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_1-5-2-线性变换与特征值" tabindex="-1"><a class="header-anchor" href="#_1-5-2-线性变换与特征值"><span>1.5.2 线性变换与特征值</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 线性代数补充</span></span>
+<span class="line"><span>**线性变换：**</span></span>
+<span class="line"><span>y = Ax（矩阵 A 将向量 x 变换为向量 y）</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**特征值分解：**</span></span>
+<span class="line"><span>Av = λv</span></span>
+<span class="line"><span>v = 特征向量，λ = 特征值</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**几何意义：**</span></span>
+<span class="line"><span>特征向量 = 变换后方向不变的向量</span></span>
+<span class="line"><span>特征值 = 变换的缩放因子</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_1-5-3-范数与距离" tabindex="-1"><a class="header-anchor" href="#_1-5-3-范数与距离"><span>1.5.3 范数与距离</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 线性代数补充</span></span>
+<span class="line"><span>**L2 范数（欧几里得距离）：**</span></span>
+<span class="line"><span>||x||₂ = √(Σᵢ xᵢ²)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**L1 范数（曼哈顿距离）：**</span></span>
+<span class="line"><span>||x||₁ = Σᵢ |xᵢ|</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**余弦相似度：**</span></span>
+<span class="line"><span>cosθ = (a · b) / (||a|| ||b||)</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr><h2 id="_1-6-多层感知机" tabindex="-1"><a class="header-anchor" href="#_1-6-多层感知机"><span>1.6 多层感知机</span></a></h2><ul><li>从单层到多层</li><li>非线性激活的必要</li></ul><h2 id="_1-7-🎯-数学知识-2-优化基础" tabindex="-1"><a class="header-anchor" href="#_1-7-🎯-数学知识-2-优化基础"><span>1.7 🎯 数学知识 2：优化基础</span></a></h2><h3 id="_1-7-1-导数与梯度" tabindex="-1"><a class="header-anchor" href="#_1-7-1-导数与梯度"><span>1.7.1 导数与梯度</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 微积分补充</span></span>
+<span class="line"><span>**导数定义：**</span></span>
+<span class="line"><span>f&#39;(x) = lim(Δx→0) [f(x+Δx) - f(x)] / Δx</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**偏导数：**</span></span>
+<span class="line"><span>∂f/∂xᵢ = 对 xᵢ 求导，其他变量视为常数</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**梯度（向量）：**</span></span>
+<span class="line"><span>∇f = [∂f/∂x₁, ∂f/∂x₂, ..., ∂f/∂xₙ]ᵀ</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**链式法则：**</span></span>
+<span class="line"><span>d(f∘g)/dx = (df/dg) · (dg/dx)</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_1-7-2-梯度下降" tabindex="-1"><a class="header-anchor" href="#_1-7-2-梯度下降"><span>1.7.2 梯度下降</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 优化理论补充</span></span>
+<span class="line"><span>**梯度下降更新规则：**</span></span>
+<span class="line"><span>θ ← θ - η ∇θ J(θ)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>其中：</span></span>
+<span class="line"><span>- θ = 模型参数</span></span>
+<span class="line"><span>- η = 学习率</span></span>
+<span class="line"><span>- J(θ) = 损失函数</span></span>
+<span class="line"><span>- ∇θ J(θ) = 损失函数对参数的梯度</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**几何解释：**</span></span>
+<span class="line"><span>梯度指向函数增长最快的方向，</span></span>
+<span class="line"><span>减去梯度就是沿最陡方向下降。</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_1-7-3-损失函数" tabindex="-1"><a class="header-anchor" href="#_1-7-3-损失函数"><span>1.7.3 损失函数</span></a></h3><table><thead><tr><th>损失函数</th><th>公式</th><th>适用场景</th></tr></thead><tbody><tr><td><strong>均方误差 (MSE)</strong></td><td>J = 1/n Σ(yᵢ - ŷᵢ)²</td><td>回归</td></tr><tr><td><strong>交叉熵 (Cross-Entropy)</strong></td><td>J = -Σ yᵢ log(ŷᵢ)</td><td>分类</td></tr></tbody></table><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 概率论补充</span></span>
+<span class="line"><span>**KL 散度：**</span></span>
+<span class="line"><span>D_KL(P || Q) = Σ P(x) log(P(x)/Q(x))</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**交叉熵与 KL 散度的关系：**</span></span>
+<span class="line"><span>H(P, Q) = H(P) + D_KL(P || Q)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>对于分类问题（one-hot 标签）：</span></span>
+<span class="line"><span>交叉熵 = -log(ŷ_c)，其中 c 是真实类别</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr><h2 id="_1-8-反向传播" tabindex="-1"><a class="header-anchor" href="#_1-8-反向传播"><span>1.8 反向传播</span></a></h2><ul><li>链式法则</li><li>前向传播与反向传播步骤</li></ul><h2 id="_1-9-🎯-数学知识-3-概率论基础" tabindex="-1"><a class="header-anchor" href="#_1-9-🎯-数学知识-3-概率论基础"><span>1.9 🎯 数学知识 3：概率论基础</span></a></h2><h3 id="_1-9-1-概率基础" tabindex="-1"><a class="header-anchor" href="#_1-9-1-概率基础"><span>1.9.1 概率基础</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 概率论补充</span></span>
+<span class="line"><span>**条件概率：**</span></span>
+<span class="line"><span>P(A|B) = P(A∩B) / P(B)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**贝叶斯定理：**</span></span>
+<span class="line"><span>P(y|x) = P(x|y) P(y) / P(x)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**分类器的概率解释：**</span></span>
+<span class="line"><span>P(y|x) = softmax(f(x))ᵧ</span></span>
+<span class="line"><span>其中 f(x) = w·x + b</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_1-9-2-常见分布" tabindex="-1"><a class="header-anchor" href="#_1-9-2-常见分布"><span>1.9.2 常见分布</span></a></h3><table><thead><tr><th>分布</th><th>公式</th><th>应用</th></tr></thead><tbody><tr><td><strong>伯努利分布</strong></td><td>P(x=1) = p</td><td>二分类</td></tr><tr><td><strong>Categorical 分布</strong></td><td>P(x=k) = pₖ</td><td>多分类</td></tr><tr><td><strong>高斯分布</strong></td><td>N(x; μ, σ²)</td><td>回归、初始化</td></tr></tbody></table><h3 id="_1-9-3-激活函数的数学" tabindex="-1"><a class="header-anchor" href="#_1-9-3-激活函数的数学"><span>1.9.3 激活函数的数学</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**Sigmoid 函数：**</span></span>
+<span class="line"><span>σ(x) = 1 / (1 + e^(-x))</span></span>
+<span class="line"><span>σ&#39;(x) = σ(x)(1 - σ(x))</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**Tanh 函数：**</span></span>
+<span class="line"><span>tanh(x) = (e^x - e^(-x)) / (e^x + e^(-x))</span></span>
+<span class="line"><span>tanh&#39;(x) = 1 - tanh²(x)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**ReLU 函数：**</span></span>
+<span class="line"><span>ReLU(x) = max(0, x)</span></span>
+<span class="line"><span>ReLU&#39;(x) = 1 if x &gt; 0 else 0</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>世界线小结：</strong> 神经网络本质是「可学习的函数」，学习 = 优化参数使损失最小。</p><p><strong>数学收束点：</strong></p><ul><li>向量空间是深度学习的语言</li><li>梯度下降是优化的核心工具</li><li>概率论连接预测与不确定性</li></ul><hr><h1 id="第二世界线-视觉感知-🟡" tabindex="-1"><a class="header-anchor" href="#第二世界线-视觉感知-🟡"><span>第二世界线：视觉感知 🟡</span></a></h1><blockquote><p><em>「从像素到边缘，从边缘到物体——机器学会了『看』。」</em></p></blockquote><p><strong>核心问题：</strong> 如何高效处理图像，保留空间结构？</p><p><strong>数学主题：</strong> 卷积数学、空间变换、特征提取</p><hr><h2 id="_2-1-全连接层的局限" tabindex="-1"><a class="header-anchor" href="#_2-1-全连接层的局限"><span>2.1 全连接层的局限</span></a></h2><ul><li>参数爆炸问题</li><li>失去空间结构</li><li>无法处理平移</li></ul><h2 id="_2-2-🎯-数学知识-4-卷积运算" tabindex="-1"><a class="header-anchor" href="#_2-2-🎯-数学知识-4-卷积运算"><span>2.2 🎯 数学知识 4：卷积运算</span></a></h2><h3 id="_2-2-1-离散卷积定义" tabindex="-1"><a class="header-anchor" href="#_2-2-1-离散卷积定义"><span>2.2.1 离散卷积定义</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**一维离散卷积：**</span></span>
+<span class="line"><span>(y * w)[n] = Σₖ w[k] · x[n-k]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**二维离散卷积：**</span></span>
+<span class="line"><span>(y * w)[i,j] = Σₖ Σₗ w[k,l] · x[i-k, j-l]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**互相关（深度学习中实际使用）：**</span></span>
+<span class="line"><span>(y ⋆ w)[i,j] = Σₖ Σₗ w[k,l] · x[i+k, j+l]</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-2-2-卷积的几何解释" tabindex="-1"><a class="header-anchor" href="#_2-2-2-卷积的几何解释"><span>2.2.2 卷积的几何解释</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>卷积操作 = 滑动加权求和</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>输入图像 X (H×W)      卷积核 W (K×K)      输出 Y ((H-K+1)×(W-K+1))</span></span>
+<span class="line"><span>┌─────────────┐      ┌─────────┐         ┌───────────┐</span></span>
+<span class="line"><span>│ a b c d e   │      │ w₁ w₂ w₃│         │ y₁ y₂ ... │</span></span>
+<span class="line"><span>│ f g h i j   │  *   │ w₄ w₅ w₆│    =    │ y... ...  │</span></span>
+<span class="line"><span>│ k l m n o   │      │ w₇ w₈ w₉│         │ y... ...  │</span></span>
+<span class="line"><span>└─────────────┘      └─────────┘         └───────────┘</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>y₁₁ = a·w₁ + b·w₂ + c·w₃ + f·w₄ + g·w₅ + h·w₆ + k·w₇ + l·w₈ + m·w₉</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-2-3-卷积性质" tabindex="-1"><a class="header-anchor" href="#_2-2-3-卷积性质"><span>2.2.3 卷积性质</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**交换律：**</span></span>
+<span class="line"><span>x * w = w * x</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**结合律：**</span></span>
+<span class="line"><span>(x * w₁) * w₂ = x * (w₁ * w₂)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**分配律：**</span></span>
+<span class="line"><span>x * (w₁ + w₂) = x * w₁ + x * w₂</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**平移不变性：**</span></span>
+<span class="line"><span>如果 x[n] → x[n-n₀]，则 (x*w)[n] → (x*w)[n-n₀]</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr><h2 id="_2-3-池化操作" tabindex="-1"><a class="header-anchor" href="#_2-3-池化操作"><span>2.3 池化操作</span></a></h2><ul><li>最大池化与平均池化</li><li>下采样的作用</li><li>池化的数学性质（平移不变性）</li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**最大池化：**</span></span>
+<span class="line"><span>yᵢⱼ = max{ x_{i+s·k, j+s·l} for k,l ∈ [0, K) }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**平均池化：**</span></span>
+<span class="line"><span>yᵢⱼ = (1/K²) Σ_{k,l} x_{i+s·k, j+s·l}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**作用：**</span></span>
+<span class="line"><span>- 降低分辨率 → 减少计算量</span></span>
+<span class="line"><span>- 局部平移不变性</span></span>
+<span class="line"><span>- 扩大感受野</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_2-4-第一个卷积网络-lenet" tabindex="-1"><a class="header-anchor" href="#_2-4-第一个卷积网络-lenet"><span>2.4 第一个卷积网络：LeNet</span></a></h2><ul><li>Yann LeCun (1998)</li><li>LeNet-5 结构详解</li><li>可视化卷积核与激活图</li></ul><h2 id="_2-5-🎯-数学知识-5-反向传播中的卷积" tabindex="-1"><a class="header-anchor" href="#_2-5-🎯-数学知识-5-反向传播中的卷积"><span>2.5 🎯 数学知识 5：反向传播中的卷积</span></a></h2><h3 id="_2-5-1-卷积层梯度" tabindex="-1"><a class="header-anchor" href="#_2-5-1-卷积层梯度"><span>2.5.1 卷积层梯度</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**卷积层反向传播：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>假设损失 L 对输出的梯度为 ∂L/∂Y</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>对卷积核的梯度：</span></span>
+<span class="line"><span>∂L/∂W = X * (∂L/∂Y)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>对输入的梯度：</span></span>
+<span class="line"><span>∂L/∂X = (∂L/∂Y) * flip(W)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>*表示卷积，flip表示旋转180度</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_2-5-2-感受野计算" tabindex="-1"><a class="header-anchor" href="#_2-5-2-感受野计算"><span>2.5.2 感受野计算</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**感受野（Receptive Field）：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>第 n 层的一个像素能看到输入层的区域大小。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>递推公式：</span></span>
+<span class="line"><span>RFₙ = RFₙ₋₁ + (kₙ - 1) · Π_{i=1}^{n-1} sᵢ</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>其中：</span></span>
+<span class="line"><span>- RFₙ = 第 n 层的感受野大小</span></span>
+<span class="line"><span>- kₙ = 第 n 层的卷积核大小</span></span>
+<span class="line"><span>- sᵢ = 第 i 层的步长</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_2-6-经典架构演进" tabindex="-1"><a class="header-anchor" href="#_2-6-经典架构演进"><span>2.6 经典架构演进</span></a></h2><ul><li>AlexNet：深度学习复兴（ReLU、Dropout、GPU）</li><li>VGG：更深更简单（3×3 卷积核堆叠）</li><li>ResNet：突破深度极限（残差连接 F(x)+x）</li></ul><h3 id="_2-6-1-残差连接的数学" tabindex="-1"><a class="header-anchor" href="#_2-6-1-残差连接的数学"><span>2.6.1 残差连接的数学</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**残差块：**</span></span>
+<span class="line"><span>y = F(x) + x</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>对 F(x) 的梯度：</span></span>
+<span class="line"><span>∂L/∂x = ∂L/∂y + ∂L/∂y · ∂F/∂x</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**梯度直接通路：**</span></span>
+<span class="line"><span>即使 ∂F/∂x 很小，∂L/∂x 仍能保留大部分梯度</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**这解决了深度网络的梯度消失问题！**</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>世界线小结：</strong> 视觉信息是层级化处理的，深度网络学习的是「特征的组合」。</p><p><strong>数学收束点：</strong></p><ul><li>卷积是局部性和平移不变性的数学表达</li><li>残差连接创造梯度直接通路</li><li>感受野定义了&quot;看&quot;的范围</li></ul><hr><h1 id="第三世界线-序列记忆-🟡" tabindex="-1"><a class="header-anchor" href="#第三世界线-序列记忆-🟡"><span>第三世界线：序列记忆 🟡</span></a></h1><blockquote><p><em>「当机器有了记忆，它开始理解时间的流动。」</em></p></blockquote><p><strong>核心问题：</strong> 如何处理时序数据，记住过去的信息？</p><p><strong>数学主题：</strong> 循环数学、马尔可夫链、动态规划</p><hr><h2 id="_3-1-时序数据的挑战" tabindex="-1"><a class="header-anchor" href="#_3-1-时序数据的挑战"><span>3.1 时序数据的挑战</span></a></h2><ul><li>序列数据的特殊性</li><li>需要「记忆」之前的信息</li></ul><h2 id="_3-2-🎯-数学知识-6-循环结构" tabindex="-1"><a class="header-anchor" href="#_3-2-🎯-数学知识-6-循环结构"><span>3.2 🎯 数学知识 6：循环结构</span></a></h2><h3 id="_3-2-1-循环神经网络的数学定义" tabindex="-1"><a class="header-anchor" href="#_3-2-1-循环神经网络的数学定义"><span>3.2.1 循环神经网络的数学定义</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**RNN 前向传播：**</span></span>
+<span class="line"><span>hₜ = tanh(W_{hh} h_{t-1} + W_{xh} xₜ)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>其中：</span></span>
+<span class="line"><span>- hₜ = 时刻 t 的隐状态（记忆）</span></span>
+<span class="line"><span>- h_{t-1} = 时刻 t-1 的隐状态</span></span>
+<span class="line"><span>- xₜ = 时刻 t 的输入</span></span>
+<span class="line"><span>- W_{hh} = 隐状态到隐状态的权重</span></span>
+<span class="line"><span>- W_{xh} = 输入到隐状态的权重</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**循环矩阵（权重共享）：**</span></span>
+<span class="line"><span>W_{hh} 在所有时间步共享</span></span>
+<span class="line"><span>W_{xh} 在所有时间步共享</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3-2-2-序列到序列映射" tabindex="-1"><a class="header-anchor" href="#_3-2-2-序列到序列映射"><span>3.2.2 序列到序列映射</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>输入序列：x₁, x₂, ..., xₜ</span></span>
+<span class="line"><span>隐状态序列：h₁, h₂, ..., hₜ</span></span>
+<span class="line"><span>输出序列：y₁, y₂, ..., yₜ</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>每个时刻：hₜ = f(h_{t-1}, xₜ)</span></span>
+<span class="line"><span>输出：    yₜ = g(hₜ)</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_3-3-bptt-随时间反向传播" tabindex="-1"><a class="header-anchor" href="#_3-3-bptt-随时间反向传播"><span>3.3 BPTT：随时间反向传播</span></a></h2><ul><li>展开 RNN，按照时间步反向传播梯度</li><li>梯度公式推导</li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**BPTT 梯度计算：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>∂L/∂W_{hh} = Σ_{t=1}^{T} ∂L/∂hₜ · ∂hₜ/∂W_{hh}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>其中：</span></span>
+<span class="line"><span>∂hₜ/∂W_{hh} = ∂hₜ/∂h_{t-1} · ∂h_{t-1}/∂W_{hh}</span></span>
+<span class="line"><span>            = diag(1 - hₜ²) · W_{hh} · ... · diag(1 - h₁²) · W_{hh}</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**梯度问题：**</span></span>
+<span class="line"><span>|λ₁|^T + |λ₂|^T + ... （T 为序列长度）</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>如果特征值 |λ| &lt; 1，梯度指数衰减 → 梯度消失</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_3-4-lstm-长期短期记忆" tabindex="-1"><a class="header-anchor" href="#_3-4-lstm-长期短期记忆"><span>3.4 LSTM：长期短期记忆</span></a></h2><ul><li>细胞状态与门控机制</li><li>遗忘门、输入门、输出门</li><li>LSTM 的数学公式</li></ul><h3 id="_3-4-1-lstm-的完整公式" tabindex="-1"><a class="header-anchor" href="#_3-4-1-lstm-的完整公式"><span>3.4.1 LSTM 的完整公式</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**LSTM 门控机制：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>遗忘门（决定忘记什么）：</span></span>
+<span class="line"><span>fₜ = σ(W_f · [h_{t-1}, xₜ] + b_f)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>输入门（决定记住什么）：</span></span>
+<span class="line"><span>iₜ = σ(W_i · [h_{t-1}, xₜ] + b_i)</span></span>
+<span class="line"><span>c̃ₜ = tanh(W_c · [h_{t-1}, xₜ] + b_c)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>细胞状态更新：</span></span>
+<span class="line"><span>cₜ = fₜ ⊙ c_{t-1} + iₜ ⊙ c̃ₜ</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>输出门（决定输出什么）：</span></span>
+<span class="line"><span>oₜ = σ(W_o · [h_{t-1}, xₜ] + b_o)</span></span>
+<span class="line"><span>hₜ = oₜ ⊙ tanh(cₜ)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>其中：</span></span>
+<span class="line"><span>- σ = Sigmoid 函数</span></span>
+<span class="line"><span>- ⊙ = 逐元素乘法（Hadamard积）</span></span>
+<span class="line"><span>- [h_{t-1}, xₜ] = 向量拼接</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_3-4-2-门控机制的可视化" tabindex="-1"><a class="header-anchor" href="#_3-4-2-门控机制的可视化"><span>3.4.2 门控机制的可视化</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>细胞状态 cₜ 是&quot;高速公路&quot;，梯度直接通过：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>cₜ ──────────────────────┐</span></span>
+<span class="line"><span>       ⊙                │</span></span>
+<span class="line"><span>fₜ ──►                 │ 遗忘门控制信息保留</span></span>
+<span class="line"><span>       ⊙                │</span></span>
+<span class="line"><span>c_{t-1} ────────────────┤</span></span>
+<span class="line"><span>                         │</span></span>
+<span class="line"><span>       ⊙                │</span></span>
+<span class="line"><span>iₜ ──►  c̃ₜ             │ 输入门控制新信息写入</span></span>
+<span class="line"><span>       ⊙                │</span></span>
+<span class="line"><span>                         │</span></span>
+<span class="line"><span>       ⊙                │</span></span>
+<span class="line"><span>oₜ ──► tanh(cₜ)         │ 输出门控制信息输出</span></span>
+<span class="line"><span>       ⊙                │</span></span>
+<span class="line"><span>       ▼                │</span></span>
+<span class="line"><span>      hₜ                │</span></span>
+<span class="line"><span>                         │</span></span>
+<span class="line"><span>        ◄───────────────┘</span></span>
+<span class="line"><span>          输出门控制</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_3-5-gru-lstm-的简化" tabindex="-1"><a class="header-anchor" href="#_3-5-gru-lstm-的简化"><span>3.5 GRU：LSTM 的简化</span></a></h2><ul><li>门控机制的简化版本</li><li>参数更少，效果接近</li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**GRU 公式：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>重置门：rₜ = σ(W_r · [h_{t-1}, xₜ])</span></span>
+<span class="line"><span>更新门：zₜ = σ(W_z · [h_{t-1}, xₜ])</span></span>
+<span class="line"><span>候选状态：h̃ₜ = tanh(W · [rₜ ⊙ h_{t-1}, xₜ])</span></span>
+<span class="line"><span>隐状态更新：hₜ = (1-zₜ) ⊙ h_{t-1} + zₜ ⊙ h̃ₜ</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**与 LSTM 对比：**</span></span>
+<span class="line"><span>- 合并遗忘门和输入门为更新门</span></span>
+<span class="line"><span>- 省略输出门</span></span>
+<span class="line"><span>- 参数量减少约 25%</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>世界线小结：</strong> 记忆是智能的核心组成部分，通过门控机制实现选择性记忆。</p><p><strong>数学收束点：</strong></p><ul><li>循环结构实现跨时间步的信息传递</li><li>门控机制控制信息流的&quot;写入-读取-遗忘&quot;</li><li>细胞状态创造梯度高速公路</li></ul><hr><h1 id="第四世界线-注意力机制-🔴" tabindex="-1"><a class="header-anchor" href="#第四世界线-注意力机制-🔴"><span>第四世界线：注意力机制 🔴</span></a></h1><blockquote><p><em>「当机器学会『关注』，它不再遗漏任何重要信息。」</em></p></blockquote><p><strong>核心问题：</strong> 如何动态选择关键信息，而不是被动传递？</p><p><strong>数学主题：</strong> 相似度度量、缩放点积、信息论</p><hr><h2 id="_4-1-编码器-解码器的局限" tabindex="-1"><a class="header-anchor" href="#_4-1-编码器-解码器的局限"><span>4.1 编码器-解码器的局限</span></a></h2><ul><li>固定长度隐状态的瓶颈</li><li>长序列信息丢失问题</li></ul><h2 id="_4-2-🎯-数学知识-7-相似度与注意力" tabindex="-1"><a class="header-anchor" href="#_4-2-🎯-数学知识-7-相似度与注意力"><span>4.2 🎯 数学知识 7：相似度与注意力</span></a></h2><h3 id="_4-2-1-query-key-value-模型" tabindex="-1"><a class="header-anchor" href="#_4-2-1-query-key-value-模型"><span>4.2.1 Query-Key-Value 模型</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**QKV 注意力机制：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Q = XW_Q    （Query：我想查询什么）</span></span>
+<span class="line"><span>K = XW_K    （Key：我有什么信息）</span></span>
+<span class="line"><span>V = XW_V    （Value：信息的具体内容）</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>注意力分数：</span></span>
+<span class="line"><span>sᵢⱼ = Qᵢ · Kⱼ</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>注意力权重（Softmax 归一化）：</span></span>
+<span class="line"><span>αᵢⱼ = exp(sᵢⱼ) / Σₖ exp(sᵢₖ)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>输出（加权求和）：</span></span>
+<span class="line"><span>Oᵢ = Σⱼ αᵢⱼ Vⱼ</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-2-2-缩放点积注意力" tabindex="-1"><a class="header-anchor" href="#_4-2-2-缩放点积注意力"><span>4.2.2 缩放点积注意力</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**缩放点积注意力：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Attention(Q, K, V) = softmax(QKᵀ / √d) · V</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**为什么除以 √d？**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>当维度 d 增大时，点积的方差也会增大：</span></span>
+<span class="line"><span>Var(Q·K) = d · Var(q) · Var(k)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这会导致 Softmax 的输入值过大，梯度接近 0。</span></span>
+<span class="line"><span>除以 √d 将方差归一化，保持梯度稳定。</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr><h2 id="_4-3-🎯-数学知识-8-信息论基础" tabindex="-1"><a class="header-anchor" href="#_4-3-🎯-数学知识-8-信息论基础"><span>4.3 🎯 数学知识 8：信息论基础</span></a></h2><h3 id="_4-3-1-信息量与熵" tabindex="-1"><a class="header-anchor" href="#_4-3-1-信息量与熵"><span>4.3.1 信息量与熵</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 信息论补充</span></span>
+<span class="line"><span>**信息量（自信息）：**</span></span>
+<span class="line"><span>I(x) = -log P(x)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**香农熵（信息熵）：**</span></span>
+<span class="line"><span>H(X) = E[-log P(X)] = -Σₓ P(x) log P(x)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**熵的意义：**</span></span>
+<span class="line"><span>- 衡量随机变量的不确定性</span></span>
+<span class="line"><span>- 分布越均匀，熵越大</span></span>
+<span class="line"><span>- 分布越确定，熵越小</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-3-2-交叉熵与-kl-散度" tabindex="-1"><a class="header-anchor" href="#_4-3-2-交叉熵与-kl-散度"><span>4.3.2 交叉熵与 KL 散度</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 信息论补充</span></span>
+<span class="line"><span>**交叉熵：**</span></span>
+<span class="line"><span>H(P, Q) = -Σₓ P(x) log Q(x)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**KL 散度：**</span></span>
+<span class="line"><span>D_KL(P || Q) = Σₓ P(x) log(P(x)/Q(x))</span></span>
+<span class="line"><span>            = H(P, Q) - H(P)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**在注意力中的应用：**</span></span>
+<span class="line"><span>Softmax 输出是一个概率分布</span></span>
+<span class="line"><span>交叉熵衡量预测分布与&quot;目标&quot;分布的差异</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>最小化交叉熵 = 最小化 KL 散度</span></span>
+<span class="line"><span>           = 让预测分布逼近目标分布</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr><h2 id="_4-4-自注意力" tabindex="-1"><a class="header-anchor" href="#_4-4-自注意力"><span>4.4 自注意力</span></a></h2><ul><li>任意位置直接对话</li><li>与 RNN 的对比：并行计算</li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>自注意力 vs RNN：</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>RNN（顺序计算）：</span></span>
+<span class="line"><span>x₁ → h₁ → x₂ → h₂ → x₃ → h₃  （必须等前一步完成）</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>自注意力（并行计算）：</span></span>
+<span class="line"><span>x₁ ↔ x₂ ↔ x₃  （所有位置同时计算）</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>数学上：O = softmax(QKᵀ/√d)V</span></span>
+<span class="line"><span>       一步矩阵乘法完成所有注意力计算！</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_4-5-多头注意力" tabindex="-1"><a class="header-anchor" href="#_4-5-多头注意力"><span>4.5 多头注意力</span></a></h2><ul><li>多个子空间的表示</li><li>注意力头的可视化</li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**多头注意力：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>head_i = Attention(QW_Qⁱ, KW_Kⁱ, VW_Vⁱ)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>MultiHead(Q, K, V) = Concat(head₁, ..., head_h) W_O</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**多头注意力的意义：**</span></span>
+<span class="line"><span>- 每个头学习不同的关联模式</span></span>
+<span class="line"><span>- 例如：头1学习语法关系，头2学习语义关系</span></span>
+<span class="line"><span>- 最后拼接并线性变换，融合多种信息</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_4-6-transformer-架构" tabindex="-1"><a class="header-anchor" href="#_4-6-transformer-架构"><span>4.6 Transformer 架构</span></a></h2><ul><li>编码器-解码器结构</li><li>位置编码</li><li>Attention Is All You Need</li></ul><h3 id="_4-6-1-位置编码" tabindex="-1"><a class="header-anchor" href="#_4-6-1-位置编码"><span>4.6.1 位置编码</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**正弦位置编码：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>PE(pos, 2i) = sin(pos / 10000^(2i/d))</span></span>
+<span class="line"><span>PE(pos, 2i+1) = cos(pos / 10000^(2i/d))</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**为什么有效：**</span></span>
+<span class="line"><span>1. 相对位置可学习：PE(pos+Δ) 可以表示为 PE(pos) 的线性函数</span></span>
+<span class="line"><span>2. 不同频率捕捉不同范围的依赖关系</span></span>
+<span class="line"><span>3. 无需学习，可泛化到任意长度序列</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_4-6-2-transformer-完整结构" tabindex="-1"><a class="header-anchor" href="#_4-6-2-transformer-完整结构"><span>4.6.2 Transformer 完整结构</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>输入嵌入 → + 位置编码 → 多头注意力 → 残差 → 层归一化 → 前馈网络 → 残差 → 层归一化</span></span>
+<span class="line"><span>                                                                              │</span></span>
+<span class="line"><span>                                                                              ▼</span></span>
+<span class="line"><span>                                               解码器 ← 掩码多头注意力 ← 输出嵌入</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><p><strong>世界线小结：</strong> 注意力是「软寻址」机制的体现，动态路由比静态连接更灵活。</p><p><strong>数学收束点：</strong></p><ul><li>相似度度量（点积）是最基本的关联操作</li><li>Softmax 将相似度转化为概率分布</li><li>缩放防止梯度消失</li></ul><hr><h1 id="第五世界线-规模化涌现-🔴" tabindex="-1"><a class="header-anchor" href="#第五世界线-规模化涌现-🔴"><span>第五世界线：规模化涌现 🔴</span></a></h1><blockquote><p><em>「当模型大到一定程度，智能『涌现』出来了。」</em></p></blockquote><p><strong>核心问题：</strong> 规模扩大如何带来能力质变？</p><p><strong>数学主题：</strong> 幂律分布、相变理论、统计力学</p><hr><h2 id="_5-1-🎯-数学知识-9-规模化定律" tabindex="-1"><a class="header-anchor" href="#_5-1-🎯-数学知识-9-规模化定律"><span>5.1 🎯 数学知识 9：规模化定律</span></a></h2><h3 id="_5-1-1-幂律关系" tabindex="-1"><a class="header-anchor" href="#_5-1-1-幂律关系"><span>5.1.1 幂律关系</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 统计物理补充</span></span>
+<span class="line"><span>**幂律（Power Law）：**</span></span>
+<span class="line"><span>y = a · x^(-b)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**对数形式：**</span></span>
+<span class="line"><span>log y = log a - b · log x</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**双对数坐标图上的直线：**</span></span>
+<span class="line"><span>log y</span></span>
+<span class="line"><span>  │</span></span>
+<span class="line"><span>  │        ╱</span></span>
+<span class="line"><span>  │       ╱  斜率 = -b</span></span>
+<span class="line"><span>  │      ╱</span></span>
+<span class="line"><span>  │     ╱</span></span>
+<span class="line"><span>  └────────────────── log x</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_5-1-2-规模化定律公式" tabindex="-1"><a class="header-anchor" href="#_5-1-2-规模化定律公式"><span>5.1.2 规模化定律公式</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 规模化定律补充</span></span>
+<span class="line"><span>**Kaplan et al. (2021) 规模化定律：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>L(N) = a · N^(-b) + L_∞</span></span>
+<span class="line"><span>L(D) = c · D^(-d) + L_∞</span></span>
+<span class="line"><span>L(C) = e · C^(-f) + L_∞</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>其中：</span></span>
+<span class="line"><span>- N = 参数量</span></span>
+<span class="line"><span>- D = 数据量</span></span>
+<span class="line"><span>- C = 计算量</span></span>
+<span class="line"><span>- L = 损失（困惑度）</span></span>
+<span class="line"><span>- L_∞ = 不可约损失（数据固有噪声）</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_5-1-3-计算最优分配" tabindex="-1"><a class="header-anchor" href="#_5-1-3-计算最优分配"><span>5.1.3 计算最优分配</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>**Chinchilla 论文结论：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>训练 token 数 ≈ 参数量</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>这意味着：</span></span>
+<span class="line"><span>- 数据量 = 参数量 时，模型性能最优</span></span>
+<span class="line"><span>- 单纯增大参数或数据，效果不如同时增大</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><hr><h2 id="_5-2-🎯-数学知识-10-涌现与相变" tabindex="-1"><a class="header-anchor" href="#_5-2-🎯-数学知识-10-涌现与相变"><span>5.2 🎯 数学知识 10：涌现与相变</span></a></h2><h3 id="_5-2-1-相变的定义" tabindex="-1"><a class="header-anchor" href="#_5-2-1-相变的定义"><span>5.2.1 相变的定义</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 相变理论补充</span></span>
+<span class="line"><span>**相变（Phase Transition）：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>系统性质在某临界点发生突变。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**一阶相变：**</span></span>
+<span class="line"><span>- 存在潜热</span></span>
+<span class="line"><span>- 例如：冰 → 水（温度不变，但吸收热量）</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**二阶相变：**</span></span>
+<span class="line"><span>- 无潜热</span></span>
+<span class="line"><span>- 导数不连续（二阶导数发散）</span></span>
+<span class="line"><span>- 例如：铁磁 → 顺磁（居里点）</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_5-2-2-涌现的数学描述" tabindex="-1"><a class="header-anchor" href="#_5-2-2-涌现的数学描述"><span>5.2.2 涌现的数学描述</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 复杂系统补充</span></span>
+<span class="line"><span>**涌现（Emergence）：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>在小规模系统中不存在，在大规模系统中突然出现的能力。</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**数学模型：Ising 类比**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>铁磁系统：</span></span>
+<span class="line"><span>H = -J Σ sᵢsⱼ - h Σ sᵢ</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>- sᵢ = ±1（自旋方向）</span></span>
+<span class="line"><span>- J = 耦合强度</span></span>
+<span class="line"><span>- h = 外磁场</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>临界温度 T_c：</span></span>
+<span class="line"><span>当 T &lt; T_c 时，系统自发磁化（有序相）</span></span>
+<span class="line"><span>当 T &gt; T_c 时，磁化强度为 0（无序相）</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**神经网络中的&quot;相变&quot;：**</span></span>
+<span class="line"><span>参数量跨越临界点 → 能力突变（涌现）</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_5-3-涌现能力" tabindex="-1"><a class="header-anchor" href="#_5-3-涌现能力"><span>5.3 涌现能力</span></a></h2><ul><li>什么是涌现：小模型到大模型的质变</li><li>观察到的涌现现象</li><li>相变与临界点</li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**涌现能力示例：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>能力随规模的变化：</span></span>
+<span class="line"><span>性能</span></span>
+<span class="line"><span>  │</span></span>
+<span class="line"><span>  │              ╭────── 涌现</span></span>
+<span class="line"><span>  │            ╱</span></span>
+<span class="line"><span>  │          ╱</span></span>
+<span class="line"><span>  │        ╱</span></span>
+<span class="line"><span>  │──────╱─────────────── 模型规模</span></span>
+<span class="line"><span>     ↑</span></span>
+<span class="line"><span>   临界点</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>超过临界点后，性能突然跃升！</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_5-4-🎯-数学知识-11-双下降现象" tabindex="-1"><a class="header-anchor" href="#_5-4-🎯-数学知识-11-双下降现象"><span>5.4 🎯 数学知识 11：双下降现象</span></a></h2><h3 id="_5-4-1-双下降曲线" tabindex="-1"><a class="header-anchor" href="#_5-4-1-双下降曲线"><span>5.4.1 双下降曲线</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 统计学习补充</span></span>
+<span class="line"><span>**双下降（Double Descent）：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>测试误差</span></span>
+<span class="line"><span>  │</span></span>
+<span class="line"><span>  │   ┌───┐</span></span>
+<span class="line"><span>  │   │   │      ┌─────┐</span></span>
+<span class="line"><span>  │   │   │     ╱       ╲</span></span>
+<span class="line"><span>  │   │   │    ╱         ╲</span></span>
+<span class="line"><span>  │   │   │   ╱           ╲</span></span>
+<span class="line"><span>  └───┴───┴──┴─────────────▶ 模型复杂度</span></span>
+<span class="line"><span>      ↑     ↑</span></span>
+<span class="line"><span>   过拟合  临界点</span></span>
+<span class="line"><span>   区域   （插值门槛）</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**经典理论：** 偏差-方差权衡</span></span>
+<span class="line"><span>**现代发现：** 过参数化后，测试误差再次下降</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_5-4-2-插值门槛" tabindex="-1"><a class="header-anchor" href="#_5-4-2-插值门槛"><span>5.4.2 插值门槛</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**插值门槛（Interpolation Threshold）：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>当模型参数量 N 接近样本数 M 时：</span></span>
+<span class="line"><span>- 存在至少一个解能完美拟合所有数据</span></span>
+<span class="line"><span>- 测试误差达到峰值</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>当 N &gt;&gt; M 时：</span></span>
+<span class="line"><span>- 损失曲面变得&quot;平坦&quot;</span></span>
+<span class="line"><span>- 泛化能力反而提升</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**直觉解释：**</span></span>
+<span class="line"><span>平坦的极小值更容易被噪声&quot;平滑&quot;</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_5-5-训练大模型的挑战" tabindex="-1"><a class="header-anchor" href="#_5-5-训练大模型的挑战"><span>5.5 训练大模型的挑战</span></a></h2><ul><li>数据并行、模型并行、流水线并行</li><li>计算最优分配（Chinchilla 论文）</li></ul><p><strong>世界线小结：</strong> 规模扩大带来质变，涌现是复杂系统的典型特征。</p><p><strong>数学收束点：</strong></p><ul><li>幂律关系描述规模与性能</li><li>相变理论解释涌现现象</li><li>统计力学提供理论框架</li></ul><hr><h1 id="第六世界线-融合之路-🔴" tabindex="-1"><a class="header-anchor" href="#第六世界线-融合之路-🔴"><span>第六世界线：融合之路 🔴</span></a></h1><blockquote><p><em>「所有的世界线在此交汇，命运石之门出现了。」</em></p></blockquote><p><strong>核心问题：</strong> 如何融合所有能力，通向 AGI？</p><p><strong>数学主题：</strong> 变分推断、信息几何、自由能原理</p><hr><h2 id="_6-1-重新审视神经网络" tabindex="-1"><a class="header-anchor" href="#_6-1-重新审视神经网络"><span>6.1 重新审视神经网络</span></a></h2><ul><li>动力系统视角：dh/dt = f(h, x, θ)</li><li>损失景观几何</li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 动力系统补充</span></span>
+<span class="line"><span>**神经网络作为动力系统：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>连续形式：</span></span>
+<span class="line"><span>dh/dt = f(h, x, θ)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>离散形式（实际使用）：</span></span>
+<span class="line"><span>h_{t+1} = h_t + ε · f(h_t, x_t, θ)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**固定点分析：**</span></span>
+<span class="line"><span>dh/dt = 0 → h* = f(h*, x, θ)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**稳定性分析：**</span></span>
+<span class="line"><span>∂f/∂h 在固定点处的特征值决定稳定性</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_6-2-🎯-数学知识-12-变分推断" tabindex="-1"><a class="header-anchor" href="#_6-2-🎯-数学知识-12-变分推断"><span>6.2 🎯 数学知识 12：变分推断</span></a></h2><h3 id="_6-2-1-变分推断基础" tabindex="-1"><a class="header-anchor" href="#_6-2-1-变分推断基础"><span>6.2.1 变分推断基础</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 变分推断补充</span></span>
+<span class="line"><span>**核心问题：**</span></span>
+<span class="line"><span>后验分布 P(z|x) = P(x,z) / P(x) 难以计算</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**变分近似：**</span></span>
+<span class="line"><span>用简单的分布 Q(z) 近似 P(z|x)</span></span>
+<span class="line"><span>最小化两者的差异：KL(Q || P)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**变分下界（ELBO）：**</span></span>
+<span class="line"><span>log P(x) = L(q) + KL(q(z) || P(z|x))</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>L(q) = E_{z~q}[log P(x,z) - log q(z)]</span></span>
+<span class="line"><span>     ≥ log P(x)  （变分下界）</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**最大化 ELBO = 最小化 KL 散度**</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_6-2-2-重参数化技巧" tabindex="-1"><a class="header-anchor" href="#_6-2-2-重参数化技巧"><span>6.2.2 重参数化技巧</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 数学补充</span></span>
+<span class="line"><span>**重参数化技巧：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>从 q(z|x) 采样：</span></span>
+<span class="line"><span>z ~ q(z|x) = N(μ, σ²)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>等价形式：</span></span>
+<span class="line"><span>z = μ + σ · ε,  ε ~ N(0, 1)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**意义：**</span></span>
+<span class="line"><span>- 采样操作移出梯度路径</span></span>
+<span class="line"><span>- 梯度可以通过 ε 传播</span></span>
+<span class="line"><span>- VAE、扩散模型等都使用此技巧</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_6-3-🎯-数学知识-13-自由能原理" tabindex="-1"><a class="header-anchor" href="#_6-3-🎯-数学知识-13-自由能原理"><span>6.3 🎯 数学知识 13：自由能原理</span></a></h2><h3 id="_6-3-1-自由能定义" tabindex="-1"><a class="header-anchor" href="#_6-3-1-自由能定义"><span>6.3.1 自由能定义</span></a></h3><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 自由能原理补充</span></span>
+<span class="line"><span>**变分自由能（F）：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>F = E_{Q(z)}[log Q(z) - log P(x,z)]</span></span>
+<span class="line"><span>  = KL(Q(z) || P(z|x)) - log P(x)</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**最小化自由能 = 最大化证据下界（ELBO）**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**自由能的两种解释：**</span></span>
+<span class="line"><span>- 复杂度：Q(z) 偏离先验的程度</span></span>
+<span class="line"><span>- 准确度：Q(z) 与似然的匹配度</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>F = 复杂度 - 准确度</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h3 id="_6-3-2-与现有-ai-的联系" tabindex="-1"><a class="header-anchor" href="#_6-3-2-与现有-ai-的联系"><span>6.3.2 与现有 AI 的联系</span></a></h3><table><thead><tr><th>自由能原理</th><th>AI 对应</th></tr></thead><tbody><tr><td>变分推断</td><td>VAE、ELBO</td></tr><tr><td>预测编码</td><td>层级神经网络</td></tr><tr><td>主动探索</td><td>强化学习探索</td></tr><tr><td>精确推断</td><td>VAE 中的编码器</td></tr></tbody></table><h2 id="_6-4-混沌与敏感依赖" tabindex="-1"><a class="header-anchor" href="#_6-4-混沌与敏感依赖"><span>6.4 混沌与敏感依赖</span></a></h2><ul><li>蝴蝶效应与初始化敏感性</li><li>李雅普诺夫指数</li></ul><div class="language- line-numbers-mode" data-highlighter="shiki" data-ext="" style="--shiki-light:#393a34;--shiki-dark:#dbd7caee;--shiki-light-bg:#ffffff;--shiki-dark-bg:#121212;"><pre class="shiki shiki-themes vitesse-light vitesse-dark vp-code"><code class="language-"><span class="line"><span>::: info 混沌理论补充</span></span>
+<span class="line"><span>**李雅普诺夫指数（Lyapunov Exponent）：**</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>λ = lim_{t→∞} (1/t) log|dx(t)/dx(0)|</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**解释：**</span></span>
+<span class="line"><span>- λ &gt; 0：系统混沌（初始误差指数放大）</span></span>
+<span class="line"><span>- λ &lt; 0：系统稳定（初始误差指数衰减）</span></span>
+<span class="line"><span>- λ = 0：临界状态</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>**在神经网络中：**</span></span>
+<span class="line"><span>- 训练过程的敏感性</span></span>
+<span class="line"><span>- 深度网络的表达能力</span></span>
+<span class="line"><span>:::</span></span></code></pre><div class="line-numbers" aria-hidden="true" style="counter-reset:line-number 0;"><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div><div class="line-number"></div></div></div><h2 id="_6-5-agi-的可能路径" tabindex="-1"><a class="header-anchor" href="#_6-5-agi-的可能路径"><span>6.5 AGI 的可能路径</span></a></h2><ul><li>世界模型、具身智能、神经符号 AI</li><li>当前局限与开放问题</li></ul><h2 id="_6-6-命运石之门" tabindex="-1"><a class="header-anchor" href="#_6-6-命运石之门"><span>6.6 命运石之门</span></a></h2><ul><li>融合所有世界线的终极答案</li><li>El Psy Congroo</li></ul><p><strong>世界线小结：</strong> 数学是统一所有世界线的语言，从线性代数到变分推断，每一步都是对智能本质的深入。</p><p><strong>数学收束点：</strong></p><ul><li>优化是学习的核心机制</li><li>信息论衡量不确定性</li><li>变分推断连接概率与深度学习</li></ul><hr><h2 id="附录-a-完整数学速查表" tabindex="-1"><a class="header-anchor" href="#附录-a-完整数学速查表"><span>附录 A：完整数学速查表</span></a></h2><h3 id="a-1-线性代数" tabindex="-1"><a class="header-anchor" href="#a-1-线性代数"><span>A.1 线性代数</span></a></h3><table><thead><tr><th>概念</th><th>公式</th><th>备注</th></tr></thead><tbody><tr><td>向量点积</td><td>a · b = Σᵢ aᵢ bᵢ</td><td>相似度度量</td></tr><tr><td>矩阵乘法</td><td>(AB)ᵢⱼ = Σₖ Aᵢₖ Bₖⱼ</td><td>线性变换</td></tr><tr><td>特征分解</td><td>Av = λv</td><td>主成分分析基础</td></tr><tr><td>奇异值分解</td><td>A = UΣVᵀ</td><td>矩阵近似</td></tr><tr><td>范数</td><td>||x||₂ = √Σxᵢ²</td><td>距离度量</td></tr></tbody></table><h3 id="a-2-概率论" tabindex="-1"><a class="header-anchor" href="#a-2-概率论"><span>A.2 概率论</span></a></h3><table><thead><tr><th>概念</th><th>公式</th><th>备注</th></tr></thead><tbody><tr><td>条件概率</td><td>P(A|B) = P(A∩B)/P(B)</td><td>贝叶斯基础</td></tr><tr><td>贝叶斯定理</td><td>P(y|x) = P(x|y)P(y)/P(x)</td><td>分类器概率解释</td></tr><tr><td>期望</td><td>E[X] = Σx P(x)</td><td>平均值</td></tr><tr><td>方差</td><td>Var(X) = E[(X-E[X])²]</td><td>离散度</td></tr><tr><td>KL 散度</td><td>D_KL(P||Q) = ΣP log(P/Q)</td><td>分布差异</td></tr></tbody></table><h3 id="a-3-微积分" tabindex="-1"><a class="header-anchor" href="#a-3-微积分"><span>A.3 微积分</span></a></h3><table><thead><tr><th>概念</th><th>公式</th><th>备注</th></tr></thead><tbody><tr><td>链式法则</td><td>d(f∘g)/dx = f&#39;(g(x))g&#39;(x)</td><td>反向传播基础</td></tr><tr><td>梯度</td><td>∇f = [∂f/∂x₁, ..., ∂f/∂xₙ]ᵀ</td><td>最速下降方向</td></tr><tr><td>雅可比矩阵</td><td>Jᵢⱼ = ∂fᵢ/∂xⱼ</td><td>多变量导数</td></tr><tr><td>海森矩阵</td><td>Hᵢⱼ = ∂²f/∂xᵢ∂xⱼ</td><td>二阶导数</td></tr></tbody></table><h3 id="a-4-信息论" tabindex="-1"><a class="header-anchor" href="#a-4-信息论"><span>A.4 信息论</span></a></h3><table><thead><tr><th>概念</th><th>公式</th><th>备注</th></tr></thead><tbody><tr><td>自信息</td><td>I(x) = -log P(x)</td><td>信息量</td></tr><tr><td>熵</td><td>H(X) = -Σ P(x) log P(x)</td><td>不确定性</td></tr><tr><td>交叉熵</td><td>H(P,Q) = -Σ P log Q</td><td>分类损失</td></tr><tr><td>互信息</td><td>I(X;Y) = H(X) - H(X|Y)</td><td>依赖度量</td></tr></tbody></table><h3 id="a-5-优化" tabindex="-1"><a class="header-anchor" href="#a-5-优化"><span>A.5 优化</span></a></h3><table><thead><tr><th>概念</th><th>公式</th><th>备注</th></tr></thead><tbody><tr><td>梯度下降</td><td>θ ← θ - η∇θJ(θ)</td><td>基本优化器</td></tr><tr><td>动量</td><td>v ← γv + η∇θJ(θ)</td><td>加速收敛</td></tr><tr><td>Adam</td><td>m/v 更新 + 偏差修正</td><td>自适应学习率</td></tr></tbody></table><hr><h2 id="附录-b-世界线与章节对照表" tabindex="-1"><a class="header-anchor" href="#附录-b-世界线与章节对照表"><span>附录 B：世界线与章节对照表</span></a></h2><table><thead><tr><th>世界线</th><th>章节范围</th><th>核心问题</th><th>技术方案</th><th>数学主题</th></tr></thead><tbody><tr><td>序章</td><td>第0章</td><td>什么是 AGI？</td><td>目标设定</td><td>-</td></tr><tr><td>世界线1</td><td>第1.1-1.9</td><td>如何识别？</td><td>MLP、梯度下降</td><td>线性代数、概率论、优化</td></tr><tr><td>世界线2</td><td>第2.1-2.6</td><td>如何看图？</td><td>CNN、卷积</td><td>卷积数学、特征提取</td></tr><tr><td>世界线3</td><td>第3.1-3.5</td><td>如何记忆？</td><td>RNN、LSTM</td><td>循环数学、门控机制</td></tr><tr><td>世界线4</td><td>第4.1-4.6</td><td>如何关注？</td><td>注意力、Transformer</td><td>相似度、信息论</td></tr><tr><td>世界线5</td><td>第5.1-5.5</td><td>如何规模化？</td><td>涌现、规模化定律</td><td>幂律、相变、统计力学</td></tr><tr><td>世界线6</td><td>第6.1-6.6</td><td>如何融合？</td><td>自由能、AGI 路径</td><td>变分推断、信息几何</td></tr></tbody></table><hr><h2 id="附录-c-核心概念索引" tabindex="-1"><a class="header-anchor" href="#附录-c-核心概念索引"><span>附录 C：核心概念索引</span></a></h2><table><thead><tr><th>概念</th><th>首次出现</th><th>数学分类</th><th>重要性</th></tr></thead><tbody><tr><td>梯度下降</td><td>第1.7章</td><td>优化</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>反向传播</td><td>第1.8章</td><td>微积分</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>卷积</td><td>第2.2章</td><td>线性代数</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>残差连接</td><td>第2.6章</td><td>微积分</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>注意力</td><td>第4.2章</td><td>线性代数</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>Softmax</td><td>第4.2章</td><td>概率论</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>Sigmoid/Tanh/ReLU</td><td>第1.9章</td><td>函数</td><td>⭐⭐⭐⭐</td></tr><tr><td>链式法则</td><td>第1.8章</td><td>微积分</td><td>⭐⭐⭐⭐⭐</td></tr><tr><td>涌现</td><td>第5.2章</td><td>统计物理</td><td>⭐⭐⭐⭐</td></tr><tr><td>ELBO</td><td>第6.3章</td><td>变分推断</td><td>⭐⭐⭐⭐</td></tr><tr><td>熵</td><td>第4.3章</td><td>信息论</td><td>⭐⭐⭐⭐</td></tr><tr><td>KL 散度</td><td>第4.3章</td><td>信息论</td><td>⭐⭐⭐⭐</td></tr><tr><td>相变</td><td>第5.2章</td><td>统计物理</td><td>⭐⭐⭐</td></tr><tr><td>自由能</td><td>第6.3章</td><td>变分推断</td><td>⭐⭐⭐⭐</td></tr></tbody></table><hr><blockquote><p><strong>&quot;El Psy Congroo.&quot;</strong></p><p>—— 愿你在探索中，找到属于自己的「Steins Gate」。</p></blockquote>`,245)])])}const t=n(l,[["render",p]]),r=JSON.parse('{"path":"/amadeus-gate/outline/","title":"大纲","lang":"zh-CN","frontmatter":{"title":"大纲","createTime":"2025/12/29 19:16:16","permalink":"/amadeus-gate/outline/","description":"\\"一切都是命运石之门的选择。\\" —— 穿越无数世界线，只为找到那条通往 AGI 的「Steins Gate」 🌉 世界观设定 核心隐喻表 学习路径总览 第零章：目标——构建 AGI 🟢 「在开始旅程之前，我们需要知道目的地在哪里。」 0.0 在学习之前 讲义信息框说明 提问的智慧 大佬三连：STFW, RTFM, RTFSC 学会独立解决问题 0....","head":[["script",{"type":"application/ld+json"},"{\\"@context\\":\\"https://schema.org\\",\\"@type\\":\\"Article\\",\\"headline\\":\\"大纲\\",\\"image\\":[\\"\\"],\\"dateModified\\":\\"2025-12-31T11:41:24.000Z\\",\\"author\\":[]}"],["meta",{"property":"og:url","content":"https://ecustcic-codehub.github.io/FullStack-Voyage/Dev-Voyage/amadeus-gate/outline/"}],["meta",{"property":"og:site_name","content":"Dev Voyage"}],["meta",{"property":"og:title","content":"大纲"}],["meta",{"property":"og:description","content":"\\"一切都是命运石之门的选择。\\" —— 穿越无数世界线，只为找到那条通往 AGI 的「Steins Gate」 🌉 世界观设定 核心隐喻表 学习路径总览 第零章：目标——构建 AGI 🟢 「在开始旅程之前，我们需要知道目的地在哪里。」 0.0 在学习之前 讲义信息框说明 提问的智慧 大佬三连：STFW, RTFM, RTFSC 学会独立解决问题 0...."}],["meta",{"property":"og:type","content":"article"}],["meta",{"property":"og:locale","content":"zh-CN"}],["meta",{"property":"og:updated_time","content":"2025-12-31T11:41:24.000Z"}],["meta",{"property":"article:modified_time","content":"2025-12-31T11:41:24.000Z"}]]},"readingTime":{"minutes":20.14,"words":6041},"git":{"createdTime":1767007744000,"updatedTime":1767181284000,"contributors":[{"name":"ChenXu233","username":"ChenXu233","email":"91937041+ChenXu233@users.noreply.github.com","commits":2,"avatar":"https://avatars.githubusercontent.com/ChenXu233?v=4","url":"https://github.com/ChenXu233"}]},"autoDesc":true,"filePathRelative":"amadeus-gate/大纲.md","headers":[]}');export{t as comp,r as data};
