@@ -8,7 +8,9 @@ permalink: /fullstack-course/index/
 
 
 ::: important
-目前课程大部分内容已完成，后续我们会继续更新以解决一些小错误。
+目前课程大纲内容已完成，后续我们会继续更新以解决一些小错误。
+
+大部分示例暂未完成，可能存在一些错误。
 
 如果你发现任何问题或有建议，欢迎提出 [Issue](https://github.com/ECUSTCIC-CodeHub/Dev-Voyage/issues/new) 或 [PR](https://github.com/ECUSTCIC-CodeHub/Dev-Voyage/pulls)。
 
