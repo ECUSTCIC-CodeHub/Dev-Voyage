@@ -38,6 +38,13 @@ const courseCards = computed(() => [
     icon: '🔧',
     link: '/essential/git-usage/',
     features: ['Git基础', '分支管理', '协作流程', '最佳实践']
+  },
+  {
+    title: 'GitHub完全入门指北',
+    description: '从零开始使用GitHub，托管你的代码',
+    icon: '📦',
+    link: '/essential/github-intro/',
+    features: ['仓库管理', '分支管理', '协作流程', '最佳实践']
   }
 ])
 
@@ -280,9 +287,11 @@ const techStack = ['Terminal', 'Bash', 'Git', 'Linux', 'CLI', 'DevTools']
 
 /* Buttons */
 .hero-actions {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 1rem;
   margin-bottom: 2rem;
+  max-width: 400px;
 }
 
 .tech-btn {

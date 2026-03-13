@@ -21,4 +21,8 @@ config:
           theme: brand
           text: 版本控制基础：给你的代码买份“后悔药”
           link: git-usage/
+        -
+          theme: brand
+          text: gihhub 完全入门指北
+          link: github-intro.md
 ---
