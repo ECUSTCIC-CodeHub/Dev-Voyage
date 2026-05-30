@@ -17,8 +17,6 @@ permalink: /essential/elementary-system/9-performance-optimization/
 - 建立日常维护电脑的好习惯
 :::
 
-:::
-
 > **问题来了**："为什么新电脑用半年就变卡？那些'电脑管家'到底有没有用？什么时候该重装系统？"
 
 ## 🎬 一个真实的"电脑卡顿"惨案
