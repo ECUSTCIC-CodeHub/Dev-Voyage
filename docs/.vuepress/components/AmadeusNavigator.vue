@@ -1,8 +1,7 @@
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { usePageFrontmatter } from '@vuepress/client'
 import {
-  identifyMainLine,
   computePositions,
   buildEdgePaths,
   CARD_WIDTH,
@@ -60,6 +59,10 @@ function nodeOpacity(nodeId: string): number {
   return isNodeVisible(nodeId) ? 1 : 0.08
 }
 
+function splitLabel(label: string): string[] {
+  return label.split(/\\n/)
+}
+
 function onWheel(e: WheelEvent) {
   e.preventDefault()
   const rect = containerRef.value!.getBoundingClientRect()
@@ -92,6 +95,7 @@ function onMouseUp() {
 }
 
 function resetView() {
+  if (!containerRef.value) return
   scale.value = 0.3
   const pos = positions.value.get('ch0')
   if (pos) {
@@ -105,7 +109,8 @@ function resetView() {
 }
 
 function fitToScreen() {
-  const rect = containerRef.value!.getBoundingClientRect()
+  if (!containerRef.value) return
+  const rect = containerRef.value.getBoundingClientRect()
   const fitScale = Math.min(
     rect.width / canvasWidth.value,
     rect.height / canvasHeight.value,
@@ -140,8 +145,11 @@ function onCardLeave() {
 
 onMounted(() => {
   document.addEventListener('keydown', onKeyDown)
-  setTimeout(resetView, 200)
 })
+
+watch(positions, (p) => {
+  if (p.size > 0) resetView()
+}, { once: true })
 
 onUnmounted(() => {
   document.removeEventListener('keydown', onKeyDown)
@@ -279,7 +287,6 @@ onUnmounted(() => {
             top: (positions.get(node.id)?.y || 0) + 'px',
             width: (positions.get(node.id)?.width || CARD_WIDTH) + 'px',
             opacity: nodeOpacity(node.id),
-            transition: 'opacity 0.4s ease',
             pointerEvents: isNodeVisible(node.id) ? 'auto' : 'none',
           }"
           @mouseenter="(e) => onCardEnter(node, e)"
@@ -300,7 +307,11 @@ onUnmounted(() => {
           <div v-else class="static-card" :class="node.type">
             <div class="static-card-inner">
               <div class="static-type">{{ node.type }}</div>
-              <div class="static-label" v-html="node.label.replace(/\\n/g, '<br/>')"></div>
+              <div class="static-label">
+                <template v-for="(line, i) in splitLabel(node.label)" :key="i">
+                  {{ line }}<br v-if="i < splitLabel(node.label).length - 1"/>
+                </template>
+              </div>
             </div>
           </div>
         </div>
@@ -340,6 +351,9 @@ onUnmounted(() => {
 @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
 
 .navigator-stage {
+  --color-main: #ffd700;
+  --color-branch: #f59e0b;
+  --color-converge: #c4b5fd;
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
@@ -426,7 +440,7 @@ onUnmounted(() => {
 }
 
 .filter-btn:hover { color: #0f0; border-color: #0f0; }
-.filter-btn.active { color: #ffd700; border-color: #ffd700; background: rgba(255,215,0,0.1); }
+.filter-btn.active { color: var(--color-main); border-color: var(--color-main); background: rgba(255,215,0,0.1); }
 
 /* Title */
 .dag-title { text-align: center; padding: 10px 40px 0; flex-shrink: 0; }
@@ -459,11 +473,13 @@ onUnmounted(() => {
 
 .edge-layer { position: absolute; top: 0; left: 0; pointer-events: none; }
 
+.card-wrapper { transition: opacity 0.4s ease; }
+
 /* Static card for nodes without path */
 .static-card { background: #0a0a0a; border: 1px solid #333; height: 100%; display: flex; align-items: center; justify-content: center; }
-.static-card.main { border-color: #ffd700; border-width: 2px; }
-.static-card.branch { border-color: #f59e0b; border-style: dashed; }
-.static-card.converge { border-color: #c4b5fd; border-width: 2px; }
+.static-card.main { border-color: var(--color-main); border-width: 2px; }
+.static-card.branch { border-color: var(--color-branch); border-style: dashed; }
+.static-card.converge { border-color: var(--color-converge); border-width: 2px; }
 .static-card.deadend { border-color: #16a34a; border-style: dashed; }
 
 .static-card-inner { text-align: center; padding: 8px; }
@@ -486,9 +502,9 @@ onUnmounted(() => {
 .dag-tooltip.visible { opacity: 1; }
 
 .tooltip-dot { width: 8px; height: 8px; flex-shrink: 0; }
-.tooltip-dot.main { background: #ffd700; box-shadow: 0 0 8px #ffd700; }
-.tooltip-dot.branch { background: #f59e0b; }
-.tooltip-dot.converge { background: #c4b5fd; box-shadow: 0 0 8px #7c3aed; }
+.tooltip-dot.main { background: var(--color-main); box-shadow: 0 0 8px var(--color-main); }
+.tooltip-dot.branch { background: var(--color-branch); }
+.tooltip-dot.converge { background: var(--color-converge); box-shadow: 0 0 8px #7c3aed; }
 .tooltip-dot.deadend { background: #16a34a; }
 
 .tooltip-title { color: #0f0; font-family: 'Share Tech Mono', monospace; font-size: 12px; }
@@ -521,9 +537,9 @@ onUnmounted(() => {
 }
 
 .legend-dot { width: 12px; height: 12px; border-radius: 3px; flex-shrink: 0; }
-.legend-dot.main { background: #1a1a0e; border: 2px solid #ffd700; }
-.legend-dot.branch { background: #2a1a0d; border: 2px dashed #f59e0b; }
-.legend-dot.converge { background: #1a0d2a; border: 3px solid #c4b5fd; }
+.legend-dot.main { background: #1a1a0e; border: 2px solid var(--color-main); }
+.legend-dot.branch { background: #2a1a0d; border: 2px dashed var(--color-branch); }
+.legend-dot.converge { background: #1a0d2a; border: 3px solid var(--color-converge); }
 .legend-dot.deadend { background: #162a0d; border: 2px dashed #16a34a; }
 
 .legend-item hr { width: 100%; border: none; border-top: 1px solid #333; }
