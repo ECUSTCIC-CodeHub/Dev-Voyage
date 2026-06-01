@@ -54,9 +54,6 @@ const BRANCH_LEFT_X_RATIO = 0.12
 /** X position for right-side branch nodes. */
 const BRANCH_RIGHT_X_RATIO = 0.78
 
-/** Vertical padding between main line nodes. */
-const MAIN_LINE_Y_SPACING = 220
-
 /** Vertical spacing between sibling branches grouped under the same anchor. */
 const BRANCH_Y_SPACING = 200
 
@@ -146,11 +143,11 @@ export function computePositions(
   edges: DagEdge[],
   canvasWidth: number,
   canvasHeight: number,
-  mainLine: string[],
 ): Map<string, NodePosition> {
   const positions = new Map<string, NodePosition>()
   if (nodes.length === 0) return positions
 
+  const mainLine = identifyMainLine(nodes, edges)
   const mainLineSet = new Set(mainLine)
 
   const mainX = canvasWidth * MAIN_LINE_X_RATIO * RATIO_TO_PX_SCALE
@@ -270,11 +267,10 @@ export function computePositions(
  * - Converge edges: isConverge is true when the target node is type 'converge'.
  */
 export function buildEdgePaths(
-  nodes: DagNode[],
   edges: DagEdge[],
   positions: Map<string, NodePosition>,
+  nodeMap: Map<string, DagNode>,
 ): EdgePath[] {
-  const nodeType = new Map(nodes.map(n => [n.id, n.type]))
   const out: EdgePath[] = []
 
   for (const e of edges) {
@@ -300,13 +296,13 @@ export function buildEdgePaths(
       d = `M ${aCenterX} ${aCenterY} C ${aCenterX} ${cy1}, ${bCenterX} ${cy2}, ${bCenterX} ${bCenterY}`
     }
 
-    const targetType = nodeType.get(e.to)
+    const targetNode = nodeMap.get(e.to)
     out.push({
       from: e.from,
       to: e.to,
       d,
       dashed: !!e.dashed,
-      isConverge: targetType === 'converge',
+      isConverge: targetNode?.type === 'converge',
     })
   }
 
