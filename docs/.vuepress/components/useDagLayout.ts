@@ -57,9 +57,6 @@ const BRANCH_RIGHT_X_RATIO = 0.78
 /** Vertical spacing between sibling branches grouped under the same anchor. */
 const BRANCH_Y_SPACING = 200
 
-/** X offset (px) of branch x position from ratio (e.g. 0.12 → ratio * width). */
-const RATIO_TO_PX_SCALE = 1
-
 /** Top/bottom margin inside the canvas. */
 const CANVAS_MARGIN_Y = 80
 
@@ -150,9 +147,9 @@ export function computePositions(
   const mainLine = identifyMainLine(nodes, edges)
   const mainLineSet = new Set(mainLine)
 
-  const mainX = canvasWidth * MAIN_LINE_X_RATIO * RATIO_TO_PX_SCALE
-  const leftX = canvasWidth * BRANCH_LEFT_X_RATIO * RATIO_TO_PX_SCALE
-  const rightX = canvasWidth * BRANCH_RIGHT_X_RATIO * RATIO_TO_PX_SCALE
+  const mainX = canvasWidth * MAIN_LINE_X_RATIO
+  const leftX = canvasWidth * BRANCH_LEFT_X_RATIO
+  const rightX = canvasWidth * BRANCH_RIGHT_X_RATIO
 
   // ── Place the main line first ──
   // Vertical positions: evenly spaced from top margin to bottom margin.
@@ -172,27 +169,42 @@ export function computePositions(
     })
   }
 
-  // ── Group branches by their connected main-line node ──
-  // For each non-main node, find which main-line node it connects to.
-  // (Walk the edge list — could be a parent edge, child edge, or both.)
+  // ── Group branches by their nearest main-line node ──
+  // Build bidirectional neighbour map from ALL edges (dashed + solid).
+  const neighbours = new Map<string, string[]>()
+  for (const e of edges) {
+    const fromList = neighbours.get(e.from) ?? []
+    fromList.push(e.to)
+    neighbours.set(e.from, fromList)
+    const toList = neighbours.get(e.to) ?? []
+    toList.push(e.from)
+    neighbours.set(e.to, toList)
+  }
+
   const mainAnchoredParents = new Map<string, string[]>() // mainId → branchIds
 
   for (const node of nodes) {
     if (mainLineSet.has(node.id)) continue
 
-    // Find any edge connecting this branch to the main line.
+    // BFS outward to find the nearest main-line node.
+    const visited = new Set<string>([node.id])
+    const queue: string[] = [node.id]
     let anchor: string | undefined
-    for (const e of edges) {
-      if (e.dashed) continue
-      if (e.from === node.id && mainLineSet.has(e.to)) {
-        anchor = e.to
-        break
-      }
-      if (e.to === node.id && mainLineSet.has(e.from)) {
-        anchor = e.from
-        break
+
+    while (queue.length > 0) {
+      const cur = queue.shift()!
+      for (const nb of neighbours.get(cur) ?? []) {
+        if (visited.has(nb)) continue
+        visited.add(nb)
+        if (mainLineSet.has(nb)) {
+          anchor = nb
+          queue.length = 0 // break outer loop
+          break
+        }
+        queue.push(nb)
       }
     }
+
     if (anchor) {
       const list = mainAnchoredParents.get(anchor) ?? []
       list.push(node.id)
