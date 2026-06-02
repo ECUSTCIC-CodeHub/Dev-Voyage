@@ -8,212 +8,212 @@ dag:
     - id: ch0
       label: "Ch0\n序章"
       type: main
-      path: /amadeus-gate/goal/
+      path: goal/
       bgImage: /img/amadeus-gate/atom.jpg
     - id: ch1
       label: "Ch1\nML基础"
       type: main
-      path: /amadeus-gate/recognition/
+      path: recognition/
     - id: ch2
       label: "Ch2\n经典分类器"
       type: main
-      path: /amadeus-gate/classifiers/
+      path: classifiers/
     - id: ch3
       label: "Ch3\n神经网络入门"
       type: main
-      path: /amadeus-gate/neural-networks/
+      path: neural-networks/
     - id: ch4
       label: "Ch4\n优化理论"
       type: main
-      path: /amadeus-gate/optimization/
+      path: optimization/
     - id: ch5
       label: "Ch5\nCNN 视觉之门"
       type: main
-      path: /amadeus-gate/cnn/
+      path: cnn/
     - id: ch8
       label: "Ch8\nTransformer基础"
       type: main
-      path: /amadeus-gate/transformer/
+      path: transformer/
     - id: ch11
       label: "Ch11 ⚡\n注意力收束"
       type: converge
-      path: /amadeus-gate/attention-convergence/
+      path: attention-convergence/
     - id: ch12
       label: "Ch12\n预训练"
       type: main
-      path: /amadeus-gate/pretraining/
+      path: pretraining/
     - id: ch13
       label: "Ch13\n后训练与对齐"
       type: main
-      path: /amadeus-gate/post-training/
+      path: post-training/
     - id: ch14
       label: "Ch14\n评估与基准"
       type: main
-      path: /amadeus-gate/evaluation/
+      path: evaluation/
     - id: ch15
       label: "Ch15\n规模化涌现"
       type: main
-      path: /amadeus-gate/scaling/
+      path: scaling/
     - id: ch18
       label: "Ch18 ◆\nSteins Gate"
       type: converge
-      path: /amadeus-gate/steins-gate/
+      path: steins-gate/
 
     # ═══════════ 早期分支 (Ch1-4) ═══════════
     - id: b-kernel
       label: "核方法\nSVM·核技巧"
       type: branch
-      path: /amadeus-gate/branches/kernel-methods/
+      path: branches/kernel-methods/
     - id: b-pgm
       label: "概率图模型\n贝叶斯·HMM·CRF"
       type: branch
-      path: /amadeus-gate/branches/pgm/
+      path: branches/pgm/
     - id: b-recsys
       label: "推荐系统\n协同过滤→双塔"
       type: deadend
-      path: /amadeus-gate/branches/recsys/
+      path: branches/recsys/
     - id: b-info
       label: "信息论\n熵·KL·率失真"
       type: branch
-      path: /amadeus-gate/branches/information-theory/
+      path: branches/information-theory/
     - id: b-causal
       label: "因果ML\ndo-calculus·Double ML"
       type: branch
-      path: /amadeus-gate/branches/causal-ml/
+      path: branches/causal-ml/
 
     # ═══════════ 分叉期分支 (Ch5-7) ═══════════
     - id: b-advml
       label: "对抗ML\nFGSM·PGD"
       type: branch
-      path: /amadeus-gate/branches/adv-ml/
+      path: branches/adv-ml/
     - id: b-rnn
       label: "β线 RNN链 (3篇)\nLSTM→GRU→Attention起源"
       type: branch
-      path: /amadeus-gate/branches/rnn/
+      path: branches/rnn/
     - id: b-mamba
       label: "Mamba/SSM\nS4→Mamba→Mamba2"
       type: branch
-      path: /amadeus-gate/branches/mamba/
+      path: branches/mamba/
     - id: b-ts
       label: "时序预测\nPatchTST·TimesFM"
       type: branch
-      path: /amadeus-gate/branches/timeseries/
+      path: branches/timeseries/
     - id: b-gnn
       label: "δ线 GNN链 (3篇)\nGCN→GAT→GIN"
       type: branch
-      path: /amadeus-gate/branches/gnn/
+      path: branches/gnn/
     - id: b-geom
       label: "几何深度学习\n群等变·流形·拓扑"
       type: branch
-      path: /amadeus-gate/branches/geometric-dl/
+      path: branches/geometric-dl/
 
     # ═══════════ 交汇期分支 (Ch8-10) ═══════════
     - id: b-vit
       label: "ViT\n视觉Transformer"
       type: branch
-      path: /amadeus-gate/branches/vit/
+      path: branches/vit/
     - id: b-audio
       label: "音频ML\nWhisper·HuBERT"
       type: branch
-      path: /amadeus-gate/branches/audio-ml/
+      path: branches/audio-ml/
     - id: b-titans
       label: "Titans\n记忆增强架构"
       type: branch
-      path: /amadeus-gate/branches/titans/
+      path: branches/titans/
     - id: b-gen
       label: "γ线 生成模型链 (4篇)\nVAE→GAN→Diffusion→FM"
       type: branch
-      path: /amadeus-gate/branches/generative/
+      path: branches/generative/
     - id: b-ae
       label: "自编码器\n稀疏·降噪·收缩"
       type: branch
-      path: /amadeus-gate/branches/autoencoders/
+      path: branches/autoencoders/
     - id: b-3dgen
       label: "3D生成\nNeRF·3DGS"
       type: branch
-      path: /amadeus-gate/branches/3d-generation/
+      path: branches/3d-generation/
     - id: b-jepa
       label: "JEPA/世界模型\nI-JEPA→LeWorldModel"
       type: branch
-      path: /amadeus-gate/branches/jepa/
+      path: branches/jepa/
     - id: b-ssl
       label: "ε线 自监督链 (3篇)\nSimCLR→DINO→MAE"
       type: branch
-      path: /amadeus-gate/branches/self-supervised/
+      path: branches/self-supervised/
     - id: b-contrast
       label: "对比学习深入\nInfoNCE·多视图理论"
       type: branch
-      path: /amadeus-gate/branches/contrastive-deep/
+      path: branches/contrastive-deep/
     - id: b-neuro
       label: "神经符号AI\nRiJEPA·EBC逻辑约束"
       type: branch
-      path: /amadeus-gate/branches/neurosymbolic/
+      path: branches/neurosymbolic/
 
     # ═══════════ 收束后分支 (Ch11后) ═══════════
     - id: b-interp
       label: "机制可解释性\nSAE→Circuit Tracing"
       type: branch
-      path: /amadeus-gate/branches/interpretability/
+      path: branches/interpretability/
     - id: b-kd
       label: "知识蒸馏\nHinton→LLM蒸馏"
       type: branch
-      path: /amadeus-gate/branches/knowledge-distillation/
+      path: branches/knowledge-distillation/
 
     # ═══════════ 大模型分支 (Ch12-15) ═══════════
     - id: b-deploy
       label: "推理与部署\n量化·vLLM·KV Cache"
       type: deadend
-      path: /amadeus-gate/branches/inference-deployment/
+      path: branches/inference-deployment/
     - id: b-data
       label: "数据工程\n飞轮·合成·去重"
       type: branch
-      path: /amadeus-gate/branches/data-engineering/
+      path: branches/data-engineering/
     - id: b-oss
       label: "开源生态\nHF·许可·Open Weights"
       type: branch
-      path: /amadeus-gate/branches/open-source-eco/
+      path: branches/open-source-eco/
     - id: b-safety
       label: "AI安全\n涌现错位·CoT监控"
       type: branch
-      path: /amadeus-gate/branches/ai-safety/
+      path: branches/ai-safety/
     - id: b-dist
       label: "分布式训练\nDP·TP·PP·ZeRO"
       type: branch
-      path: /amadeus-gate/branches/distributed-training/
+      path: branches/distributed-training/
     - id: b-moe
       label: "MoE\n稀疏门控→Mixtral"
       type: branch
-      path: /amadeus-gate/branches/moe/
+      path: branches/moe/
     - id: b-nas
       label: "神经架构搜索\nDARTS→Once-for-All"
       type: branch
-      path: /amadeus-gate/branches/nas/
+      path: branches/nas/
     - id: b-fed
       label: "联邦学习\nFedAvg·差分隐私"
       type: branch
-      path: /amadeus-gate/branches/federated-learning/
+      path: branches/federated-learning/
 
     # ═══════════ 终章分支 (Ch15后) ═══════════
     - id: b-rl
       label: "ζ线 强化学习链 (3篇)\nMDP→DQN→PPO→SAC"
       type: branch
-      path: /amadeus-gate/branches/reinforcement-learning/
+      path: branches/reinforcement-learning/
     - id: b-agent
       label: "Agent深入\nMulti-Agent·MCP/A2A"
       type: branch
-      path: /amadeus-gate/branches/agent/
+      path: branches/agent/
     - id: b-multimodal
       label: "η线 多模态链 (3篇)\nCLIP→BLIP→LLaVA"
       type: branch
-      path: /amadeus-gate/branches/multimodal/
+      path: branches/multimodal/
     - id: b-video
       label: "视频理解\nTimeSformer·VideoLLM"
       type: branch
-      path: /amadeus-gate/branches/video-understanding/
+      path: branches/video-understanding/
     - id: b-embodied
       label: "具身智能\nVLA·RT-2·扩散策略"
       type: branch
-      path: /amadeus-gate/branches/embodied-ai/
+      path: branches/embodied-ai/
 
   edges:
     # ── 第一幕：基石 ──
