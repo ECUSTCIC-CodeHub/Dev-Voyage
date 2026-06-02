@@ -48,17 +48,20 @@ export const CARD_HEIGHT = 160
 /** X position of the main vertical line (ratio of canvas width). */
 const MAIN_LINE_X_RATIO = 0.5
 
-/** X position for left-side branch nodes. */
-const BRANCH_LEFT_X_RATIO = 0.12
+/** Branch columns — distance from left edge (ratio). 3 left + 3 right = 6 columns total. */
+const BRANCH_COLUMNS = [
+  0.35, 0.22, 0.08,  // left side: inner → outer
+  0.65, 0.78, 0.92,  // right side: inner → outer
+]
 
-/** X position for right-side branch nodes. */
-const BRANCH_RIGHT_X_RATIO = 0.78
-
-/** Vertical spacing between sibling branches grouped under the same anchor. */
-const BRANCH_Y_SPACING = 200
+/** Vertical spacing between branches stacked in the same column. */
+const BRANCH_Y_SPACING = CARD_HEIGHT + 30
 
 /** Top/bottom margin inside the canvas. */
-const CANVAS_MARGIN_Y = 80
+const CANVAS_MARGIN_Y = 100
+
+/** Minimum gap between adjacent cards to prevent overlap. */
+const MIN_CARD_GAP = 10
 
 /* ── identifyMainLine ───────────────────────────────────────────── */
 
@@ -128,12 +131,11 @@ export function identifyMainLine(
  * Compute (x, y) for every node given canvas dimensions.
  *
  * Layout strategy:
- *   - Main line: vertical center column, evenly spaced top→bottom
- *   - Branches:   alternating left/right, grouped by the main-line node
- *                they connect from. Branches that share the same parent
- *                are stacked vertically next to that parent.
- *   - Fallback:   branches with no main-line parent are pushed to the
- *                bottom of the canvas, alternating sides.
+ *   - Main line: vertical center column, evenly spaced top→bottom.
+ *   - Branches: spread across 6 columns (3 left + 3 right).
+ *     Each branch is anchored to its nearest main-line node.
+ *     Within each anchor-group, branches stack vertically near the anchor's Y.
+ *     A greedy collision-detection pass shifts cards away from each other.
  */
 export function computePositions(
   nodes: DagNode[],
@@ -146,122 +148,163 @@ export function computePositions(
 
   const mainLine = identifyMainLine(nodes, edges)
   const mainLineSet = new Set(mainLine)
+  const nodeIndex = new Map(nodes.map(n => [n.id, n]))
 
   const mainX = canvasWidth * MAIN_LINE_X_RATIO
-  const leftX = canvasWidth * BRANCH_LEFT_X_RATIO
-  const rightX = canvasWidth * BRANCH_RIGHT_X_RATIO
+  const columnXs = BRANCH_COLUMNS.map(r => canvasWidth * r)
 
-  // ── Place the main line first ──
-  // Vertical positions: evenly spaced from top margin to bottom margin.
+  // ── Place the main line ──
   const mainCount = mainLine.length
   const usableHeight = Math.max(canvasHeight - CANVAS_MARGIN_Y * 2, 0)
-  const step = mainCount > 1 ? usableHeight / (mainCount - 1) : 0
+  const mainSpacing = mainCount > 1 ? usableHeight / (mainCount - 1) : 0
 
   for (let i = 0; i < mainCount; i++) {
     const id = mainLine[i]
-    const y = mainCount > 1 ? CANVAS_MARGIN_Y + step * i : canvasHeight / 2
+    const y = mainCount > 1
+      ? CANVAS_MARGIN_Y + mainSpacing * i - CARD_HEIGHT / 2
+      : canvasHeight / 2 - CARD_HEIGHT / 2
     positions.set(id, {
       id,
       x: mainX - CARD_WIDTH / 2,
-      y: y - CARD_HEIGHT / 2,
+      y,
       width: CARD_WIDTH,
       height: CARD_HEIGHT,
     })
   }
 
-  // ── Group branches by their nearest main-line node ──
-  // Build bidirectional neighbour map from ALL edges (dashed + solid).
+  // ── Build neighbour map (all edges, bidirectional) ──
   const neighbours = new Map<string, string[]>()
   for (const e of edges) {
-    const fromList = neighbours.get(e.from) ?? []
-    fromList.push(e.to)
-    neighbours.set(e.from, fromList)
-    const toList = neighbours.get(e.to) ?? []
-    toList.push(e.from)
-    neighbours.set(e.to, toList)
+    const fl = neighbours.get(e.from) ?? []
+    fl.push(e.to); neighbours.set(e.from, fl)
+    const tl = neighbours.get(e.to) ?? []
+    tl.push(e.from); neighbours.set(e.to, tl)
   }
 
-  const mainAnchoredParents = new Map<string, string[]>() // mainId → branchIds
-
+  // ── BFS-anchor every non-main node to nearest main node ──
+  const anchored = new Map<string, { anchor: string; distance: number }>()
   for (const node of nodes) {
     if (mainLineSet.has(node.id)) continue
-
-    // BFS outward to find the nearest main-line node.
     const visited = new Set<string>([node.id])
-    const queue: string[] = [node.id]
-    let anchor: string | undefined
-
+    const queue: [string, number][] = [[node.id, 0]]
+    let found: { anchor: string; distance: number } | undefined
     while (queue.length > 0) {
-      const cur = queue.shift()!
+      const [cur, dist] = queue.shift()!
       for (const nb of neighbours.get(cur) ?? []) {
         if (visited.has(nb)) continue
         visited.add(nb)
         if (mainLineSet.has(nb)) {
-          anchor = nb
-          queue.length = 0 // break outer loop
+          found = { anchor: nb, distance: dist + 1 }
+          queue.length = 0
           break
         }
-        queue.push(nb)
+        queue.push([nb, dist + 1])
       }
     }
-
-    if (anchor) {
-      const list = mainAnchoredParents.get(anchor) ?? []
-      list.push(node.id)
-      mainAnchoredParents.set(anchor, list)
-    }
+    if (found) anchored.set(node.id, found)
   }
 
-  // ── Place anchored branches ──
-  // For each main line node, stack its child branches vertically beside it.
-  // Alternate which side a branch goes on to keep balance.
-  for (let i = 0; i < mainCount; i++) {
-    const mainId = mainLine[i]
-    const mainY = (positions.get(mainId)?.y ?? 0) + CARD_HEIGHT / 2
-    const children = mainAnchoredParents.get(mainId) ?? []
-    if (children.length === 0) continue
+  // Group non-main nodes by anchor
+  const anchorGroups = new Map<string, string[]>()
+  for (const [nodeId, { anchor }] of anchored) {
+    const list = anchorGroups.get(anchor) ?? []
+    list.push(nodeId)
+    anchorGroups.set(anchor, list)
+  }
 
-    // Try to place roughly centered on the main node, spreading upward/downward.
-    const totalHeight = (children.length - 1) * BRANCH_Y_SPACING
-    const startY = mainY - totalHeight / 2
+  // ── Place anchored branches with collision avoidance ──
+  // Strategy: for each anchor group, try to place cards near the anchor's Y.
+  // Scan columns left→right, place the card where it doesn't overlap.
+  // If all columns have overlap, pick the one with least overlap and shift.
 
-    children.forEach((branchId, idx) => {
-      // Pick side: alternate, but use main index to keep the layout stable.
-      const onLeft = ((i + idx) % 2) === 0
-      const x = onLeft ? leftX : rightX
-      const y = startY + idx * BRANCH_Y_SPACING
+  for (const [anchorId, branchIds] of anchorGroups) {
+    const anchorPos = positions.get(anchorId)!
+    const anchorY = anchorPos.y + CARD_HEIGHT / 2
+    const n = branchIds.length
+
+    // Distribute branches evenly around the anchor's Y
+    const startY = anchorY - ((n - 1) / 2) * BRANCH_Y_SPACING
+
+    // Sort branchIds by their label/id for stable ordering
+    branchIds.sort()
+
+    branchIds.forEach((branchId, idx) => {
+      const idealY = startY + idx * BRANCH_Y_SPACING
+
+      // Try each column, find the best fit
+      let bestCol = 0
+      let bestY = idealY
+      let bestOverlap = Infinity
+
+      for (let ci = 0; ci < columnXs.length; ci++) {
+        const cx = columnXs[ci] - CARD_WIDTH / 2
+        const candidate = { x: cx, y: idealY, width: CARD_WIDTH, height: CARD_HEIGHT }
+
+        // Measure overlap with all placed cards
+        let totalOverlap = 0
+        for (const placed of positions.values()) {
+          const ox = Math.max(0, Math.min(
+            candidate.x + candidate.width,
+            placed.x + placed.width
+          ) - Math.max(candidate.x, placed.x))
+          const oy = Math.max(0, Math.min(
+            candidate.y + candidate.height,
+            placed.y + placed.height
+          ) - Math.max(candidate.y, placed.y))
+          if (ox > 0 && oy > 0) totalOverlap += ox * oy
+        }
+
+        if (totalOverlap === 0) {
+          bestCol = ci; bestY = idealY; bestOverlap = 0
+          break
+        }
+        if (totalOverlap < bestOverlap) {
+          bestOverlap = totalOverlap
+          bestCol = ci
+          bestY = idealY
+        }
+      }
+
+      // If still overlapping, shift down until clear
+      if (bestOverlap > 0) {
+        let shiftedY = bestY
+        const maxIter = 100
+        for (let iter = 0; iter < maxIter; iter++) {
+          const candidate = {
+            x: columnXs[bestCol] - CARD_WIDTH / 2,
+            y: shiftedY,
+            width: CARD_WIDTH,
+            height: CARD_HEIGHT,
+          }
+          let overlap = 0
+          for (const placed of positions.values()) {
+            const ox = Math.max(0, Math.min(
+              candidate.x + candidate.width,
+              placed.x + placed.width
+            ) - Math.max(candidate.x, placed.x))
+            const oy = Math.max(0, Math.min(
+              candidate.y + candidate.height,
+              placed.y + placed.height
+            ) - Math.max(candidate.y, placed.y))
+            if (ox > 0 && oy > 0) overlap += ox * oy
+          }
+          if (overlap === 0) { bestY = shiftedY; break }
+          shiftedY += CARD_HEIGHT / 2
+          bestY = shiftedY
+        }
+      }
+
+      // Ensure within canvas bounds
+      bestY = Math.max(CANVAS_MARGIN_Y, Math.min(bestY, canvasHeight - CANVAS_MARGIN_Y - CARD_HEIGHT))
+
       positions.set(branchId, {
         id: branchId,
-        x: x - CARD_WIDTH / 2,
-        y: y - CARD_HEIGHT / 2,
+        x: columnXs[bestCol] - CARD_WIDTH / 2,
+        y: bestY,
         width: CARD_WIDTH,
         height: CARD_HEIGHT,
       })
     })
-  }
-
-  // ── Place unanchored branches at the bottom, alternating sides ──
-  const unanchored: DagNode[] = []
-  for (const node of nodes) {
-    if (mainLineSet.has(node.id)) continue
-    if (positions.has(node.id)) continue
-    unanchored.push(node)
-  }
-
-  let fallbackIdx = 0
-  const fallbackY = canvasHeight - CANVAS_MARGIN_Y
-  for (const node of unanchored) {
-    const onLeft = (fallbackIdx % 2) === 0
-    const x = onLeft ? leftX : rightX
-    const y = fallbackY - (Math.floor(fallbackIdx / 2) * BRANCH_Y_SPACING)
-    positions.set(node.id, {
-      id: node.id,
-      x: x - CARD_WIDTH / 2,
-      y: y - CARD_HEIGHT / 2,
-      width: CARD_WIDTH,
-      height: CARD_HEIGHT,
-    })
-    fallbackIdx++
   }
 
   return positions
@@ -272,9 +315,9 @@ export function computePositions(
 /**
  * Build SVG path d-strings for every edge.
  *
- * - Main line edges (source.x === target.x) → straight vertical line.
- * - Branch edges                              → cubic bezier curve
- *                                                M x1 y1 C x1 cy1, x2 cy2, x2 y2
+ * - Main line edges (source.x === target.x) → straight vertical line from
+ *   source card bottom to target card top (edge-to-edge).
+ * - Branch edges → cubic bezier curve.
  * - Edges with no resolvable position on either end are filtered out.
  * - Converge edges: isConverge is true when the target node is type 'converge'.
  */
@@ -290,22 +333,19 @@ export function buildEdgePaths(
     const b = positions.get(e.to)
     if (!a || !b) continue
 
-    // Anchor at the midpoint of each card's edge facing the other.
     const aCenterX = a.x + a.width / 2
-    const aCenterY = a.y + a.height / 2
+    const aBottomY = a.y + a.height
     const bCenterX = b.x + b.width / 2
-    const bCenterY = b.y + b.height / 2
+    const bTopY = b.y
 
     let d: string
-    if (aCenterX === bCenterX) {
-      // Main line: straight vertical segment between centers.
-      d = `M ${aCenterX} ${aCenterY} L ${bCenterX} ${bCenterY}`
+    if (Math.abs(aCenterX - bCenterX) < 2) {
+      // Main line: straight from card bottom to card top (edge-to-edge, visible).
+      d = `M ${aCenterX} ${aBottomY} L ${bCenterX} ${bTopY}`
     } else {
-      // Branch: cubic bezier. Control points share the source/target X
-      // and sit at the vertical midpoint, giving a smooth S-curve.
-      const cy1 = aCenterY
-      const cy2 = bCenterY
-      d = `M ${aCenterX} ${aCenterY} C ${aCenterX} ${cy1}, ${bCenterX} ${cy2}, ${bCenterX} ${bCenterY}`
+      // Branch: cubic bezier from bottom of source to top of target.
+      const midY = (aBottomY + bTopY) / 2
+      d = `M ${aCenterX} ${aBottomY} C ${aCenterX} ${midY}, ${bCenterX} ${midY}, ${bCenterX} ${bTopY}`
     }
 
     const targetNode = nodeMap.get(e.to)

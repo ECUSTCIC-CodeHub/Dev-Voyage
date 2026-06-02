@@ -24,8 +24,8 @@ const dagNodes = computed<DagNode[]>(() => (fm.value as any).dag?.nodes || [])
 const dagEdges = computed<DagEdge[]>(() => (fm.value as any).dag?.edges || [])
 const dagTitle = computed(() => (fm.value as any).dag?.title || 'DAG 导航')
 
-const canvasWidth = ref(2400)
-const canvasHeight = ref(3000)
+const canvasWidth = ref(3000)
+const canvasHeight = ref(5000)
 const containerRef = ref<HTMLDivElement>()
 
 const scale = ref(0.3)
@@ -224,8 +224,8 @@ onUnmounted(() => {
         >
           <defs>
             <filter id="glow-gold">
-              <feGaussianBlur stdDeviation="2" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
             <filter id="glow-purple">
               <feGaussianBlur stdDeviation="2" result="blur"/>
@@ -248,7 +248,7 @@ onUnmounted(() => {
               :d="ep.d"
               fill="none"
               stroke="#ffd700"
-              stroke-width="3"
+              stroke-width="5"
               filter="url(#glow-gold)"
               :opacity="Math.min(nodeOpacity(ep.from), nodeOpacity(ep.to)) * 0.9"
               marker-end="url(#arrow-gold)"
@@ -357,7 +357,6 @@ onUnmounted(() => {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: #020205;
   z-index: 80;
   display: flex; flex-direction: column;
   overflow: hidden;
@@ -457,7 +456,6 @@ onUnmounted(() => {
   flex: 1; width: 100%; min-height: 0;
   position: relative; overflow: hidden;
   cursor: grab;
-  background: radial-gradient(circle at 50% 0%, rgba(255,215,0,0.03) 0%, transparent 60%), #020205;
 }
 
 .canvas-content {
