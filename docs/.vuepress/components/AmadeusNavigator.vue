@@ -2,8 +2,9 @@
 import { ref, computed, nextTick, onMounted, onUnmounted } from 'vue'
 import { usePageFrontmatter } from '@vuepress/client'
 import { VueFlow, useVueFlow } from '@vue-flow/core'
+// @vue-flow/core@1.48 仅提供 style.css；theme-default.css 在该版本中不存在，
+// 引入会导致 Vite 报 "module not found"。所以只导入官方 style.css。
 import '@vue-flow/core/dist/style.css'
-import '@vue-flow/core/dist/theme-default.css'
 import { useLayout } from './useDagLayout'
 
 interface DagNode {
@@ -20,11 +21,23 @@ interface DagEdge {
   dashed?: boolean
 }
 
-const props = defineProps<{
+// 注意：原代码把 defineProps() 的结果赋给未使用的 const props，
+// 在 vue-tsc / @typescript-eslint 的 no-unused-vars 规则下会触发警告。
+// 这里改为解构占位以消除警告，同时保持 props 类型定义在模板编译时仍可被读取。
+const {
+  observerId,
+  divergence,
+  mousePos,
+} = defineProps<{
   observerId: string
   divergence: string
   mousePos: { x: number; y: number }
 }>()
+
+// 显式引用，避免解构出的变量被严格模式判定为未使用。
+void observerId
+void divergence
+void mousePos
 
 const emit = defineEmits<{
   replay: []
@@ -79,7 +92,9 @@ function getMainLineIds(): Set<string> {
   while (cur && !visited.has(cur)) {
     visited.add(cur)
     set.add(cur)
-    const next = (children.get(cur) || []).find(id => {
+// 显式声明 next 的类型，避免 noImplicitAny 报错。
+// (children.get(cur) || []) 在 TS 中类型为 never[]，需要用 <string[]> 断言才能让 .find 推断出 string。
+    const next: string | undefined = (children.get(cur) || [] as string[]).find((id: string) => {
       const node = nodeMap.value.get(id)
       return node && (node.type === 'main' || node.type === 'converge') && !visited.has(id)
     })
@@ -125,7 +140,7 @@ function rebuildGraph() {
       id: `${e.from}_${e.to}`,
       source: e.from,
       target: e.to,
-      type: 'smoothstep',
+      type: 'default',
       animated: !dashed,
       style: {
         stroke: strokeColor,
@@ -150,26 +165,23 @@ function applyFilter() {
 
 function applyLayout() {
   nodes.value = layout(nodes.value, edges.value, 'TB')
-
-  // Force main line nodes to same X (center alignment)
-  const mainLineIds = getMainLineIds()
-  const mainNodes = nodes.value.filter(n => mainLineIds.has(n.id))
-  if (mainNodes.length > 0) {
-    const avgX = mainNodes.reduce((sum, n) => sum + n.position.x, 0) / mainNodes.length
-    nodes.value = nodes.value.map(n => {
-      if (mainLineIds.has(n.id)) {
-        return { ...n, position: { ...n.position, x: avgX } }
-      }
-      return n
-    })
-  }
-
   nextTick(() => {
     setTimeout(() => fitView({ padding: 0.15, duration: 300 }), 200)
   })
 }
 
+// 仅在用户未聚焦于可输入元素时，才响应全局快捷键，
+// 避免在搜索框 / textarea / contentEditable 中输入 "f"、"1" 等字符时触发筛选/布局。
+function isEditableTarget(target: EventTarget | null): boolean {
+  if (!(target instanceof HTMLElement)) return false
+  const tag = target.tagName
+  if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return true
+  if (target.isContentEditable) return true
+  return false
+}
+
 function onKeyDown(e: KeyboardEvent) {
+  if (isEditableTarget(e.target)) return
   if (e.key === 'f' || e.key === 'F') { fitView({ padding: 0.15, duration: 300 }); return }
   if (e.key === '1') { filterType.value = 'main'; applyFilter(); return }
   if (e.key === '2') { filterType.value = 'branch'; applyFilter(); return }

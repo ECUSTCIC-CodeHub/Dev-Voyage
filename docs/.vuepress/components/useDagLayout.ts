@@ -10,11 +10,11 @@ export function useLayout() {
     g.setDefaultEdgeLabel(() => ({}))
     g.setGraph({
       rankdir: direction,
-      nodesep: 120,
-      ranksep: 150,
-      edgesep: 60,
-      marginx: 100,
-      marginy: 60,
+      nodesep: 160,
+      ranksep: 180,
+      edgesep: 80,
+      marginx: 120,
+      marginy: 80,
     })
 
     for (const node of nodes) {
