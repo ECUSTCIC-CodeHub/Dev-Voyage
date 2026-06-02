@@ -191,7 +191,7 @@ function applyLayout() {
       const ny = firstNode.position.y
       const cw = containerRef.value?.clientWidth ?? 1400
       const ch = containerRef.value?.clientHeight ?? 800
-      const z = 0.1
+      const z = 1.0
       vf.setViewport({ x: -(nx * z) + cw / 2, y: -(ny * z) + ch * 0.3, zoom: z }, { duration: 200 })
     }
   })
@@ -281,7 +281,7 @@ onUnmounted(() => {
         v-if="nodes.length > 0"
         v-model:nodes="nodes"
         v-model:edges="edges"
-        :default-viewport="{ zoom: 0.1, x: 200, y: 50 }"
+        :default-viewport="{ zoom: 1.0, x: 200, y: 50 }"
         :min-zoom="0.1"
         :max-zoom="2.5"
         :nodes-draggable="false"
