@@ -2,7 +2,7 @@ import dagre from '@dagrejs/dagre'
 import type { Node, Edge } from '@vue-flow/core'
 
 const CARD_WIDTH = 320
-const CARD_HEIGHT = 320
+const CARD_HEIGHT = 360
 
 export function useLayout() {
   function layout(nodes: Node[], edges: Edge[], direction: 'TB' | 'LR' = 'TB') {

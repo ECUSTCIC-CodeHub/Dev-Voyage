@@ -98,7 +98,7 @@ function rebuildGraph() {
     data: { ...n, isMainLine: mainLineIds.has(n.id) },
     style: {
       width: '320px',
-      height: '320px',
+      height: '360px',
       opacity: nodeOpacity(n.id),
       transition: 'opacity 0.3s ease',
     },
@@ -409,6 +409,7 @@ onUnmounted(() => {
 
 .amadeus-node-wrap :deep(.nav-card) {
   width: 100%;
+  height: 360px;
 }
 
 .flow-container :deep(.vue-flow__background) {
