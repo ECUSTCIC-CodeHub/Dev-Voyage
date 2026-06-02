@@ -97,8 +97,8 @@ function rebuildGraph() {
     position: { x: 0, y: 0 },
     data: { ...n, isMainLine: mainLineIds.has(n.id) },
     style: {
-      width: '280px',
-      height: '280px',
+      width: '320px',
+      height: '320px',
       opacity: nodeOpacity(n.id),
       transition: 'opacity 0.3s ease',
     },
@@ -238,7 +238,10 @@ onUnmounted(() => {
         @node-click="(_e: any, node: any) => { const p = nodeMap.get(node.id)?.path; if (p) window.location.href = p }"
       >
         <template #node-amadeus="nodeProps">
-          <div :style="{ opacity: nodeProps.data.opacity ?? 1, transition: 'opacity 0.3s ease' }">
+          <div
+            class="amadeus-node-wrap"
+            :style="{ opacity: nodeProps.data.opacity ?? 1, transition: 'opacity 0.3s ease' }"
+          >
             <AmadeusCard
               :line="{
                 path: nodeProps.data.path,
@@ -398,6 +401,14 @@ onUnmounted(() => {
   background: transparent !important;
   padding: 0 !important;
   border-radius: 0 !important;
+}
+
+.amadeus-node-wrap {
+  width: 320px;
+}
+
+.amadeus-node-wrap :deep(.nav-card) {
+  width: 100%;
 }
 
 .flow-container :deep(.vue-flow__background) {

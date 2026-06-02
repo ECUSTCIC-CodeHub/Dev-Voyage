@@ -1,8 +1,8 @@
 import dagre from '@dagrejs/dagre'
 import type { Node, Edge } from '@vue-flow/core'
 
-const CARD_WIDTH = 280
-const CARD_HEIGHT = 280
+const CARD_WIDTH = 320
+const CARD_HEIGHT = 320
 
 export function useLayout() {
   function layout(nodes: Node[], edges: Edge[], direction: 'TB' | 'LR' = 'TB') {
@@ -10,11 +10,11 @@ export function useLayout() {
     g.setDefaultEdgeLabel(() => ({}))
     g.setGraph({
       rankdir: direction,
-      nodesep: 100,
-      ranksep: 120,
-      edgesep: 50,
-      marginx: 80,
-      marginy: 40,
+      nodesep: 120,
+      ranksep: 150,
+      edgesep: 60,
+      marginx: 100,
+      marginy: 60,
     })
 
     for (const node of nodes) {
