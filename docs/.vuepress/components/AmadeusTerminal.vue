@@ -22,9 +22,6 @@ const handleClick = (e: MouseEvent) => {
         <div class="header">
           {{ typedText }}<span class="cursor-blink">_</span>
         </div>
-        <div v-if="isTypingComplete" class="start-prompt">
-          [ 点击任意位置开始时间线跳跃 ]
-        </div>
       </div>
     </div>
   </div>

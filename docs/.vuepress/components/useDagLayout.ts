@@ -10,15 +10,15 @@ export function useLayout() {
     g.setDefaultEdgeLabel(() => ({}))
     g.setGraph({
       rankdir: direction,
-      nodesep: 60,
-      ranksep: 80,
-      edgesep: 40,
+      nodesep: 100,
+      ranksep: 120,
+      edgesep: 50,
+      marginx: 80,
+      marginy: 40,
     })
 
     for (const node of nodes) {
-      const w = (node as any).width ?? CARD_WIDTH
-      const h = (node as any).height ?? CARD_HEIGHT
-      g.setNode(node.id, { width: w, height: h })
+      g.setNode(node.id, { width: CARD_WIDTH, height: CARD_HEIGHT })
     }
 
     for (const edge of edges) {
@@ -29,6 +29,7 @@ export function useLayout() {
 
     return nodes.map(node => {
       const n = g.node(node.id)
+      if (!n) return node
       return {
         ...node,
         position: {

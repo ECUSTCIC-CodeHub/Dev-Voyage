@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, nextTick, onMounted, onUnmounted } from 'vue'
 import { usePageFrontmatter } from '@vuepress/client'
-import { VueFlow, useVueFlow, Position } from '@vue-flow/core'
+import { VueFlow, useVueFlow } from '@vue-flow/core'
 import '@vue-flow/core/dist/style.css'
 import '@vue-flow/core/dist/theme-default.css'
 import { useLayout } from './useDagLayout'
@@ -43,30 +43,62 @@ const showLegend = ref(false)
 
 const nodeMap = computed(() => new Map(dagNodes.value.map(n => [n.id, n])))
 
-function nodeOpacity(id: string): number {
-  if (filterType.value === 'all') return 1
+function isNodeVisible(id: string): boolean {
+  if (filterType.value === 'all') return true
   const node = nodeMap.value.get(id)
-  if (!node) return 1
-  if (filterType.value === 'main') return (node.type === 'main' || node.type === 'converge') ? 1 : 0.06
-  return (node.type === 'branch' || node.type === 'deadend') ? 1 : 0.06
+  if (!node) return false
+  if (filterType.value === 'main') return node.type === 'main' || node.type === 'converge'
+  return node.type === 'branch' || node.type === 'deadend'
 }
 
-// Convert to Vue Flow format
+function nodeOpacity(id: string): number {
+  if (filterType.value === 'all') return 1
+  return isNodeVisible(id) ? 1 : 0.06
+}
+
 const nodes = ref<any[]>([])
 const edges = ref<any[]>([])
 
+// Identify main line node IDs for alignment
+function getMainLineIds(): Set<string> {
+  const nonDashed = dagEdges.value.filter(e => !e.dashed)
+  const children = new Map<string, string[]>()
+  const parents = new Map<string, string[]>()
+  for (const e of nonDashed) {
+    if (!children.has(e.from)) children.set(e.from, [])
+    children.get(e.from)!.push(e.to)
+    if (!parents.has(e.to)) parents.set(e.to, [])
+    parents.get(e.to)!.push(e.from)
+  }
+  const root = dagNodes.value.find(n => n.type === 'main' && !parents.has(n.id))
+  if (!root) return new Set()
+
+  const set = new Set<string>()
+  const visited = new Set<string>()
+  let cur: string | undefined = root.id
+  while (cur && !visited.has(cur)) {
+    visited.add(cur)
+    set.add(cur)
+    const next = (children.get(cur) || []).find(id => {
+      const node = nodeMap.value.get(id)
+      return node && (node.type === 'main' || node.type === 'converge') && !visited.has(id)
+    })
+    cur = next
+  }
+  return set
+}
+
 function rebuildGraph() {
+  const mainLineIds = getMainLineIds()
+
   nodes.value = dagNodes.value.map(n => ({
     id: n.id,
     type: n.path ? 'amadeus' : 'static',
     position: { x: 0, y: 0 },
-    data: {
-      ...n,
-      label: n.label,
-      opacity: nodeOpacity(n.id),
-      visible: filterType.value === 'all' || isNodeVisible(n.id),
-    },
+    data: { ...n, isMainLine: mainLineIds.has(n.id) },
     style: {
+      width: '280px',
+      height: '280px',
       opacity: nodeOpacity(n.id),
       transition: 'opacity 0.3s ease',
     },
@@ -77,30 +109,38 @@ function rebuildGraph() {
     const isConverge = targetNode?.type === 'converge'
     const dashed = e.dashed || false
 
+    let strokeColor: string
+    let strokeW: number
+    let strokeDash: string
+
+    if (!dashed && !isConverge) {
+      strokeColor = '#ffd700'; strokeW = 4; strokeDash = 'none'
+    } else if (isConverge) {
+      strokeColor = '#c4b5fd'; strokeW = 2.5; strokeDash = 'none'
+    } else {
+      strokeColor = '#f59e0b'; strokeW = 1.5; strokeDash = '8,6'
+    }
+
     return {
       id: `${e.from}_${e.to}`,
       source: e.from,
       target: e.to,
-      type: 'amadeus',
-      style: {
-        stroke: dashed ? '#f59e0b' : isConverge ? '#c4b5fd' : '#ffd700',
-        strokeWidth: dashed ? 1.5 : isConverge ? 2.5 : 4,
-        strokeDasharray: dashed ? '8,6' : 'none',
-        opacity: Math.min(nodeOpacity(e.from), nodeOpacity(e.to)),
-        filter: !dashed ? 'url(#glow-gold)' : undefined,
-      },
+      type: 'smoothstep',
       animated: !dashed,
-      markerEnd: dashed ? 'arrow-orange' : isConverge ? 'arrow-purple' : 'arrow-gold',
+      style: {
+        stroke: strokeColor,
+        strokeWidth: strokeW,
+        strokeDasharray: strokeDash,
+        opacity: Math.min(nodeOpacity(e.from), nodeOpacity(e.to)),
+      },
+      markerEnd: {
+        type: 'arrowclosed',
+        color: strokeColor,
+        width: 18,
+        height: 18,
+      },
     }
   })
-}
-
-function isNodeVisible(id: string): boolean {
-  if (filterType.value === 'all') return true
-  const node = nodeMap.value.get(id)
-  if (!node) return false
-  if (filterType.value === 'main') return node.type === 'main' || node.type === 'converge'
-  return node.type === 'branch' || node.type === 'deadend'
 }
 
 function applyFilter() {
@@ -110,14 +150,23 @@ function applyFilter() {
 
 function applyLayout() {
   nodes.value = layout(nodes.value, edges.value, 'TB')
-  nextTick(() => {
-    setTimeout(() => fitView({ padding: 0.15, duration: 300 }), 100)
-  })
-}
 
-function onNodeClick(node: any) {
-  const path = nodeMap.value.get(node.id)?.path
-  if (path) window.location.href = path
+  // Force main line nodes to same X (center alignment)
+  const mainLineIds = getMainLineIds()
+  const mainNodes = nodes.value.filter(n => mainLineIds.has(n.id))
+  if (mainNodes.length > 0) {
+    const avgX = mainNodes.reduce((sum, n) => sum + n.position.x, 0) / mainNodes.length
+    nodes.value = nodes.value.map(n => {
+      if (mainLineIds.has(n.id)) {
+        return { ...n, position: { ...n.position, x: avgX } }
+      }
+      return n
+    })
+  }
+
+  nextTick(() => {
+    setTimeout(() => fitView({ padding: 0.15, duration: 300 }), 200)
+  })
 }
 
 function onKeyDown(e: KeyboardEvent) {
@@ -180,18 +229,16 @@ onUnmounted(() => {
         v-if="nodes.length > 0"
         v-model:nodes="nodes"
         v-model:edges="edges"
-        :default-viewport="{ zoom: 0.5, x: 200, y: 50 }"
-        :min-zoom="0.15"
-        :max-zoom="3"
+        :default-viewport="{ zoom: 0.4, x: 300, y: 50 }"
+        :min-zoom="0.1"
+        :max-zoom="2.5"
         :nodes-draggable="false"
         :edges-updateable="false"
-        :connection-line-style="{ stroke: '#ffd700', strokeWidth: 2 }"
         fit-view-on-init
-        @node-click="(_e: any, node: any) => onNodeClick(node)"
+        @node-click="(_e: any, node: any) => { const p = nodeMap.get(node.id)?.path; if (p) window.location.href = p }"
       >
-        <!-- Custom AmadeusCard node -->
         <template #node-amadeus="nodeProps">
-          <div :style="{ opacity: nodeProps.data.opacity, transition: 'opacity 0.3s ease' }">
+          <div :style="{ opacity: nodeProps.data.opacity ?? 1, transition: 'opacity 0.3s ease' }">
             <AmadeusCard
               :line="{
                 path: nodeProps.data.path,
@@ -206,43 +253,19 @@ onUnmounted(() => {
           </div>
         </template>
 
-        <!-- Static node (no path) -->
         <template #node-static="nodeProps">
           <div
             class="static-card"
             :class="nodeProps.data.type"
-            :style="{ opacity: nodeProps.data.opacity, transition: 'opacity 0.3s ease' }"
+            :style="{ opacity: nodeProps.data.opacity ?? 1, transition: 'opacity 0.3s ease' }"
           >
             <div class="static-type">{{ nodeProps.data.type }}</div>
-            <div class="static-label">{{ nodeProps.data.label.replace(/\\n/g, ' ') }}</div>
+            <div class="static-label">{{ (nodeProps.data.label || '').replace(/\\n/g, ' ') }}</div>
           </div>
         </template>
-
-        <!-- Custom edge -->
-        <template #edge-amadeus="edgeProps">
-          <path
-            :d="edgeProps.path"
-            :stroke="edgeProps.style?.stroke || '#ffd700'"
-            :stroke-width="edgeProps.style?.strokeWidth || 2"
-            :stroke-dasharray="edgeProps.style?.strokeDasharray || 'none'"
-            :opacity="edgeProps.style?.opacity || 1"
-            fill="none"
-            class="amadeus-edge"
-          />
-        </template>
-
-        <svg width="0" height="0">
-          <defs>
-            <filter id="glow-gold">
-              <feGaussianBlur stdDeviation="3" result="blur"/>
-              <feMerge><feMergeNode in="blur"/><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-          </defs>
-        </svg>
       </VueFlow>
     </div>
 
-    <!-- Legend -->
     <transition name="fade">
       <div v-if="showLegend" class="legend-overlay" @click.self="showLegend = false">
         <div class="legend-panel">
@@ -367,7 +390,16 @@ onUnmounted(() => {
   flex: 1; width: 100%; min-height: 0;
 }
 
-/* Override Vue Flow default styling to match our theme */
+/* Let Vue Flow nodes be sized by their content */
+.flow-container :deep(.vue-flow__node) {
+  width: auto !important;
+  height: auto !important;
+  border: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
 .flow-container :deep(.vue-flow__background) {
   background: transparent !important;
 }
@@ -376,17 +408,9 @@ onUnmounted(() => {
   cursor: grab;
 }
 
-.flow-container :deep(.vue-flow__node) {
-  cursor: pointer;
-}
-
-.flow-container :deep(.vue-flow__edge-path) {
-  cursor: default;
-}
-
-/* Amadeus edge glow */
-.amadeus-edge {
-  filter: drop-shadow(0 0 4px rgba(255,215,0,0.4));
+.flow-container :deep(.vue-flow__selection) {
+  background: rgba(255,215,0,0.08);
+  border: 1px solid rgba(255,215,0,0.3);
 }
 
 .static-card {
