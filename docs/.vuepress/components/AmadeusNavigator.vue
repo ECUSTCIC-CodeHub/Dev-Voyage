@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed, nextTick, onMounted, onUnmounted } from 'vue'
 import { usePageFrontmatter } from '@vuepress/client'
-import { VueFlow, useVueFlow } from '@vue-flow/core'
+import { VueFlow } from '@vue-flow/core'
 // @vue-flow/core@1.48 仅提供 style.css；theme-default.css 在该版本中不存在，
 // 引入会导致 Vite 报 "module not found"。所以只导入官方 style.css。
 import '@vue-flow/core/dist/style.css'
@@ -49,7 +49,8 @@ const dagEdges = computed<DagEdge[]>(() => (fm.value as any).dag?.edges || [])
 const dagTitle = computed(() => (fm.value as any).dag?.title || 'DAG 导航')
 
 const { layout } = useLayout()
-const { fitView, setViewport, getNodes } = useVueFlow()
+const vueFlowRef = ref<any>(null)
+const containerRef = ref<HTMLDivElement>()
 
 const filterType = ref<'all' | 'main' | 'branch'>('all')
 const showLegend = ref(false)
@@ -71,7 +72,6 @@ function nodeOpacity(id: string): number {
 
 const nodes = ref<any[]>([])
 const edges = ref<any[]>([])
-const containerRef = ref<HTMLDivElement>()
 
 // Identify main line node IDs for alignment
 function getMainLineIds(): Set<string> {
@@ -165,11 +165,9 @@ function applyFilter() {
 }
 
 function applyLayout() {
-  // Let dagre compute positions
   nodes.value = layout(nodes.value, edges.value, 'TB')
 
-  // Force main line to same center X — but do it via Vue Flow's position
-  // so edge routing stays consistent.
+  // Main line X alignment
   const mainLineIds = getMainLineIds()
   const mainNodes = nodes.value.filter(n => mainLineIds.has(n.id))
   if (mainNodes.length > 0) {
@@ -182,20 +180,25 @@ function applyLayout() {
     })
   }
 
-  // Default view: 10% zoom, first main node centered on screen
+  // 10% zoom, first main node centered
   nextTick(() => {
+    const vf = vueFlowRef.value
+    if (!vf) return
     const firstMainId = [...mainLineIds][0]
     const firstNode = nodes.value.find(n => n.id === firstMainId || mainLineIds.has(n.id))
     if (firstNode) {
+      const nx = firstNode.position.x + 150
+      const ny = firstNode.position.y
+      const cw = containerRef.value?.clientWidth ?? 1400
+      const ch = containerRef.value?.clientHeight ?? 800
       const z = 0.1
-      const nx = firstNode.position.x + 150 // node center X
-      const ny = firstNode.position.y        // node top Y
-      // Center horizontally, place at 35% from top
-      const vpX = -(nx * z) + (containerRef.value?.clientWidth ?? 1400) / 2
-      const vpY = -(ny * z) + (containerRef.value?.clientHeight ?? 800) * 0.35
-      setViewport({ x: vpX, y: vpY, zoom: z }, { duration: 300 })
+      vf.setViewport({ x: -(nx * z) + cw / 2, y: -(ny * z) + ch * 0.3, zoom: z }, { duration: 200 })
     }
   })
+}
+
+function fitToScreen() {
+  vueFlowRef.value?.fitView({ padding: 0.15, duration: 300 })
 }
 
 // 仅在用户未聚焦于可输入元素时，才响应全局快捷键，
@@ -218,7 +221,7 @@ function onNodeClick(params: { node?: { id: string } }): void {
 
 function onKeyDown(e: KeyboardEvent) {
   if (isEditableTarget(e.target)) return
-  if (e.key === 'f' || e.key === 'F') { fitView({ padding: 0.15, duration: 300 }); return }
+  if (e.key === 'f' || e.key === 'F') { fitToScreen(); return }
   if (e.key === '1') { filterType.value = 'main'; applyFilter(); return }
   if (e.key === '2') { filterType.value = 'branch'; applyFilter(); return }
   if (e.key === '0') { filterType.value = 'all'; applyFilter(); return }
@@ -249,7 +252,7 @@ onUnmounted(() => {
         </div>
       </a>
       <div class="nav-controls">
-        <button class="nav-btn" @click="fitView({ padding: 0.15, duration: 300 })">[ FIT ]</button>
+        <button class="nav-btn" @click="fitToScreen()">[ FIT ]</button>
         <button class="nav-btn" @click="applyLayout()">[ LAYOUT ]</button>
         <button class="nav-btn" @click="showLegend = !showLegend">[ LEGEND ]</button>
         <button class="nav-btn" @click="emit('replay')">[ REPLAY ]</button>
@@ -274,6 +277,7 @@ onUnmounted(() => {
 
     <div ref="containerRef" class="flow-container">
       <VueFlow
+        ref="vueFlowRef"
         v-if="nodes.length > 0"
         v-model:nodes="nodes"
         v-model:edges="edges"
