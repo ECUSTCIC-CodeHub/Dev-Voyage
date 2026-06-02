@@ -71,6 +71,7 @@ function nodeOpacity(id: string): number {
 
 const nodes = ref<any[]>([])
 const edges = ref<any[]>([])
+const containerRef = ref<HTMLDivElement>()
 
 // Identify main line node IDs for alignment
 function getMainLineIds(): Set<string> {
@@ -181,16 +182,18 @@ function applyLayout() {
     })
   }
 
-  // Default view: 30% zoom, centered on the first main-line nodes
+  // Default view: 10% zoom, first main node centered on screen
   nextTick(() => {
     const firstMainId = [...mainLineIds][0]
     const firstNode = nodes.value.find(n => n.id === firstMainId || mainLineIds.has(n.id))
     if (firstNode) {
-      const vpX = -(firstNode.position.x + 150) * 0.3 + 400
-      const vpY = -(firstNode.position.y) * 0.3 + 100
-      setViewport({ x: vpX, y: vpY, zoom: 0.3 }, { duration: 300 })
-    } else {
-      setViewport({ x: 300, y: 50, zoom: 0.3 }, { duration: 300 })
+      const z = 0.1
+      const nx = firstNode.position.x + 150 // node center X
+      const ny = firstNode.position.y        // node top Y
+      // Center horizontally, place at 35% from top
+      const vpX = -(nx * z) + (containerRef.value?.clientWidth ?? 1400) / 2
+      const vpY = -(ny * z) + (containerRef.value?.clientHeight ?? 800) * 0.35
+      setViewport({ x: vpX, y: vpY, zoom: z }, { duration: 300 })
     }
   })
 }
@@ -269,12 +272,12 @@ onUnmounted(() => {
       <p class="dag-subtitle">滚轮缩放 · 拖拽平移 · 点击卡片跳转 · F=全图布局 1/2/0=筛选</p>
     </div>
 
-    <div class="flow-container">
+    <div ref="containerRef" class="flow-container">
       <VueFlow
         v-if="nodes.length > 0"
         v-model:nodes="nodes"
         v-model:edges="edges"
-        :default-viewport="{ zoom: 0.3, x: 200, y: 50 }"
+        :default-viewport="{ zoom: 0.1, x: 200, y: 50 }"
         :min-zoom="0.1"
         :max-zoom="2.5"
         :nodes-draggable="false"
