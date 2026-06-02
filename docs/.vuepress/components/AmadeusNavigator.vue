@@ -49,7 +49,7 @@ const dagEdges = computed<DagEdge[]>(() => (fm.value as any).dag?.edges || [])
 const dagTitle = computed(() => (fm.value as any).dag?.title || 'DAG 导航')
 
 const { layout } = useLayout()
-const { fitView } = useVueFlow()
+const { fitView, setViewport, getNodes } = useVueFlow()
 
 const filterType = ref<'all' | 'main' | 'branch'>('all')
 const showLegend = ref(false)
@@ -112,8 +112,8 @@ function rebuildGraph() {
     position: { x: 0, y: 0 },
     data: { ...n, isMainLine: mainLineIds.has(n.id) },
     style: {
-      width: '320px',
-      height: '360px',
+      width: '300px',
+      height: '320px',
       opacity: nodeOpacity(n.id),
       transition: 'opacity 0.3s ease',
     },
@@ -164,9 +164,34 @@ function applyFilter() {
 }
 
 function applyLayout() {
+  // Let dagre compute positions
   nodes.value = layout(nodes.value, edges.value, 'TB')
+
+  // Force main line to same center X — but do it via Vue Flow's position
+  // so edge routing stays consistent.
+  const mainLineIds = getMainLineIds()
+  const mainNodes = nodes.value.filter(n => mainLineIds.has(n.id))
+  if (mainNodes.length > 0) {
+    const avgX = mainNodes.reduce((sum, n) => sum + n.position.x, 0) / mainNodes.length
+    nodes.value = nodes.value.map(n => {
+      if (mainLineIds.has(n.id)) {
+        return { ...n, position: { ...n.position, x: avgX } }
+      }
+      return n
+    })
+  }
+
+  // Default view: 30% zoom, centered on the first main-line nodes
   nextTick(() => {
-    setTimeout(() => fitView({ padding: 0.15, duration: 300 }), 200)
+    const firstMainId = [...mainLineIds][0]
+    const firstNode = nodes.value.find(n => n.id === firstMainId || mainLineIds.has(n.id))
+    if (firstNode) {
+      const vpX = -(firstNode.position.x + 150) * 0.3 + 400
+      const vpY = -(firstNode.position.y) * 0.3 + 100
+      setViewport({ x: vpX, y: vpY, zoom: 0.3 }, { duration: 300 })
+    } else {
+      setViewport({ x: 300, y: 50, zoom: 0.3 }, { duration: 300 })
+    }
   })
 }
 
@@ -178,6 +203,14 @@ function isEditableTarget(target: EventTarget | null): boolean {
   if (tag === 'INPUT' || tag === 'TEXTAREA' || tag === 'SELECT') return true
   if (target.isContentEditable) return true
   return false
+}
+
+// Vue Flow 节点点击：根据节点 data.path 跳转
+function onNodeClick(params: { node?: { id: string } }): void {
+  const id = params?.node?.id
+  if (!id) return
+  const p = nodeMap.value.get(id)?.path
+  if (p) globalThis.window.location.href = p
 }
 
 function onKeyDown(e: KeyboardEvent) {
@@ -241,13 +274,12 @@ onUnmounted(() => {
         v-if="nodes.length > 0"
         v-model:nodes="nodes"
         v-model:edges="edges"
-        :default-viewport="{ zoom: 0.4, x: 300, y: 50 }"
+        :default-viewport="{ zoom: 0.3, x: 200, y: 50 }"
         :min-zoom="0.1"
         :max-zoom="2.5"
         :nodes-draggable="false"
         :edges-updateable="false"
-        fit-view-on-init
-        @node-click="(_e: any, node: any) => { const p = nodeMap.get(node.id)?.path; if (p) window.location.href = p }"
+        @node-click="onNodeClick"
       >
         <template #node-amadeus="nodeProps">
           <div
@@ -416,12 +448,14 @@ onUnmounted(() => {
 }
 
 .amadeus-node-wrap {
-  width: 320px;
+  width: 300px;
+  height: 320px;
+  overflow: hidden;
 }
 
 .amadeus-node-wrap :deep(.nav-card) {
   width: 100%;
-  height: 360px;
+  height: 100%;
 }
 
 .flow-container :deep(.vue-flow__background) {
